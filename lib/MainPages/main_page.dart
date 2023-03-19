@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mobile_app/MainPages/setings_page.dart';
 import 'home_page.dart';
-import 'localuri.dart';
+import 'menu_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,7 +14,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List pages = [
     const HomePage(),
-    const Localuri(),
+    const ManuPage(),
     const SetingsPage(),
   ];
 
@@ -32,7 +32,8 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: CurvedNavigationBar(
         height: 60,
         onTap: apasare,
-        backgroundColor: Colors.white,
+        backgroundColor:
+            curentIndex == 1 ? Colors.lightBlue.shade200 : Colors.white,
         color: curentIndex == 0
             ? Colors.orange.shade400
             : curentIndex == 1

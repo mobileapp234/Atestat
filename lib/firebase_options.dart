@@ -66,7 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '539042013250',
     projectId: 'aplicatie-c564b',
     storageBucket: 'aplicatie-c564b.appspot.com',
-    iosClientId: '539042013250-nhv1hh712rchdrqkb38isb9na0o8p5nk.apps.googleusercontent.com',
+    iosClientId:
+        '539042013250-nhv1hh712rchdrqkb38isb9na0o8p5nk.apps.googleusercontent.com',
     iosBundleId: 'com.example.mobileApp',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '539042013250',
     projectId: 'aplicatie-c564b',
     storageBucket: 'aplicatie-c564b.appspot.com',
-    iosClientId: '539042013250-jj22m64jp2br3m2q6pjh99i0miurb366.apps.googleusercontent.com',
+    iosClientId:
+        '539042013250-jj22m64jp2br3m2q6pjh99i0miurb366.apps.googleusercontent.com',
     iosBundleId: 'com.example.mobileApp.RunnerTests',
   );
 }

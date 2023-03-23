@@ -13,12 +13,12 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List pages = [
-    const HomePage(),
     const ManuPage(),
+    const HomePage(),
     const SetingsPage(),
   ];
 
-  int curentIndex = 0;
+  int curentIndex = 1;
   void apasare(index) {
     setState(() {
       curentIndex = index;

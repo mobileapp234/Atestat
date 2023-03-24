@@ -12,19 +12,21 @@ class _LogareState extends State<Logare> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
-        Positioned(
-          child: Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                        "assets/images/Catalog-Kaufland-8-decembrie-14-decembrie-2021-01.jpg"),
-                    fit: BoxFit.fill)),
-          ),
-        ),
+        body: Stack(
+      children: [
         Column(
           children: [
-            // const SizedBox(width: 500),
+            Positioned(
+              child: Container(
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/background.jpg"),
+                        fit: BoxFit.fill)),
+              ),
+            ),
+            //   Column(
+            // children: [
+            // const SizedBox(width: 500),\
             Positioned(
                 child: Padding(
               padding: const EdgeInsets.all(40),
@@ -40,9 +42,18 @@ class _LogareState extends State<Logare> {
                 );
               }),
             ),
+
+            Positioned(
+                child: Container(
+              height: 100,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/logo.png"))),
+            ))
           ],
         )
-      ]),
-    );
+        //]),
+      ],
+    ));
   }
 }

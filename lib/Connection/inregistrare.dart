@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
+//import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
-
-class Logare0 extends StatelessWidget {
-  const Logare0({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: Logare());
-  }
-}
+//import '';
 
 class Logare extends StatefulWidget {
   const Logare({super.key});
@@ -17,9 +10,11 @@ class Logare extends StatefulWidget {
   State<Logare> createState() => _LogareState();
 }
 
-class _LogareState extends State<Logare> {
+class _LogareState extends State<Logare> with TickerProviderStateMixin {
+  final textcontoller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    TabController tb = TabController(length: 2, vsync: this);
     return Scaffold(
       body: Stack(
         children: [
@@ -46,12 +41,117 @@ class _LogareState extends State<Logare> {
                     height: 100,
                     decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage("assets/images/logo.png"))),
+                      image: AssetImage("assets/images/logo.png"),
+                    )),
                   ),
                 )
               ],
             ),
           ),
+          Positioned(
+              top: 200,
+              child: Column(children: [
+                SizedBox(
+                  //width: 400,
+                  height: 100,
+                  child: TabBar(
+                    labelColor: Colors.white,
+                    labelPadding: const EdgeInsets.only(left: 60),
+                    isScrollable: true,
+                    controller: tb,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    unselectedLabelColor: Colors.grey,
+                    tabs: const [
+                      Tab(
+                        child: Text("Login in",
+                            style: TextStyle(
+                                fontFamily: "Gloss_And_Bloom", fontSize: 30)),
+                      ),
+                      Tab(
+                        child: Text("Sign in",
+                            style: TextStyle(
+                                fontFamily: "Gloss_And_Bloom", fontSize: 30)),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 30,
+                  height: 30,
+                  child: TabBarView(
+                    controller: tb,
+                    children: [
+                      Stack(
+                        children: [
+                          Positioned(
+                            top: 50.0,
+                            left: 20.0,
+                            child: Container(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Enter text here',
+                                  border: OutlineInputBorder(),
+                                ),
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.black,
+                                ),
+                                keyboardType: TextInputType.text,
+                                // Add other properties here
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Stack(
+                        children: [
+                          Positioned(
+                            top: 50.0,
+                            left: 20.0,
+                            child: Container(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Enter text here',
+                                  border: OutlineInputBorder(),
+                                ),
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.black,
+                                ),
+                                keyboardType: TextInputType.text,
+                                // Add other properties here
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                /*
+                Container(
+                  child: TabBarView(
+                    controller: tb,
+                    children: [
+                      Container(
+                        width: 1,
+                        height: 1,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              TextField(
+                                  controller: textcontoller,
+                                  decoration: InputDecoration(
+                                      hintText: "shjfa",
+                                      border: OutlineInputBorder()))
+                            ]),
+                      ),
+                      Center(child: Text("uii")),
+                    ],
+                  ),
+                )*/
+              ])),
           Positioned(
             left: 30,
             top: 500,
@@ -67,111 +167,3 @@ class _LogareState extends State<Logare> {
     );
   }
 }
-
-
-
-   
-
-        /*
-        // top: 20,
-        // width: 100,
-        //height: 100,
-        Container(
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/background.jpg"),
-                  fit: BoxFit.fill)),
-        ),
-
-        Stack(
-          children: <Widget>[
-            Positioned(
-                //width: 100,
-                //height: 100,
-                child: Container(
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/logo.png"))),
-            )),
-            Positioned(
-              left: 30,
-              top: 500,
-              child: FloatingActionButton(onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MainPage()),
-                );
-              }),
-            ),
-          ],
-        ),
-      ],
-    ));
-  }
-}
-*/
-/*
-import 'package:flutter/material.dart';
-import 'package:mobile_app/MainPages/main_page.dart';
-
-class Logare extends StatefulWidget {
-  const Logare({super.key});
-
-  @override
-  State<Logare> createState() => _LogareState();
-}
-
-class _LogareState extends State<Logare> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(
-      children: [
-        Positioned(
-          child: Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/background.jpg"),
-                    fit: BoxFit.fill)),
-          ),
-        ),
-        //   Column(
-        // children: [
-        // const SizedBox(width: 500),\
-        Positioned(
-            child: Padding(
-          padding: const EdgeInsets.all(40),
-          child: Container(
-            child: const Text("sdftg"),
-          ),
-        )),
-        Positioned(
-          left: 50,
-          top: 100,
-          child: FloatingActionButton(onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const MainPage()),
-            );
-          }),
-        ),
-
-        Column(
-          children: [
-            Positioned(
-                height: 100,
-                child: Container(
-                  height: 100,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/logo.png"))),
-                )),
-          ],
-        )
-      ],
-
-      //]),
-    ));
-  }
-}
-*/

@@ -75,6 +75,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                     ],
                   ),
                 ),
+                /*
                 Container(
                   width: 30,
                   height: 30,
@@ -128,29 +129,35 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                     ],
                   ),
                 ),
+*/
 
-                /*
                 Container(
+                  width: 100,
+                  height: 100,
                   child: TabBarView(
                     controller: tb,
                     children: [
                       Container(
-                        width: 1,
-                        height: 1,
+                        width: 100,
+                        height: 100,
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              TextField(
-                                  controller: textcontoller,
-                                  decoration: InputDecoration(
-                                      hintText: "shjfa",
-                                      border: OutlineInputBorder()))
+                              Expanded(
+                                  child: TextField(
+
+                                      // maxLines: 2,
+                                      //maxLength: 10,
+                                      controller: textcontoller,
+                                      decoration: InputDecoration(
+                                          hintText: "shjfa",
+                                          border: OutlineInputBorder())))
                             ]),
                       ),
                       Center(child: Text("uii")),
                     ],
                   ),
-                )*/
+                )
               ])),
           Positioned(
             left: 30,

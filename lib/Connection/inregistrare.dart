@@ -14,11 +14,21 @@ bool whichpage = false;
 class _LogareState extends State<Logare> with TickerProviderStateMixin {
   final textcontoller = TextEditingController();
   final TextEditingController _emailValue = TextEditingController();
-  final TextEditingController _passwordlValue = TextEditingController();
-  bool vizibility = true;
+  final TextEditingController _passwordlValue1 = TextEditingController();
+
+  final TextEditingController _passwordlValue2 = TextEditingController();
+  final TextEditingController _passwordlValue3 = TextEditingController();
+  bool _vizibility = true;
   void _toggleVizibility() {
     setState(() {
-      vizibility = !vizibility;
+      _vizibility = !_vizibility;
+    });
+  }
+
+  bool _vizibility2 = true;
+  void _toggleVizibility2() {
+    setState(() {
+      _vizibility2 = !_vizibility2;
     });
   }
 
@@ -45,14 +55,15 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(80, 140, 40, 40),
+                  padding: const EdgeInsets.fromLTRB(80, 100, 40, 40),
                   child: Container(
-                    height: 100,
+                    height: 150,
+                    width: 1500,
                     child: const Text(
                       "Themis Bistro",
                       style: TextStyle(
                           fontFamily: "Gloss_And_Bloom",
-                          fontSize: 40,
+                          fontSize: 50,
                           color: Colors.white),
                     ),
                   ),
@@ -115,22 +126,46 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             ),
                             const SizedBox(height: 20),
                             TextField(
-                              controller: _passwordlValue,
+                              controller: _passwordlValue1,
                               decoration: InputDecoration(
                                   filled: true,
                                   fillColor: Colors.white,
                                   hintText: 'Password',
                                   suffixIcon: GestureDetector(
                                     onTap: _toggleVizibility,
-                                    child: Icon(_),
+                                    child: Icon(_vizibility
+                                        ? Icons.visibility_off
+                                        : Icons.visibility),
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       borderSide:
                                           BorderSide(color: Colors.white))),
-                              obscureText: true,
+                              obscureText: _vizibility,
                             ),
+                            const SizedBox(height: 20),
+                            ElevatedButton(
+                                style: ButtonStyle(
+                                    foregroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.white),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.blue),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            side: BorderSide(
+                                                color: Colors.blue)))),
+                                onPressed: () {},
+                                child: Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Text("Login".toUpperCase(),
+                                      style: const TextStyle(fontSize: 18)),
+                                ))
                           ],
                         )),
                       ),
@@ -140,6 +175,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             child: Column(
                           children: [
                             TextField(
+                              //onTap: (int index){},
                               controller: _emailValue,
                               expands: false,
                               maxLines: 1,
@@ -155,34 +191,76 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             ),
                             SizedBox(height: 20),
                             TextField(
-                              controller: _passwordlValue,
+                              controller: _passwordlValue2,
                               expands: false,
                               maxLines: 1,
                               decoration: InputDecoration(
                                   filled: true,
                                   fillColor: Colors.white,
                                   hintText: 'Password',
+                                  suffixIcon: GestureDetector(
+                                    onTap: _toggleVizibility2,
+                                    child: Icon(_vizibility2
+                                        ? Icons.visibility_off
+                                        : Icons.visibility),
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       borderSide:
                                           BorderSide(color: Colors.white))),
+                              obscureText: _vizibility2,
                             ),
                             SizedBox(height: 20),
                             TextField(
-                              controller: _passwordlValue,
+                              controller: _passwordlValue3,
                               expands: false,
                               maxLines: 1,
                               decoration: InputDecoration(
                                   filled: true,
                                   fillColor: Colors.white,
                                   hintText: 'Confirm Password',
+                                  suffixIcon: GestureDetector(
+                                    onTap: _toggleVizibility2,
+                                    child: Icon(_vizibility2
+                                        ? Icons.visibility_off
+                                        : Icons.visibility),
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       borderSide:
                                           BorderSide(color: Colors.white))),
+                              obscureText: _vizibility2,
                             ),
+                            const SizedBox(height: 20),
+                            ElevatedButton(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Text("Create Account".toUpperCase(),
+                                      style: TextStyle(fontSize: 18)),
+                                ),
+                                style: ButtonStyle(
+                                    foregroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.white),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.blue),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            side: BorderSide(
+                                                color: Colors.blue)))),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const MainPage()),
+                                  );
+                                })
                           ],
                         )),
                       ),
@@ -190,16 +268,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                   ),
                 )
               ])),
-          Positioned(
-            left: 30,
-            top: 500,
-            child: FloatingActionButton(onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MainPage()),
-              );
-            }),
-          )
+          const SizedBox(height: 100),
         ],
       ),
     );

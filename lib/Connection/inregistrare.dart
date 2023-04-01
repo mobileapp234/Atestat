@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
@@ -64,22 +66,26 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(80, 100, 40, 40),
+                  padding: const EdgeInsets.fromLTRB(130, 80, 0, 40),
                   child: Container(
-                    height: 150,
-                    width: 1500,
-                    child: const Text(
-                      "Themis Bistro",
-                      style: TextStyle(
-                          fontFamily: "Gloss_And_Bloom",
-                          fontSize: 50,
-                          color: Colors.white),
-                    ),
-                  ),
+                      height: 150,
+                      //width: 1500,
+                      child: Text("Themis Bistro",
+                          style: GoogleFonts.robotoMono(
+                            fontSize: 42,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          )
+                          // style: TextStyle(
+                          //     fontFamily: "Gloss_And_Bloom",
+                          //     fontSize: 40,
+                          //     color: Colors.white),
+                          )),
                 )
               ],
             ),
           ),
+          const SizedBox(height: 40),
           Positioned(
               top: 200,
               child: Column(children: [
@@ -89,22 +95,22 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                   child: TabBar(
                     onTap: (int index) {},
                     labelColor: Colors.white,
-                    labelPadding: const EdgeInsets.only(left: 55),
+                    labelPadding: const EdgeInsets.only(left: 70),
                     isScrollable: true,
                     controller: tb,
                     indicatorSize: TabBarIndicatorSize.label,
                     unselectedLabelColor: Colors.grey,
                     tabs: [
                       Tab(
-                        child: Text("Sing in",
+                        child: Text("Sign in",
                             style: GoogleFonts.secularOne(
-                              fontSize: 35,
+                              fontSize: 30,
                             )),
                       ),
                       Tab(
-                        child: Text("Sing up",
+                        child: Text("Sign up",
                             style: GoogleFonts.secularOne(
-                              fontSize: 35,
+                              fontSize: 30,
                             )),
                       ),
                     ],
@@ -147,7 +153,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                         ? Icons.visibility_off
                                         : Icons.visibility),
                                   ),
-                                  enabledBorder: OutlineInputBorder(
+                                  enabledBorder: const OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       borderSide:
@@ -168,19 +174,78 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(10),
-                                            side: BorderSide(
+                                            side: const BorderSide(
                                                 color: Colors.blue)))),
                                 onPressed: () {},
                                 child: Padding(
                                   padding: const EdgeInsets.all(15),
                                   child: Text("Login".toUpperCase(),
                                       style: const TextStyle(fontSize: 18)),
-                                ))
+                                )),
+                            const SizedBox(height: 40),
+                            Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          border:
+                                              Border.all(color: Colors.grey),
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          color: Colors.white),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  "assets/png/google.png"),
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                          child: SizedBox(
+                                            height: 40,
+                                            width: 40,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 30),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          border:
+                                              Border.all(color: Colors.grey),
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          color: Colors.white),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  "assets/png/apple.png"),
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                          child: SizedBox(
+                                            height: 40,
+                                            width: 40,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            )
                           ],
                         )),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 40),
+                        padding: const EdgeInsets.only(left: 40),
                         child: Center(
                             child: Column(
                           children: [
@@ -189,7 +254,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                               controller: _emailValue2,
                               expands: false,
                               maxLines: 1,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   filled: true,
                                   fillColor: Colors.white,
                                   hintText: 'Email Address',
@@ -199,7 +264,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                       borderSide:
                                           BorderSide(color: Colors.white))),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             TextField(
                               controller: _passwordlValue2,
                               expands: false,
@@ -214,14 +279,14 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                         ? Icons.visibility_off
                                         : Icons.visibility),
                                   ),
-                                  enabledBorder: OutlineInputBorder(
+                                  enabledBorder: const OutlineInputBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       borderSide:
                                           BorderSide(color: Colors.white))),
                               obscureText: _vizibility2,
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             TextField(
                               controller: _passwordlValue3,
                               expands: false,
@@ -270,7 +335,66 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                     MaterialPageRoute(
                                         builder: (context) => const MainPage()),
                                   );
-                                })
+                                }),
+                            const SizedBox(height: 30),
+                            Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          border:
+                                              Border.all(color: Colors.grey),
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          color: Colors.white),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  "assets/png/google.png"),
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                          child: SizedBox(
+                                            height: 40,
+                                            width: 40,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 30),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          border:
+                                              Border.all(color: Colors.grey),
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          color: Colors.white),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  "assets/png/apple.png"),
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                          child: SizedBox(
+                                            height: 40,
+                                            width: 40,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            )
                           ],
                         )),
                       ),
@@ -278,7 +402,6 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                   ),
                 )
               ])),
-          const SizedBox(height: 100),
         ],
       ),
     );

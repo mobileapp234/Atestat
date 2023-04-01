@@ -13,7 +13,8 @@ bool whichpage = false;
 
 class _LogareState extends State<Logare> with TickerProviderStateMixin {
   final textcontoller = TextEditingController();
-  final TextEditingController _emailValue = TextEditingController();
+  final TextEditingController _emailValue1 = TextEditingController();
+  final TextEditingController _emailValue2 = TextEditingController();
   final TextEditingController _passwordlValue1 = TextEditingController();
 
   final TextEditingController _passwordlValue2 = TextEditingController();
@@ -29,6 +30,14 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
   void _toggleVizibility2() {
     setState(() {
       _vizibility2 = !_vizibility2;
+    });
+  }
+
+  int _currentIndex = 0;
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
     });
   }
 
@@ -78,6 +87,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                   //width: 400,
                   height: 100,
                   child: TabBar(
+                    onTap: (int index) {},
                     labelColor: Colors.white,
                     labelPadding: const EdgeInsets.only(left: 55),
                     isScrollable: true,
@@ -113,7 +123,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             child: Column(
                           children: [
                             TextField(
-                              controller: _emailValue,
+                              controller: _emailValue1,
                               decoration: const InputDecoration(
                                   filled: true,
                                   fillColor: Colors.white,
@@ -176,7 +186,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                           children: [
                             TextField(
                               //onTap: (int index){},
-                              controller: _emailValue,
+                              controller: _emailValue2,
                               expands: false,
                               maxLines: 1,
                               decoration: InputDecoration(

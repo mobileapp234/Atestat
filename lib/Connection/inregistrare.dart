@@ -21,6 +21,8 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
 
   final TextEditingController _passwordlValue2 = TextEditingController();
   final TextEditingController _passwordlValue3 = TextEditingController();
+  late TabController tb;
+  bool test = true;
   bool _vizibility = true;
   void _toggleVizibility() {
     setState(() {
@@ -37,15 +39,54 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
 
   int _currentIndex = 0;
 
-  void _onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
+  // late FocusNode myFocusNode;
+
+  // void initState1() {
+  //   super.initState();
+
+  //   myFocusNode = FocusNode();
+  // }
+
+  // void dispose1() {
+  //   // Clean up the focus node when the Form is disposed.
+  //   myFocusNode.dispose();
+
+  //   super.dispose();
+  // }
+
+  //
+  void initState() {
+    super.initState();
+    tb = TabController(length: 2, vsync: this);
   }
 
   @override
+  void dispose() {
+    tb.dispose();
+    super.dispose();
+  }
+
+  //
+  @override
   Widget build(BuildContext context) {
-    TabController tb = TabController(length: 2, vsync: this);
+    String TB;
+    TabController tb1 = TabController(length: 2, vsync: this);
+    TabController tb2 = TabController(length: 2, vsync: this);
+    @override
+    void dispose() {
+      tb1.dispose();
+      super.dispose();
+    }
+
+    void sc(index) {
+      setState(() {
+        if (index == 0) {
+          dispose();
+          TB = tb1 as String;
+        } else {}
+      });
+    }
+
     return Scaffold(
       body: Stack(
         children: [
@@ -93,7 +134,11 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                   //width: 400,
                   height: 100,
                   child: TabBar(
-                    onTap: (int index) {},
+                    onTap: (int index) {
+                      if (index == 1) {
+                        test = false;
+                      }
+                    },
                     labelColor: Colors.white,
                     labelPadding: const EdgeInsets.only(left: 70),
                     isScrollable: true,
@@ -106,12 +151,14 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             style: GoogleFonts.secularOne(
                               fontSize: 30,
                             )),
+                        key: const Key("Sign in"),
                       ),
                       Tab(
                         child: Text("Sign up",
                             style: GoogleFonts.secularOne(
                               fontSize: 30,
                             )),
+                        key: const Key("Sign up"),
                       ),
                     ],
                   ),
@@ -122,6 +169,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                   height: 400,
                   child: TabBarView(
                     controller: tb,
+                    key: const Key("Sign up"),
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 40),
@@ -129,6 +177,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             child: Column(
                           children: [
                             TextField(
+                              // focusNode: myFocusNode,
                               controller: _emailValue1,
                               decoration: const InputDecoration(
                                   filled: true,

@@ -376,7 +376,14 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                                     BorderRadius.circular(10),
                                                 side: const BorderSide(
                                                     color: Colors.blue)))),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const MainPage()),
+                                      );
+                                    },
                                     child: Padding(
                                       padding: const EdgeInsets.all(15),
                                       child: Text(

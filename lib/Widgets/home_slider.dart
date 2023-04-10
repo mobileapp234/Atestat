@@ -22,7 +22,7 @@ class _HomeSliderState extends State<HomeSlider> {
       }
       _pageController.animateToPage(
         _currentPage,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.ease,
       );
     });
@@ -35,6 +35,7 @@ class _HomeSliderState extends State<HomeSlider> {
       children: [
         Container(
           height: 80,
+          width: 100,
           color: Colors.blue,
           child: Center(
             child: Text("Page 1"),
@@ -42,6 +43,7 @@ class _HomeSliderState extends State<HomeSlider> {
         ),
         Container(
           height: 80,
+          width: 100,
           color: Colors.green,
           child: Center(
             child: Text("Page 2"),
@@ -49,6 +51,7 @@ class _HomeSliderState extends State<HomeSlider> {
         ),
         Container(
           height: 80,
+          width: 100,
           color: Colors.red,
           child: Center(
             child: Text("Page 3"),

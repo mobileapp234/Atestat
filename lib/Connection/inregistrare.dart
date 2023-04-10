@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_app/MainPages/main_page.dart';
+import 'package:mobile_app/Connection/objects.dart/sign.in.dart';
+import 'package:mobile_app/Connection/objects.dart/sign.up.dart';
 
 class Logare extends StatefulWidget {
   const Logare({super.key});
@@ -15,29 +14,7 @@ bool whichpage = false;
 
 class _LogareState extends State<Logare> with TickerProviderStateMixin {
   final textcontoller = TextEditingController();
-  final TextEditingController _emailValue1 = TextEditingController();
-  final TextEditingController _emailValue2 = TextEditingController();
-  final TextEditingController _passwordlValue1 = TextEditingController();
-
-  final TextEditingController _passwordlValue2 = TextEditingController();
-  final TextEditingController _passwordlValue3 = TextEditingController();
   late TabController tb;
-  bool test = true;
-  bool _vizibility = true;
-  void _toggleVizibility() {
-    setState(() {
-      _vizibility = !_vizibility;
-    });
-  }
-
-  bool _vizibility2 = true;
-  void _toggleVizibility2() {
-    setState(() {
-      _vizibility2 = !_vizibility2;
-    });
-  }
-
-  int _currentIndex = 0;
 
   // late FocusNode myFocusNode;
 
@@ -55,6 +32,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
   // }
 
   //
+  @override
   void initState() {
     super.initState();
     tb = TabController(length: 2, vsync: this);
@@ -108,20 +86,14 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(105, 60, 0, 100),
-                  child: Container(
+                  child: SizedBox(
                       height: 150,
-                      //width: 1500,
                       child: Text("Themis Bistro",
                           style: GoogleFonts.robotoMono(
                             fontSize: 42,
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                          )
-                          // style: TextStyle(
-                          //     fontFamily: "Gloss_And_Bloom",
-                          //     fontSize: 40,
-                          //     color: Colors.white),
-                          )),
+                          ))),
                 )
               ],
             ),
@@ -129,334 +101,51 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
           const SizedBox(height: 70),
           Positioned(
               top: 200,
-              child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      //width: 400,
-                      height: 110,
-                      child: TabBar(
-                        onTap: (int index) {
-                          if (index == 1) {
-                            test = false;
-                          }
-                        },
-                        labelColor: Colors.white,
-                        labelPadding: const EdgeInsets.only(left: 50),
-                        isScrollable: true,
-                        controller: tb,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        unselectedLabelColor: Colors.grey,
-                        tabs: [
-                          Tab(
-                            child: Text("Sign in",
-                                style: GoogleFonts.secularOne(
-                                  fontSize: 28,
-                                )),
-                            key: const Key("Sign in"),
-                          ),
-                          Tab(
-                            child: Text("Sign up",
-                                style: GoogleFonts.secularOne(
-                                  fontSize: 28,
-                                )),
-                            key: const Key("Sign up"),
-                          ),
-                        ],
+              child: Column(children: [
+                SizedBox(
+                  //width: 400,
+                  height: 110,
+                  child: TabBar(
+                    // onTap: (int index) {
+                    //   if (index == 1) {
+                    //     test = false;
+                    //   }
+                    // },
+                    labelColor: Colors.white,
+                    labelPadding: const EdgeInsets.only(left: 50),
+                    isScrollable: true,
+                    controller: tb,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    unselectedLabelColor: Colors.grey,
+                    tabs: [
+                      Tab(
+                        key: const Key("Sign in"),
+                        child: Text("Sign in",
+                            style: GoogleFonts.secularOne(
+                              fontSize: 28,
+                            )),
                       ),
-                    ),
-                    const SizedBox(height: 30),
-                    SizedBox(
-                      width: 270,
-                      height: 600,
-                      child: TabBarView(
-                        controller: tb,
+                      Tab(
                         key: const Key("Sign up"),
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 40),
-                            child: Center(
-                                child: Column(
-                              children: [
-                                TextField(
-                                  // focusNode: myFocusNode,
-                                  controller: _emailValue1,
-                                  decoration: const InputDecoration(
-                                      filled: true,
-                                      fillColor: Colors.white,
-                                      hintText: 'Email Address',
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10)),
-                                          borderSide:
-                                              BorderSide(color: Colors.white))),
-                                ),
-                                const SizedBox(height: 20),
-                                TextField(
-                                  controller: _passwordlValue1,
-                                  decoration: InputDecoration(
-                                      filled: true,
-                                      fillColor: Colors.white,
-                                      hintText: 'Password',
-                                      suffixIcon: GestureDetector(
-                                        onTap: _toggleVizibility,
-                                        child: Icon(_vizibility
-                                            ? Icons.visibility_off
-                                            : Icons.visibility),
-                                      ),
-                                      enabledBorder: const OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10)),
-                                          borderSide:
-                                              BorderSide(color: Colors.white))),
-                                  obscureText: _vizibility,
-                                ),
-                                const SizedBox(height: 20),
-                                ElevatedButton(
-                                    style: ButtonStyle(
-                                        foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
-                                        backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.blue),
-                                        shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
-                                            RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                side: const BorderSide(
-                                                    color: Colors.blue)))),
-                                    onPressed: () {},
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(15),
-                                      child: Text("Login".toUpperCase(),
-                                          style: const TextStyle(fontSize: 15)),
-                                    )),
-                                const SizedBox(height: 40),
-                                Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.grey),
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              color: Colors.white),
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: DecoratedBox(
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                      "assets/png/google.png"),
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                              child: SizedBox(
-                                                height: 40,
-                                                width: 40,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(width: 30),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.grey),
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              color: Colors.white),
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: DecoratedBox(
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                      "assets/png/apple.png"),
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                              child: SizedBox(
-                                                height: 40,
-                                                width: 40,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
+                        child: Text("Sign up",
+                            style: GoogleFonts.secularOne(
+                              fontSize: 28,
                             )),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 40),
-                            child: Center(
-                                child: Column(
-                              children: [
-                                TextField(
-                                  //onTap: (int index){},
-                                  controller: _emailValue2,
-                                  expands: false,
-                                  maxLines: 1,
-                                  decoration: const InputDecoration(
-                                      filled: true,
-                                      fillColor: Colors.white,
-                                      hintText: 'Email Address',
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10)),
-                                          borderSide:
-                                              BorderSide(color: Colors.white))),
-                                ),
-                                const SizedBox(height: 20),
-                                TextField(
-                                  controller: _passwordlValue2,
-                                  expands: false,
-                                  maxLines: 1,
-                                  decoration: InputDecoration(
-                                      filled: true,
-                                      fillColor: Colors.white,
-                                      hintText: 'Password',
-                                      suffixIcon: GestureDetector(
-                                        onTap: _toggleVizibility2,
-                                        child: Icon(_vizibility2
-                                            ? Icons.visibility_off
-                                            : Icons.visibility),
-                                      ),
-                                      enabledBorder: const OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10)),
-                                          borderSide:
-                                              BorderSide(color: Colors.white))),
-                                  obscureText: _vizibility2,
-                                ),
-                                const SizedBox(height: 20),
-                                TextField(
-                                  controller: _passwordlValue3,
-                                  expands: false,
-                                  maxLines: 1,
-                                  decoration: InputDecoration(
-                                      filled: true,
-                                      fillColor: Colors.white,
-                                      hintText: 'Confirm Password',
-                                      suffixIcon: GestureDetector(
-                                        onTap: _toggleVizibility2,
-                                        child: Icon(_vizibility2
-                                            ? Icons.visibility_off
-                                            : Icons.visibility),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10)),
-                                          borderSide:
-                                              BorderSide(color: Colors.white))),
-                                  obscureText: _vizibility2,
-                                ),
-                                const SizedBox(height: 40),
-                                ElevatedButton(
-                                    style: ButtonStyle(
-                                        foregroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
-                                        backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.blue),
-                                        shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
-                                            RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                side: const BorderSide(
-                                                    color: Colors.blue)))),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const MainPage()),
-                                      );
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(15),
-                                      child: Text(
-                                          "Create Account".toUpperCase(),
-                                          style: const TextStyle(fontSize: 15)),
-                                    )),
-                                const SizedBox(height: 30),
-                                Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.grey),
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              color: Colors.white),
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: DecoratedBox(
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                      "assets/png/google.png"),
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                              child: SizedBox(
-                                                height: 40,
-                                                width: 40,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(width: 30),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.grey),
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              color: Colors.white),
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: DecoratedBox(
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                      "assets/png/apple.png"),
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                              child: SizedBox(
-                                                height: 40,
-                                                width: 40,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
-                            )),
-                          ),
-                        ],
                       ),
-                    )
-                  ])),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                SizedBox(
+                  width: 270,
+                  height: 600,
+                  child: TabBarView(
+                    controller: tb,
+                    key: const Key("Sign up"),
+                    children: const [SignIn(), SignUp()],
+                  ),
+                )
+              ])),
         ],
       ),
     );

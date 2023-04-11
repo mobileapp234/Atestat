@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/MainPages/main_page.dart';
 
 import 'Connection/inregistrare.dart';
 

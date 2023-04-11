@@ -10,7 +10,6 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  @override
   final TextEditingController _emailValue2 = TextEditingController();
 
   final TextEditingController _passwordlValue2 = TextEditingController();
@@ -23,6 +22,7 @@ class _SignUpState extends State<SignUp> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Container(
       child: Padding(

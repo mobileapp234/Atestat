@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_app/Widgets/choose_food_type.dart';
 import 'package:mobile_app/Widgets/home_slider.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,11 +21,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 50, 0, 0),
-                child: Row(children: [
-                  const Icon(Icons.menu, size: 30, color: Colors.black),
-                  Expanded(child: Container()),
-                  Stack(
+                  padding: const EdgeInsets.fromLTRB(20, 50, 0, 0),
+                  child: Row(
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -56,9 +54,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                       )
                     ],
-                  )
-                ]),
-              ),
+                  )),
               const SizedBox(height: 12),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 20, 0),
@@ -72,6 +68,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   )
                 ]),
               ),
+
+              SizedBox(
+                  height: 200, width: double.infinity, child: HomeSlider()),
+              const SizedBox(height: 20),
+              const ChooseFoodType(),
               const SizedBox(height: 20),
               const SizedBox(height: 5),
               Padding(
@@ -87,9 +88,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       indicatorSize: TabBarIndicatorSize.label,
                       unselectedLabelColor: Colors.grey,
                       tabs: const [
-                        Tab(text: "Flutter"),
-                        Tab(text: "Dart"),
-                        Tab(text: "FireBase"),
+                        Tab(text: "Ciorbe"),
+                        Tab(text: "Felul 2"),
+                        Tab(text: "Desert"),
                       ],
                     )),
               ),
@@ -139,10 +140,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     // Text("kdhf"),
                     // Text("sf"),
                   ])),
-              const Text("ksdauhfgqisaudfgh", style: TextStyle(fontSize: 100)),
+              //const Text("ksdauhfgqisaudfgh", style: TextStyle(fontSize: 100)),
             ],
           ),
-          Container(height: 100, width: 150, child: HomeSlider())
         ]));
   }
 }

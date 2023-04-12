@@ -89,7 +89,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           const SizedBox(height: 20),
           const FoodList(),
           const SizedBox(height: 5),
-          const Text("ksdauhfgqisaudfgh", style: TextStyle(fontSize: 100)),
         ],
       ),
     ]));

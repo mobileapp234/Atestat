@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:mobile_app/Connection/objects.dart/sign.in.dart';
 import 'package:mobile_app/Connection/objects.dart/sign.up.dart';
 
@@ -79,22 +79,25 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
               ),
             ),
           ),
+          SizedBox(
+            width: MediaQuery.of(context).size.height * 0.4,
+          ),
           Positioned(
+            width: MediaQuery.of(context).size.width,
             // top: 0,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(105, 60, 0, 100),
-                  child: SizedBox(
-                      height: 150,
-                      child: Text("Themis Bistro",
-                          style: GoogleFonts.robotoMono(
-                            fontSize: 42,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                          ))),
-                )
+                SizedBox(
+                    height: 150,
+                    child: AutoSizeText("Themis Bistro",
+                        maxLines: 1,
+                        style: TextStyle(
+                          fontFamily: "RobotoMono-Regular",
+                          fontSize: 35,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ))),
               ],
             ),
           ),
@@ -121,14 +124,16 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                       Tab(
                         key: const Key("Sign in"),
                         child: Text("Sign in",
-                            style: GoogleFonts.secularOne(
+                            style: TextStyle(
+                              fontFamily: "SecularOne-Regular",
                               fontSize: 28,
                             )),
                       ),
                       Tab(
                         key: const Key("Sign up"),
                         child: Text("Sign up",
-                            style: GoogleFonts.secularOne(
+                            style: TextStyle(
+                              fontFamily: "SecularOne-Regular",
                               fontSize: 28,
                             )),
                       ),

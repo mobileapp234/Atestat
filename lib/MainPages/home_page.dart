@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app/Widgets/choose_food_type.dart';
 import 'package:mobile_app/Widgets/food_list.dart';
 import 'package:mobile_app/Widgets/home_slider.dart';
@@ -75,7 +74,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: Row(children: [
               Text(
                 "Themis Bistro",
-                style: GoogleFonts.ptSerif(
+                style: TextStyle(
                   fontSize: 20,
                   color: Colors.blue,
                 ),

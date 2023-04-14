@@ -19,7 +19,7 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: Padding(
         padding: const EdgeInsets.only(left: 40),
         child: Center(

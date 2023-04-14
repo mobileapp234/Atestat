@@ -47,23 +47,23 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
   //
   @override
   Widget build(BuildContext context) {
-    String TB;
-    TabController tb1 = TabController(length: 2, vsync: this);
-    TabController tb2 = TabController(length: 2, vsync: this);
-    @override
-    void dispose() {
-      tb1.dispose();
-      super.dispose();
-    }
+    
+   // TabController tb1 = TabController(length: 2, vsync: this);
+   
+    // @override
+    // void dispose() {
+    //   tb1.dispose();
+    //   super.dispose();
+    // }
 
-    void sc(index) {
-      setState(() {
-        if (index == 0) {
-          dispose();
-          TB = tb1 as String;
-        } else {}
-      });
-    }
+    // void sc(index) {
+    //   setState(() {
+    //     if (index == 0) {
+    //       dispose();
+    //       TB = tb1 as String;
+    //     } else {}
+    //   });
+    // }
 
     return Scaffold(
       body: Stack(
@@ -85,7 +85,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
           Positioned(
             width: MediaQuery.of(context).size.width,
             // top: 0,
-            child: Row(
+            child:const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
@@ -120,9 +120,9 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                     controller: tb,
                     indicatorSize: TabBarIndicatorSize.label,
                     unselectedLabelColor: Colors.grey,
-                    tabs: [
+                    tabs:const [
                       Tab(
-                        key: const Key("Sign in"),
+                        key:  Key("Sign in"),
                         child: Text("Sign in",
                             style: TextStyle(
                               fontFamily: "SecularOne-Regular",
@@ -130,7 +130,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             )),
                       ),
                       Tab(
-                        key: const Key("Sign up"),
+                        key:  Key("Sign up"),
                         child: Text("Sign up",
                             style: TextStyle(
                               fontFamily: "SecularOne-Regular",

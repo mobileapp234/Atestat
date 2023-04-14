@@ -12,7 +12,7 @@ class ManuPageState extends State<ManuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
           width: double.maxFinite,
           height: double.maxFinite,
           child: Stack(children: [

@@ -24,7 +24,7 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: Padding(
         padding: const EdgeInsets.only(left: 40),
         child: Center(
@@ -76,7 +76,7 @@ class _SignUpState extends State<SignUp> {
                     child: Icon(
                         _vizibility ? Icons.visibility_off : Icons.visibility),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder:const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(color: Colors.white))),
               obscureText: _vizibility,

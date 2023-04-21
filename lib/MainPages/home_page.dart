@@ -1,7 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Widgets/choose_food_type.dart';
 import 'package:mobile_app/Widgets/food_list.dart';
 import 'package:mobile_app/Widgets/home_slider.dart';
+import 'package:mobile_app/Widgets/food_list.dart';
+
+import '../Widgets/menu.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +14,12 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+List<String> imagini = [
+  "assets/images/tomatosoup_13560_16x9.jpg",
+  "assets/images/Catalog-Kaufland-6-mai-12-mai-2020.jpg"
+];
+List<String> nume1 = ["Supa de perisoare", "Supa de cartofi"];
+List<int> pret1 = [12, 33];
 // class HomePageScreenSize extends StatelessWidget {
 //   const HomePageScreenSize({super.key});
 
@@ -31,6 +41,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   //   super.initState();
   //   padding1=widget.
   // }
+  // final menu mn=new Meniu;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,8 +97,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           const SizedBox(height: 20),
           const ChooseFoodType(),
           const SizedBox(height: 20),
-          const FoodList(),
+          //  const FoodList(),
           const SizedBox(height: 5),
+          //  const FoodList(),
+
+          ///  const Meniu(List,)
+
+          Menu(nume: nume1[1], pret: pret1[1])
         ],
       ),
     ]));

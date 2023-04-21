@@ -47,9 +47,8 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
   //
   @override
   Widget build(BuildContext context) {
-    
-   // TabController tb1 = TabController(length: 2, vsync: this);
-   
+    // TabController tb1 = TabController(length: 2, vsync: this);
+
     // @override
     // void dispose() {
     //   tb1.dispose();
@@ -79,25 +78,25 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
               ),
             ),
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.height * 0.4,
-          ),
           Positioned(
             width: MediaQuery.of(context).size.width,
             // top: 0,
-            child:const Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                     height: 150,
-                    child: AutoSizeText("Themis Bistro",
-                        maxLines: 1,
-                        style: TextStyle(
-                          fontFamily: "RobotoMono-Regular",
-                          fontSize: 35,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ))),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                      child: AutoSizeText("Themis Bistro",
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontFamily: "RobotoMono-Regular",
+                            fontSize: 35,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          )),
+                    )),
               ],
             ),
           ),
@@ -120,9 +119,9 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                     controller: tb,
                     indicatorSize: TabBarIndicatorSize.label,
                     unselectedLabelColor: Colors.grey,
-                    tabs:const [
+                    tabs: const [
                       Tab(
-                        key:  Key("Sign in"),
+                        key: Key("Sign in"),
                         child: Text("Sign in",
                             style: TextStyle(
                               fontFamily: "SecularOne-Regular",
@@ -130,7 +129,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             )),
                       ),
                       Tab(
-                        key:  Key("Sign up"),
+                        key: Key("Sign up"),
                         child: Text("Sign up",
                             style: TextStyle(
                               fontFamily: "SecularOne-Regular",

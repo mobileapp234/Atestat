@@ -6,8 +6,13 @@ import 'package:mobile_app/Widgets/food_list.dart';
 class Menu extends StatefulWidget {
   String nume;
   int pret;
+  String imagini;
 //final int lala;
-  Menu({super.key, required this.nume, required this.pret});
+  Menu(
+      {super.key,
+      required this.nume,
+      required this.pret,
+      required this.imagini});
 
   @override
   State<StatefulWidget> createState() {

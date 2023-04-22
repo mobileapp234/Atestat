@@ -4,11 +4,13 @@ import 'package:mobile_app/Widgets/choose_food_type.dart';
 import 'package:mobile_app/Widgets/food_list.dart';
 import 'package:mobile_app/Widgets/home_slider.dart';
 import 'package:mobile_app/Widgets/food_list.dart';
-
+import 'package:mobile_app/Globals_Variables.dart' as c;
 import '../Widgets/menu.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -42,6 +44,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   //   padding1=widget.
   // }
   // final menu mn=new Meniu;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,9 +104,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           const SizedBox(height: 5),
           //  const FoodList(),
 
-          ///  const Meniu(List,)
-
-          Menu(nume: nume1[1], pret: pret1[1])
+          if (c.categorie == 0)
+            Menu(
+              nume: nume1[0],
+              pret: pret1[0],
+              imagini: imagini[0],
+            )
+          else if (c.categorie == 1)
+            Menu(
+              nume: nume1[1],
+              pret: pret1[1],
+              imagini: imagini[1],
+            )
         ],
       ),
     ]));

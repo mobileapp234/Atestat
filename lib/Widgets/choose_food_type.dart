@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
+import 'package:mobile_app/Widgets/menu.dart';
+
+import '../MainPages/home_page.dart';
 
 class ChooseFoodType extends StatefulWidget {
   const ChooseFoodType({super.key});
@@ -9,6 +12,16 @@ class ChooseFoodType extends StatefulWidget {
 }
 
 class _ChooseFoodTypeState extends State<ChooseFoodType> {
+  @override
+  // void dispose() {
+  //   Menu(
+  //     nume: nume[c.categorie],
+  //     pret: pret[c.categorie],
+  //     imagini: imagini[c.categorie],
+  //   ).dispose;
+  //   super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,10 +36,12 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
           scrollDirection: Axis.horizontal,
           children: [
             GestureDetector(
-              onTap: () {
+              onTap: () async {
                 setState(() {
                   c.categorie = 0;
+                  print(c.categorie);
                 });
+                // dispose();
               },
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 8, 0, 8),
@@ -70,9 +85,10 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
               ),
             ),
             GestureDetector(
-              onTap: () {
+              onTap: () async {
                 setState(() {
                   c.categorie = 1;
+                  print(c.categorie);
                 });
               },
               child: Padding(
@@ -121,6 +137,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
               onTap: () {
                 setState(() {
                   c.categorie = 2;
+                  print(c.categorie);
                 });
               },
               child: Padding(
@@ -168,6 +185,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
               onTap: () {
                 setState(() {
                   c.categorie = 3;
+                  print(c.categorie);
                 });
               },
               child: Padding(

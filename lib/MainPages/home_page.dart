@@ -18,10 +18,11 @@ class HomePage extends StatefulWidget {
 
 List<String> imagini = [
   "assets/images/tomatosoup_13560_16x9.jpg",
-  "assets/images/Catalog-Kaufland-6-mai-12-mai-2020.jpg"
+  "assets/images/Catalog-Kaufland-6-mai-12-mai-2020.jpg",
+  "assets/images/download.jpg",
 ];
-List<String> nume1 = ["Supa de perisoare", "Supa de cartofi"];
-List<int> pret1 = [12, 33];
+List<String> nume = ["Supa de perisoare", "Supa de cartofi", "Supa de paun"];
+List<int> pret = [12, 33, 44];
 // class HomePageScreenSize extends StatelessWidget {
 //   const HomePageScreenSize({super.key});
 
@@ -100,22 +101,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           const SizedBox(height: 20),
           const ChooseFoodType(),
           const SizedBox(height: 20),
-          //  const FoodList(),
-          const SizedBox(height: 5),
-          //  const FoodList(),
 
-          if (c.categorie == 0)
-            Menu(
-              nume: nume1[0],
-              pret: pret1[0],
-              imagini: imagini[0],
-            )
-          else if (c.categorie == 1)
-            Menu(
-              nume: nume1[1],
-              pret: pret1[1],
-              imagini: imagini[1],
-            )
+          const SizedBox(height: 5),
+
+//Am fc un widget Menu care se creaza cu ajutorul unui template   care ia
+// elementele unor vectori ca parametri(nume,pret,imagini) si afiseza pe pagina asta.
+//Totul merge bine(am testat) doar ca nu isi da rebuild cand se scimba
+//variabila c.categorie(acesta se schimba cand apas pe un buton din pagina aceasta) care e globala
+//Daca dau inapoi la pagina le login si intru in aplicatia isi da automat
+// rebuild si se schimba ce se afiseza // ar trebuii sa fc asta
+//si cand apas pe buton si se schimba c.categorie
+
+          StatefulBuilder(
+            builder: (context, setState) {
+              return Menu(
+                nume: nume[c.categorie],
+                pret: pret[c.categorie],
+                imagini: imagini[c.categorie],
+              );
+            },
+          ),
         ],
       ),
     ]));

@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/MainPages/home_page.dart';
 import 'package:mobile_app/Widgets/food_list.dart';
+import 'package:mobile_app/Globals_Variables.dart' as c;
 
 class Menu extends StatefulWidget {
   String nume;
@@ -14,6 +15,8 @@ class Menu extends StatefulWidget {
       required this.pret,
       required this.imagini});
 
+  get dispose => null;
+
   @override
   State<StatefulWidget> createState() {
     return _Menu();
@@ -21,6 +24,16 @@ class Menu extends StatefulWidget {
 }
 
 class _Menu extends State<Menu> {
+  // @override
+  // void didUpdateWidget(Menu oldWidget) {
+  //   super.didUpdateWidget(oldWidget);
+  //   if (widget.nume != oldWidget.nume ||
+  //       widget.pret != oldWidget.pret ||
+  //       widget.imagini != oldWidget.imagini) {
+  //     setState(() {});
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +57,7 @@ class _Menu extends State<Menu> {
             height: 120,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(imagini[1]), fit: BoxFit.cover),
+                    image: AssetImage(imagini[c.categorie]), fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(10)),
           ),
         ),
@@ -57,7 +70,7 @@ class _Menu extends State<Menu> {
                 top: 12,
               ),
               child: AutoSizeText(
-                nume1[1],
+                nume[c.categorie],
                 style: TextStyle(
                     fontFamily: "SignikaNegative-Regular",
                     fontSize: 19,
@@ -67,8 +80,8 @@ class _Menu extends State<Menu> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 2, bottom: 5),
-              child:
-                  Text("${pret1[1]} lei", style: const TextStyle(fontSize: 18)),
+              child: Text("${pret[c.categorie]} lei",
+                  style: const TextStyle(fontSize: 18)),
             ),
           ],
         ),

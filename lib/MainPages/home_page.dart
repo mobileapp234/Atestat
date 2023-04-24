@@ -111,16 +111,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 //Daca dau inapoi la pagina le login si intru in aplicatia isi da automat
 // rebuild si se schimba ce se afiseza // ar trebuii sa fc asta
 //si cand apas pe buton si se schimba c.categorie
+          for (int i = 1; i <= 10; i++)
+            StatefulBuilder(
+              builder: (context, setState) {
+                print(c.categorie);
 
-          StatefulBuilder(
-            builder: (context, setState) {
-              return Menu(
-                nume: nume[c.categorie],
-                pret: pret[c.categorie],
-                imagini: imagini[c.categorie],
-              );
-            },
-          ),
+                return Container(
+                    child: Column(
+                  children: [
+                    Menu(
+                      nume: nume[c.categorie],
+                      pret: pret[c.categorie],
+                      imagini: imagini[c.categorie],
+                    ),
+                    const SizedBox(height: 20)
+                  ],
+                ));
+              },
+            ),
         ],
       ),
     ]));

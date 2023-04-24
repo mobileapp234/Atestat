@@ -65,7 +65,8 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
     // }
 
     return Scaffold(
-      body: Stack(
+        body: Center(
+      child: Stack(
         children: [
           Positioned(
             child: Container(
@@ -102,56 +103,63 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
           ),
           const SizedBox(height: 70),
           Positioned(
+              width: MediaQuery.of(context).size.width,
               top: 200,
-              child: Column(children: [
-                SizedBox(
-                  //width: 400,
-                  height: 110,
-                  child: TabBar(
-                    // onTap: (int index) {
-                    //   if (index == 1) {
-                    //     test = false;
-                    //   }
-                    // },
-                    labelColor: Colors.white,
-                    labelPadding: const EdgeInsets.only(left: 50),
-                    isScrollable: true,
-                    controller: tb,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    unselectedLabelColor: Colors.grey,
-                    tabs: const [
-                      Tab(
-                        key: Key("Sign in"),
-                        child: Text("Sign in",
-                            style: TextStyle(
-                              fontFamily: "SecularOne-Regular",
-                              fontSize: 28,
-                            )),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 110,
+                      child: TabBar(
+                        // onTap: (int index) {
+                        //   if (index == 1) {
+                        //     test = false;
+                        //   }
+                        // },
+                        labelColor: Colors.white,
+                        labelPadding: const EdgeInsets.only(left: 50),
+                        isScrollable: true,
+                        controller: tb,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        unselectedLabelColor: Colors.grey,
+                        tabs: const [
+                          Tab(
+                            key: Key("Sign in"),
+                            child: Text("Sign in",
+                                style: TextStyle(
+                                  fontFamily: "SecularOne-Regular",
+                                  fontSize: 28,
+                                )),
+                          ),
+                          Tab(
+                            key: Key("Sign up"),
+                            child: Text("Sign up",
+                                style: TextStyle(
+                                  fontFamily: "SecularOne-Regular",
+                                  fontSize: 28,
+                                )),
+                          ),
+                        ],
                       ),
-                      Tab(
-                        key: Key("Sign up"),
-                        child: Text("Sign up",
-                            style: TextStyle(
-                              fontFamily: "SecularOne-Regular",
-                              fontSize: 28,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 30),
-                SizedBox(
-                  width: 270,
-                  height: 600,
-                  child: TabBarView(
-                    controller: tb,
-                    key: const Key("Sign up"),
-                    children: const [SignIn(), SignUp()],
-                  ),
-                )
-              ])),
+                    ),
+                    const SizedBox(height: 30),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 270,
+                          height: 600,
+                          child: TabBarView(
+                            controller: tb,
+                            key: const Key("Sign up"),
+                            children: const [SignIn(), SignUp()],
+                          ),
+                        ),
+                      ],
+                    )
+                  ])),
         ],
       ),
-    );
+    ));
   }
 }

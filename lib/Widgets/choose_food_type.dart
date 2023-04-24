@@ -39,7 +39,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
               onTap: () async {
                 setState(() {
                   c.categorie = 0;
-                  print(c.categorie);
+                  // print(c.categorie);
                 });
                 // dispose();
               },
@@ -88,7 +88,8 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
               onTap: () async {
                 setState(() {
                   c.categorie = 1;
-                  print(c.categorie);
+
+                  /// print(c.categorie);
                 });
               },
               child: Padding(
@@ -137,7 +138,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
               onTap: () {
                 setState(() {
                   c.categorie = 2;
-                  print(c.categorie);
+                  // print(c.categorie);
                 });
               },
               child: Padding(

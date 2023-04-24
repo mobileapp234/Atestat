@@ -15,8 +15,6 @@ class Menu extends StatefulWidget {
       required this.pret,
       required this.imagini});
 
-  get dispose => null;
-
   @override
   State<StatefulWidget> createState() {
     return _Menu();
@@ -36,56 +34,115 @@ class _Menu extends State<Menu> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.45,
-      height: MediaQuery.of(context).size.height * 0.25,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: const [
-            BoxShadow(
-              blurRadius: 4,
-              color: Color(0x230E151B),
-              offset: Offset(0, 2),
-            )
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width * 0.45,
+          height: MediaQuery.of(context).size.height * 0.25,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: const [
+                BoxShadow(
+                  blurRadius: 4,
+                  color: Color(0x230E151B),
+                  offset: Offset(0, 2),
+                )
+              ]),
+          child: Column(children: [
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Container(
+                width: double.infinity,
+                height: 120,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(imagini[c.categorie]),
+                        fit: BoxFit.cover),
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            Column(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 12,
+                  ),
+                  child: AutoSizeText(
+                    nume[c.categorie],
+                    style: TextStyle(
+                        fontFamily: "SignikaNegative-Regular",
+                        fontSize: 19,
+                        fontWeight: FontWeight.w400),
+                    maxLines: 1,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 2, bottom: 5),
+                  child: Text("${pret[c.categorie]} lei",
+                      style: const TextStyle(fontSize: 18)),
+                ),
+              ],
+            ),
           ]),
-      child: Column(children: [
-        Padding(
-          padding: const EdgeInsets.all(5),
-          child: Container(
-            width: double.infinity,
-            height: 120,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(imagini[c.categorie]), fit: BoxFit.cover),
-                borderRadius: BorderRadius.circular(10)),
-          ),
         ),
-        Column(
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+        const SizedBox(width: 20),
+        Container(
+          width: MediaQuery.of(context).size.width * 0.45,
+          height: MediaQuery.of(context).size.height * 0.25,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: const [
+                BoxShadow(
+                  blurRadius: 4,
+                  color: Color(0x230E151B),
+                  offset: Offset(0, 2),
+                )
+              ]),
+          child: Column(children: [
             Padding(
-              padding: EdgeInsets.only(
-                top: 12,
-              ),
-              child: AutoSizeText(
-                nume[c.categorie],
-                style: TextStyle(
-                    fontFamily: "SignikaNegative-Regular",
-                    fontSize: 19,
-                    fontWeight: FontWeight.w400),
-                maxLines: 1,
+              padding: const EdgeInsets.all(5),
+              child: Container(
+                width: double.infinity,
+                height: 120,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(imagini[c.categorie + 1]),
+                        fit: BoxFit.cover),
+                    borderRadius: BorderRadius.circular(10)),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 2, bottom: 5),
-              child: Text("${pret[c.categorie]} lei",
-                  style: const TextStyle(fontSize: 18)),
+            Column(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 12,
+                  ),
+                  child: AutoSizeText(
+                    nume[c.categorie + 1],
+                    style: TextStyle(
+                        fontFamily: "SignikaNegative-Regular",
+                        fontSize: 19,
+                        fontWeight: FontWeight.w400),
+                    maxLines: 1,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 2, bottom: 5),
+                  child: Text("${pret[c.categorie + 1]} lei",
+                      style: const TextStyle(fontSize: 18)),
+                ),
+              ],
             ),
-          ],
+          ]),
         ),
-      ]),
+      ],
     );
   }
 }

@@ -119,8 +119,8 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
             SizedBox(
               width: 200,
               //width: MediaQuery.of(context).size.width * 0.64,
-              height: 400,
-              //height: MediaQuery.of(context).size.width * 1.1,
+
+              height: MediaQuery.of(context).size.width * 1.1,
               child: TabBarView(
                 controller: tb,
                 // key: const Key("Sign up"),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:auto_size_text/auto_size_text.dart';
 import '../../MainPages/main_page.dart';
 
 class SignUp extends StatefulWidget {
@@ -105,8 +105,11 @@ class _SignUpState extends State<SignUp> {
               },
               child: Padding(
                 padding: const EdgeInsets.all(15),
-                child: Text("Create Account".toUpperCase(),
-                    style: const TextStyle(fontSize: 15)),
+                child: AutoSizeText(
+                  "Create Account".toUpperCase(),
+                  style: const TextStyle(fontSize: 14),
+                  maxLines: 1,
+                ),
               )),
           const SizedBox(height: 30),
           Column(

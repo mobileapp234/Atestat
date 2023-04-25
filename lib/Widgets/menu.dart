@@ -1,13 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/MainPages/home_page.dart';
-import 'package:mobile_app/Widgets/food_list.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
 
 class Menu extends StatefulWidget {
-  String nume;
-  int pret;
-  String imagini;
+  final String nume;
+  final int pret;
+  final String imagini;
 //final int lala;
   Menu(
       {super.key,

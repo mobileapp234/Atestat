@@ -66,99 +66,69 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
 
     return Scaffold(
         body: Center(
-      child: Stack(
-        children: [
-          Positioned(
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/background.jpg"),
-                    fit: BoxFit.fill,
-                    colorFilter:
-                        ColorFilter.mode(Colors.black38, BlendMode.darken)),
-              ),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 1,
+        height: MediaQuery.of(context).size.height * 1,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/background.jpg"),
+              fit: BoxFit.fill,
+              colorFilter: ColorFilter.mode(Colors.black38, BlendMode.darken)),
+        ),
+        child: SingleChildScrollView(
+          child: Column(children: [
+            SizedBox(height: MediaQuery.of(context).size.width * 0.19),
+            Center(
+              child: SizedBox(
+                  child: AutoSizeText("Themis Bistro",
+                      maxLines: 1,
+                      style: TextStyle(
+                        fontFamily: "RobotoMono-Regular",
+                        fontSize: 35,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ))),
             ),
-          ),
-          Positioned(
-            width: MediaQuery.of(context).size.width,
-            // top: 0,
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                    height: 150,
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
-                      child: AutoSizeText("Themis Bistro",
-                          maxLines: 1,
-                          style: TextStyle(
-                            fontFamily: "RobotoMono-Regular",
-                            fontSize: 35,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                          )),
-                    )),
+            SizedBox(height: MediaQuery.of(context).size.width * 0.2),
+            TabBar(
+              labelColor: Colors.white,
+              isScrollable: true,
+              controller: tb,
+              indicatorColor: Colors.white,
+              indicatorWeight: 3,
+              indicatorSize: TabBarIndicatorSize.label,
+              unselectedLabelColor: Colors.grey,
+              tabs: const [
+                Tab(
+                  child: Text("Sign In",
+                      style: TextStyle(
+                        fontFamily: "SecularOne-Regular",
+                        fontSize: 26,
+                      )),
+                ),
+                Tab(
+                  child: Text("Sign Up",
+                      style: TextStyle(
+                        fontFamily: "SecularOne-Regular",
+                        fontSize: 26,
+                      )),
+                ),
               ],
             ),
-          ),
-          const SizedBox(height: 70),
-          Positioned(
-              width: MediaQuery.of(context).size.width,
-              top: 200,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 110,
-                      child: TabBar(
-                        // onTap: (int index) {
-                        //   if (index == 1) {
-                        //     test = false;
-                        //   }
-                        // },
-                        labelColor: Colors.white,
-                        labelPadding: const EdgeInsets.only(left: 50),
-                        isScrollable: true,
-                        controller: tb,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        unselectedLabelColor: Colors.grey,
-                        tabs: const [
-                          Tab(
-                            key: Key("Sign in"),
-                            child: Text("Sign in",
-                                style: TextStyle(
-                                  fontFamily: "SecularOne-Regular",
-                                  fontSize: 28,
-                                )),
-                          ),
-                          Tab(
-                            key: Key("Sign up"),
-                            child: Text("Sign up",
-                                style: TextStyle(
-                                  fontFamily: "SecularOne-Regular",
-                                  fontSize: 28,
-                                )),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 270,
-                          height: 600,
-                          child: TabBarView(
-                            controller: tb,
-                            key: const Key("Sign up"),
-                            children: const [SignIn(), SignUp()],
-                          ),
-                        ),
-                      ],
-                    )
-                  ])),
-        ],
+            const SizedBox(height: 30),
+            SizedBox(
+              width: 200,
+              //width: MediaQuery.of(context).size.width * 0.64,
+              height: 400,
+              //height: MediaQuery.of(context).size.width * 1.1,
+              child: TabBarView(
+                controller: tb,
+                // key: const Key("Sign up"),
+                children: const [SignIn(), SignUp()],
+              ),
+            )
+          ]),
+        ),
       ),
     ));
   }

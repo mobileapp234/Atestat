@@ -1,9 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Widgets/choose_food_type.dart';
-import 'package:mobile_app/Widgets/food_list.dart';
+
 import 'package:mobile_app/Widgets/home_slider.dart';
-import 'package:mobile_app/Widgets/food_list.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
 import '../Widgets/menu.dart';
 

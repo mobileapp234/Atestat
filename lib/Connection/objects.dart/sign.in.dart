@@ -17,6 +17,32 @@ class _SignInState extends State<SignIn> {
     });
   }
 
+  Color culoare0 = Colors.grey;
+  Color culoare1 = Colors.grey;
+  void _ChangeColor0() {
+    setState(() {
+      culoare0 = Colors.black54 as Color;
+      culoare1 = Colors.grey as Color;
+    });
+  }
+
+  void _ChangeColor1() {
+    setState(() {
+      culoare1 = Colors.black54 as Color;
+      culoare0 = Colors.grey as Color;
+    });
+  }
+
+  FocusNode myFocusNode = new FocusNode();
+//   myFocusNode.addListener(() {
+//   setState(() {});
+// });
+  // @override
+  // void dispose() {
+  //   myFocusNode.dispose();
+  //   super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -25,37 +51,67 @@ class _SignInState extends State<SignIn> {
         children: [
           Container(
               height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.6,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              child: TextField(
-                // focusNode: myFocusNode,
+                  color: Colors.white54.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                onTap: _ChangeColor0,
+                focusNode: myFocusNode,
+
+                style: TextStyle(fontSize: 17),
                 controller: _emailValue1,
-                decoration: const InputDecoration(
+                keyboardType: TextInputType.emailAddress,
+                // textAlign: TextAlign.start,
+                decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                        color: myFocusNode.hasFocus ? Colors.red : Colors.pink),
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: culoare0,
+                    ),
+                    contentPadding: EdgeInsets.all(13),
+                    floatingLabelStyle: TextStyle(fontSize: 12),
                     // filled: true,
                     // fillColor: Colors.white,
-                    hintText: '  Email Address',
+                    hintText: 'Email Address',
                     border: InputBorder.none),
               )),
           const SizedBox(height: 20),
-          TextFormField(
-            autofocus: false,
-            // autovalidateMode: AutovalidateMode.always,
-            controller: _passwordlValue1,
-            decoration: InputDecoration(
-                contentPadding: const EdgeInsets.all(10),
-                filled: true,
-                fillColor: Colors.white,
-                hintText: 'Password',
-                suffixIcon: GestureDetector(
-                  onTap: _toggleVizibility,
-                  child: Icon(
-                      _vizibility ? Icons.visibility_off : Icons.visibility),
-                ),
-                enabledBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(color: Colors.white))),
-            obscureText: _vizibility,
-          ),
+          Container(
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.6,
+              decoration: BoxDecoration(
+                  color: Colors.white54.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextField(
+                onTap: _ChangeColor1,
+                style: TextStyle(fontSize: 17),
+                obscureText: _vizibility,
+                controller: _passwordlValue1,
+                // textAlign: TextAlign.start,
+                decoration: InputDecoration(
+                    suffixIcon: GestureDetector(
+                      onTap: _toggleVizibility,
+                      child: Icon(
+                        _vizibility ? Icons.visibility_off : Icons.visibility,
+                        color: culoare1,
+                      ),
+                    ),
+                    labelStyle: TextStyle(
+                      color: Colors.white, //<-- SEE HERE
+                    ),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: culoare1,
+                    ),
+                    contentPadding: EdgeInsets.all(13),
+                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    // filled: true,
+                    // fillColor: Colors.white,
+                    hintText: 'Password',
+                    border: InputBorder.none),
+              )),
           const SizedBox(height: 40),
           ElevatedButton(
               style: ButtonStyle(

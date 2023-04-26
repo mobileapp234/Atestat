@@ -14,6 +14,7 @@ bool whichpage = false;
 
 class _LogareState extends State<Logare> with TickerProviderStateMixin {
   final textcontoller = TextEditingController();
+
   late TabController tb;
 
   // late FocusNode myFocusNode;
@@ -35,7 +36,8 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    tb = TabController(length: 2, vsync: this);
+    tb =
+        TabController(animationDuration: Duration.zero, length: 2, vsync: this);
   }
 
   @override
@@ -98,29 +100,28 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
               indicatorWeight: 3,
               indicatorSize: TabBarIndicatorSize.label,
               unselectedLabelColor: Colors.grey,
-              tabs: const [
+              tabs: [
                 Tab(
-                  child: Text("Sign In",
-                      style: TextStyle(
-                        fontFamily: "SecularOne-Regular",
-                        fontSize: 26,
-                      )),
-                ),
+                    child: Text("Sign In",
+                        style: TextStyle(
+                          fontFamily: "SecularOne-Regular",
+                          fontSize: 28,
+                        ))),
                 Tab(
                   child: Text("Sign Up",
                       style: TextStyle(
                         fontFamily: "SecularOne-Regular",
-                        fontSize: 26,
+                        fontSize: 28,
                       )),
                 ),
               ],
             ),
             const SizedBox(height: 30),
             SizedBox(
-              width: 200,
               //width: MediaQuery.of(context).size.width * 0.64,
 
-              height: MediaQuery.of(context).size.width * 1.1,
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width * 1,
               child: TabBarView(
                 controller: tb,
                 // key: const Key("Sign up"),

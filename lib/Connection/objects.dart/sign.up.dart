@@ -37,6 +37,14 @@ class _SignUpState extends State<SignUp> {
   Color color0 = Colors.grey;
   Color color1 = Colors.grey;
   Color color2 = Colors.grey;
+  void _ChangeColor000() {
+    setState(() {
+      color0 = Colors.grey as Color;
+      color1 = Colors.grey as Color;
+      color2 = Colors.grey as Color;
+    });
+  }
+
   void _ChangeColor0() {
     setState(() {
       color0 = Colors.black54 as Color;
@@ -47,8 +55,8 @@ class _SignUpState extends State<SignUp> {
 
   void _ChangeColor1() {
     setState(() {
-      color0 = Colors.black54 as Color;
-      color1 = Colors.grey as Color;
+      color1 = Colors.black54 as Color;
+      color0 = Colors.grey as Color;
       color2 = Colors.grey as Color;
     });
   }
@@ -63,6 +71,7 @@ class _SignUpState extends State<SignUp> {
 
   FocusNode f0 = FocusNode();
   FocusNode f1 = FocusNode();
+  FocusNode f2 = FocusNode();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -76,8 +85,12 @@ class _SignUpState extends State<SignUp> {
                   color: Colors.white54.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
-                onFieldSubmitted: (value) =>
-                    FocusScope.of(context).requestFocus(f1),
+                onFieldSubmitted: (value) {
+                  setState(() {
+                    FocusScope.of(context).requestFocus(f1);
+                    _ChangeColor1();
+                  });
+                },
                 onTap: _ChangeColor0,
                 focusNode: f0,
 
@@ -105,17 +118,23 @@ class _SignUpState extends State<SignUp> {
                   color: Colors.white54.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
+                onFieldSubmitted: (value) {
+                  setState(() {
+                    FocusScope.of(context).requestFocus(f2);
+                    _ChangeColor2();
+                  });
+                },
                 focusNode: f1,
                 onTap: _ChangeColor1,
                 style: TextStyle(fontSize: 17),
-                obscureText: _vizibility0,
+                obscureText: _vizibility1,
                 controller: _passwordlValue1,
                 // textAlign: TextAlign.start,
                 decoration: InputDecoration(
                     suffixIcon: GestureDetector(
                       onTap: _toggleVizibility1,
                       child: Icon(
-                        _vizibility0 ? Icons.visibility_off : Icons.visibility,
+                        _vizibility1 ? Icons.visibility_off : Icons.visibility,
                         color: color1,
                       ),
                     ),
@@ -141,10 +160,15 @@ class _SignUpState extends State<SignUp> {
                   color: Colors.white54.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
-                focusNode: f1,
-                onTap: _ChangeColor1,
+                onFieldSubmitted: (value) {
+                  setState(() {
+                    _ChangeColor000();
+                  });
+                },
+                focusNode: f2,
+                onTap: _ChangeColor2,
                 style: TextStyle(fontSize: 17),
-                obscureText: _vizibility0,
+                obscureText: _vizibility2,
                 controller: _passwordlValue2,
                 // textAlign: TextAlign.start,
                 decoration: InputDecoration(
@@ -152,7 +176,7 @@ class _SignUpState extends State<SignUp> {
                       onTap: _toggleVizibility2,
                       child: Icon(
                         _vizibility2 ? Icons.visibility_off : Icons.visibility,
-                        color: color1,
+                        color: color2,
                       ),
                     ),
                     labelStyle: TextStyle(
@@ -160,7 +184,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     prefixIcon: Icon(
                       Icons.lock,
-                      color: color1,
+                      color: color2,
                     ),
                     contentPadding: EdgeInsets.all(13),
                     floatingLabelStyle: TextStyle(fontSize: 12),
@@ -180,10 +204,13 @@ class _SignUpState extends State<SignUp> {
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                           side: const BorderSide(color: Colors.blue)))),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => MainPage()));
+              },
               child: Padding(
                 padding: const EdgeInsets.all(15),
-                child: Text("Login".toUpperCase(),
+                child: Text("Create account".toUpperCase(),
                     style: const TextStyle(fontSize: 15)),
               )),
           const SizedBox(height: 30),

@@ -19,6 +19,13 @@ class _SignInState extends State<SignIn> {
 
   Color culoare0 = Colors.grey;
   Color culoare1 = Colors.grey;
+  void _ChangeColor00() {
+    setState(() {
+      culoare1 = Colors.grey as Color;
+      culoare0 = Colors.grey as Color;
+    });
+  }
+
   void _ChangeColor0() {
     setState(() {
       culoare0 = Colors.black54 as Color;
@@ -58,8 +65,12 @@ class _SignInState extends State<SignIn> {
                   color: Colors.white54.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
-                onFieldSubmitted: (value) =>
-                    FocusScope.of(context).requestFocus(f1),
+                onFieldSubmitted: (value) {
+                  setState(() {
+                    FocusScope.of(context).requestFocus(f1);
+                    _ChangeColor1();
+                  });
+                },
                 onTap: _ChangeColor0,
                 focusNode: f0,
 
@@ -87,6 +98,11 @@ class _SignInState extends State<SignIn> {
                   color: Colors.white54.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
+                onFieldSubmitted: (value) {
+                  setState(() {
+                    _ChangeColor00();
+                  });
+                },
                 focusNode: f1,
                 onTap: _ChangeColor1,
                 style: TextStyle(fontSize: 17),

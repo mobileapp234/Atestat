@@ -8,8 +8,8 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  final TextEditingController _emailValue1 = TextEditingController();
-  final TextEditingController _passwordlValue1 = TextEditingController();
+  final TextEditingController _emailValue0 = TextEditingController();
+  final TextEditingController _passwordlValue0 = TextEditingController();
   bool _vizibility = true;
   void _toggleVizibility() {
     setState(() {
@@ -33,7 +33,9 @@ class _SignInState extends State<SignIn> {
     });
   }
 
-  FocusNode myFocusNode = new FocusNode();
+  FocusNode f0 = FocusNode();
+  FocusNode f1 = FocusNode();
+
 //   myFocusNode.addListener(() {
 //   setState(() {});
 // });
@@ -56,16 +58,16 @@ class _SignInState extends State<SignIn> {
                   color: Colors.white54.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
+                onFieldSubmitted: (value) =>
+                    FocusScope.of(context).requestFocus(f1),
                 onTap: _ChangeColor0,
-                focusNode: myFocusNode,
+                focusNode: f0,
 
                 style: TextStyle(fontSize: 17),
-                controller: _emailValue1,
+                controller: _emailValue0,
                 keyboardType: TextInputType.emailAddress,
                 // textAlign: TextAlign.start,
                 decoration: InputDecoration(
-                    labelStyle: TextStyle(
-                        color: myFocusNode.hasFocus ? Colors.red : Colors.pink),
                     prefixIcon: Icon(
                       Icons.email,
                       color: culoare0,
@@ -84,11 +86,12 @@ class _SignInState extends State<SignIn> {
               decoration: BoxDecoration(
                   color: Colors.white54.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10)),
-              child: TextField(
+              child: TextFormField(
+                focusNode: f1,
                 onTap: _ChangeColor1,
                 style: TextStyle(fontSize: 17),
                 obscureText: _vizibility,
-                controller: _passwordlValue1,
+                controller: _passwordlValue0,
                 // textAlign: TextAlign.start,
                 decoration: InputDecoration(
                     suffixIcon: GestureDetector(

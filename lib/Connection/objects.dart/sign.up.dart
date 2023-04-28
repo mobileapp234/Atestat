@@ -10,11 +10,9 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final TextEditingController _emailValue2 = TextEditingController();
-
+  final TextEditingController _emailValue1 = TextEditingController();
+  final TextEditingController _passwordlValue1 = TextEditingController();
   final TextEditingController _passwordlValue2 = TextEditingController();
-  final TextEditingController _passwordlValue3 = TextEditingController();
-
   bool _vizibility0 = true;
   void _toggleVizibility0() {
     setState(() {
@@ -29,63 +27,148 @@ class _SignUpState extends State<SignUp> {
     });
   }
 
+  bool _vizibility2 = true;
+  void _toggleVizibility2() {
+    setState(() {
+      _vizibility2 = !_vizibility2;
+    });
+  }
+
+  Color color0 = Colors.grey;
+  Color color1 = Colors.grey;
+  Color color2 = Colors.grey;
+  void _ChangeColor0() {
+    setState(() {
+      color0 = Colors.black54 as Color;
+      color1 = Colors.grey as Color;
+      color2 = Colors.grey as Color;
+    });
+  }
+
+  void _ChangeColor1() {
+    setState(() {
+      color0 = Colors.black54 as Color;
+      color1 = Colors.grey as Color;
+      color2 = Colors.grey as Color;
+    });
+  }
+
+  void _ChangeColor2() {
+    setState(() {
+      color2 = Colors.black54 as Color;
+      color1 = Colors.grey as Color;
+      color0 = Colors.grey as Color;
+    });
+  }
+
+  FocusNode f0 = FocusNode();
+  FocusNode f1 = FocusNode();
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: Center(
           child: Column(
         children: [
-          TextField(
-            //onTap: (int index){},
-            controller: _emailValue2,
-            expands: false,
-            maxLines: 1,
-            decoration: const InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                hintText: 'Email Address',
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(color: Colors.white))),
-          ),
+          Container(
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.6,
+              decoration: BoxDecoration(
+                  color: Colors.white54.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                onFieldSubmitted: (value) =>
+                    FocusScope.of(context).requestFocus(f1),
+                onTap: _ChangeColor0,
+                focusNode: f0,
+
+                style: TextStyle(fontSize: 17),
+                controller: _emailValue1,
+                keyboardType: TextInputType.emailAddress,
+                // textAlign: TextAlign.start,
+                decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: color0,
+                    ),
+                    contentPadding: EdgeInsets.all(13),
+                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    // filled: true,
+                    // fillColor: Colors.white,
+                    hintText: 'Email Address',
+                    border: InputBorder.none),
+              )),
           const SizedBox(height: 20),
-          TextField(
-            controller: _passwordlValue2,
-            expands: false,
-            maxLines: 1,
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                hintText: 'Password',
-                suffixIcon: GestureDetector(
-                  onTap: _toggleVizibility0,
-                  child: Icon(
-                      _vizibility0 ? Icons.visibility_off : Icons.visibility),
-                ),
-                enabledBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(color: Colors.white))),
-            obscureText: _vizibility0,
-          ),
+          Container(
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.6,
+              decoration: BoxDecoration(
+                  color: Colors.white54.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                focusNode: f1,
+                onTap: _ChangeColor1,
+                style: TextStyle(fontSize: 17),
+                obscureText: _vizibility0,
+                controller: _passwordlValue1,
+                // textAlign: TextAlign.start,
+                decoration: InputDecoration(
+                    suffixIcon: GestureDetector(
+                      onTap: _toggleVizibility1,
+                      child: Icon(
+                        _vizibility0 ? Icons.visibility_off : Icons.visibility,
+                        color: color1,
+                      ),
+                    ),
+                    labelStyle: TextStyle(
+                      color: Colors.white, //<-- SEE HERE
+                    ),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: color1,
+                    ),
+                    contentPadding: EdgeInsets.all(13),
+                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    // filled: true,
+                    // fillColor: Colors.white,
+                    hintText: 'Password',
+                    border: InputBorder.none),
+              )),
           const SizedBox(height: 20),
-          TextField(
-            controller: _passwordlValue3,
-            expands: false,
-            maxLines: 1,
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                hintText: 'Confirm Password',
-                suffixIcon: GestureDetector(
-                  onTap: _toggleVizibility1,
-                  child: Icon(
-                      _vizibility1 ? Icons.visibility_off : Icons.visibility),
-                ),
-                enabledBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(color: Colors.white))),
-            obscureText: _vizibility1,
-          ),
+          Container(
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.width * 0.6,
+              decoration: BoxDecoration(
+                  color: Colors.white54.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                focusNode: f1,
+                onTap: _ChangeColor1,
+                style: TextStyle(fontSize: 17),
+                obscureText: _vizibility0,
+                controller: _passwordlValue2,
+                // textAlign: TextAlign.start,
+                decoration: InputDecoration(
+                    suffixIcon: GestureDetector(
+                      onTap: _toggleVizibility2,
+                      child: Icon(
+                        _vizibility2 ? Icons.visibility_off : Icons.visibility,
+                        color: color1,
+                      ),
+                    ),
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: color1,
+                    ),
+                    contentPadding: EdgeInsets.all(13),
+                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    // filled: true,
+                    // fillColor: Colors.white,
+                    hintText: 'Repeat Password',
+                    border: InputBorder.none),
+              )),
           const SizedBox(height: 40),
           ElevatedButton(
               style: ButtonStyle(
@@ -97,19 +180,11 @@ class _SignUpState extends State<SignUp> {
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                           side: const BorderSide(color: Colors.blue)))),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MainPage()),
-                );
-              },
+              onPressed: () {},
               child: Padding(
                 padding: const EdgeInsets.all(15),
-                child: AutoSizeText(
-                  "Create Account".toUpperCase(),
-                  style: const TextStyle(fontSize: 14),
-                  maxLines: 1,
-                ),
+                child: Text("Login".toUpperCase(),
+                    style: const TextStyle(fontSize: 15)),
               )),
           const SizedBox(height: 30),
           Column(
@@ -145,7 +220,7 @@ class _SignUpState extends State<SignUp> {
                         borderRadius: BorderRadius.circular(16),
                         color: Colors.white),
                     child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8),
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           image: DecorationImage(

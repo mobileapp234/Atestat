@@ -22,29 +22,10 @@ List<String> imagini = [
 ];
 List<String> nume = ["Supa de perisoare", "Supa de cartofi", "Supa de paun"];
 List<int> pret = [12, 33, 44];
-// class HomePageScreenSize extends StatelessWidget {
-//   const HomePageScreenSize({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // final screenSize = MediaQuery.of(context);
-//     // final s_s = screenSize.size.width * 0.05;
-//     // final padding1 = EdgeInsets.all(s_s);
-//     // final
-//     return const HomePage();
-//   }
-// }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  // late final padding1;
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   padding1=widget.
-  // }
-  // final menu mn=new Meniu;
-
+  ValueNotifier<int> _counter = ValueNotifier<int>(0);
+  final Widget goodJob = const Text('Good job!');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,23 +92,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // rebuild si se schimba ce se afiseza // ar trebuii sa fc asta
 //si cand apas pe buton si se schimba c.categorie
           for (int i = 1; i <= 10; i++)
-            StatefulBuilder(
-              builder: (context, setState) {
-                print(c.categorie);
 
-                return Container(
-                    child: Column(
+            // print(c.categorie);
+            ValueListenableBuilder<int>(
+              valueListenable: _counter,
+              builder: (BuildContext context, int value, widget) {
+                return Column(
                   children: [
                     Menu(
-                      nume: nume[c.categorie],
-                      pret: pret[c.categorie],
-                      imagini: imagini[c.categorie],
+                      nume: nume[c.categorie.value],
+                      pret: pret[c.categorie.value],
+                      imagini: imagini[c.categorie.value],
                     ),
-                    const SizedBox(height: 20)
+                    const SizedBox(height: 20),
                   ],
-                ));
+                );
               },
-            ),
+            )
+
+          // return
         ],
       ),
     ]));

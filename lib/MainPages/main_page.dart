@@ -33,8 +33,7 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: CurvedNavigationBar(
         height: 60,
         onTap: apasare,
-        backgroundColor:
-            curentIndex == 1 ? Colors.lightBlue.shade200 : Colors.white,
+        backgroundColor: curentIndex == 1 ? Colors.transparent : Colors.white,
         color: curentIndex == 0
             ? Colors.orange.shade400
             : curentIndex == 1

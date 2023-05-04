@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:mobile_app/MainPages/home_page.dart';
 import '../../MainPages/main_page.dart';
 
 class SignUp extends StatefulWidget {
@@ -205,8 +206,8 @@ class _SignUpState extends State<SignUp> {
                           borderRadius: BorderRadius.circular(10),
                           side: const BorderSide(color: Colors.blue)))),
               onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => MainPage()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const MainPage()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(15),

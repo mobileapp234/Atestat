@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_app/Widgets/home_slider.dart';
 
 class ManuPage extends StatefulWidget {
   const ManuPage({super.key});
@@ -10,7 +9,6 @@ class ManuPage extends StatefulWidget {
 }
 
 class ManuPageState extends State<ManuPage> {
-  @override
   final PageController _pageController = PageController();
   Widget build(BuildContext context) {
     return Scaffold(

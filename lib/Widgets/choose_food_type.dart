@@ -13,23 +13,12 @@ class ChooseFoodType extends StatefulWidget {
 
 class _ChooseFoodTypeState extends State<ChooseFoodType> {
   @override
-  // void dispose() {
-  //   Menu(
-  //     nume: nume[c.categorie],
-  //     pret: pret[c.categorie],
-  //     imagini: imagini[c.categorie],
-  //   ).dispose;
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
         height: 100,
-        child:
-            // Generated code for this ListView Widget...
-            ListView(
+        child: ListView(
           padding: EdgeInsets.zero,
           primary: false,
           shrinkWrap: true,

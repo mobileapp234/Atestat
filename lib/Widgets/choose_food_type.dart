@@ -27,7 +27,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
             GestureDetector(
               onTap: () async {
                 setState(() {
-                  c.categorie.value = 0;
+                  c.categorie = 0;
                   // print(c.categorie);
                 });
                 // dispose();
@@ -76,7 +76,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
             GestureDetector(
               onTap: () async {
                 setState(() {
-                  c.categorie.value = 1;
+                  c.categorie = 1;
 
                   /// print(c.categorie);
                 });
@@ -126,8 +126,8 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  c.categorie.value = 2;
-                  print(c.categorie.value);
+                  c.categorie = 2;
+                  print(c.categorie);
                 });
               },
               child: Padding(
@@ -174,7 +174,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  c.categorie.value = 3;
+                  c.categorie = 3;
                   print(c.categorie);
                 });
               },

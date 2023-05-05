@@ -57,7 +57,7 @@ class _Menu extends State<Menu> {
                 height: 120,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(imagini[c.categorie.value]),
+                        image: AssetImage(imagini[c.categorie]),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(10)),
               ),
@@ -71,7 +71,7 @@ class _Menu extends State<Menu> {
                     top: 12,
                   ),
                   child: AutoSizeText(
-                    nume[c.categorie.value],
+                    nume[c.categorie],
                     style: TextStyle(
                         fontFamily: "SignikaNegative-Regular",
                         fontSize: 19,
@@ -81,7 +81,7 @@ class _Menu extends State<Menu> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 2, bottom: 5),
-                  child: Text("${pret[c.categorie.value]} lei",
+                  child: Text("${pret[c.categorie]} lei",
                       style: const TextStyle(fontSize: 18)),
                 ),
               ],
@@ -110,7 +110,7 @@ class _Menu extends State<Menu> {
                 height: 120,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(imagini[c.categorie.value + 1]),
+                        image: AssetImage(imagini[c.categorie]),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(10)),
               ),
@@ -124,7 +124,7 @@ class _Menu extends State<Menu> {
                     top: 12,
                   ),
                   child: AutoSizeText(
-                    nume[c.categorie.value + 1],
+                    nume[c.categorie],
                     style: TextStyle(
                         fontFamily: "SignikaNegative-Regular",
                         fontSize: 19,
@@ -134,7 +134,7 @@ class _Menu extends State<Menu> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 2, bottom: 5),
-                  child: Text("${pret[c.categorie.value + 1]} lei",
+                  child: Text("${pret[c.categorie]} lei",
                       style: const TextStyle(fontSize: 18)),
                 ),
               ],

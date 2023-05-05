@@ -4,6 +4,7 @@ import 'package:mobile_app/Widgets/choose_food_type.dart';
 
 import 'package:mobile_app/Widgets/home_slider.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
+import 'package:mobile_app/show_food.dart/show.dart';
 import '../Widgets/menu.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,15 +18,14 @@ class HomePage extends StatefulWidget {
 
 List<String> imagini = [
   "assets/images/tomatosoup_13560_16x9.jpg",
-  "assets/images/Catalog-Kaufland-6-mai-12-mai-2020.jpg",
-  "assets/images/download.jpg",
+  "assets/images/steak.jpg",
+  "assets/images/cake.jpg",
+  "assets/images/cocktails.jpg"
 ];
-List<String> nume = ["Supa de perisoare", "Supa de cartofi", "Supa de paun"];
-List<int> pret = [12, 33, 44];
+List<String> nume = ["Supa de perisoare", "Friptura", "Prajitura", "Cocktail"];
+List<int> pret = [12, 33, 15, 19];
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  ValueNotifier<int> _counter = ValueNotifier<int>(0);
-  final Widget goodJob = const Text('Good job!');
   bool isVerified = false;
   @override
   Widget build(BuildContext context) {
@@ -238,33 +238,39 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         )
                       ],
                     ),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: const DecorationImage(
-                              image: AssetImage(
-                                  "assets/images/June21-chicken-noodle-soup-976x549.jpg"),
-                              fit: BoxFit.cover)),
-                      child: Text("Supe",
-                          style: TextStyle(
-                              shadows: <Shadow>[
-                                Shadow(
-                                  offset: Offset(1, 3),
-                                  blurRadius: 5,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                ),
-                                // Shadow(
-                                //   offset: Offset(10.0, 10.0),
-                                //   blurRadius: 8.0,
-                                //   color: Color.fromARGB(125, 0, 0, 255),
-                                // ),
-                              ],
-                              fontFamily: "AbrilFatface-Regular.ttf",
-                              fontSize: 40,
-                              color: Colors.white)),
-                      alignment: Alignment.center,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Show()));
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            image: const DecorationImage(
+                                image: AssetImage(
+                                    "assets/images/June21-chicken-noodle-soup-976x549.jpg"),
+                                fit: BoxFit.cover)),
+                        child: Text("Supe",
+                            style: TextStyle(
+                                shadows: <Shadow>[
+                                  Shadow(
+                                    offset: Offset(1, 3),
+                                    blurRadius: 5,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                  // Shadow(
+                                  //   offset: Offset(10.0, 10.0),
+                                  //   blurRadius: 8.0,
+                                  //   color: Color.fromARGB(125, 0, 0, 255),
+                                  // ),
+                                ],
+                                fontFamily: "AbrilFatface-Regular.ttf",
+                                fontSize: 40,
+                                color: Colors.white)),
+                        alignment: Alignment.center,
+                      ),
                     )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,

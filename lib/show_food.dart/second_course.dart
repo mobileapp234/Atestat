@@ -5,6 +5,8 @@ import '../Widgets/choose_food_type.dart';
 import '../Widgets/menu.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
 
+import '../Widgets/menu2.dart';
+
 class SecondCourse extends StatefulWidget {
   const SecondCourse({super.key});
 
@@ -27,12 +29,11 @@ class _SecondCourseState extends State<SecondCourse> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
           ),
-          Menu(
-            nume: nume[c.categorie],
-            pret: pret[c.categorie],
-            imagini: imagini[c.categorie],
+          Menu2(
+            nume1: nume[1],
+            pret1: pret[1],
+            imagini1: imagini[1],
           ),
-          const SizedBox(height: 20),
         ],
       ),
     );

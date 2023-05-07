@@ -20,11 +20,10 @@ class _DrinksState extends State<Drinks> {
             height: MediaQuery.of(context).size.height * 0.01,
           ),
           Menu(
-            nume: nume[3],
-            pret: pret[3],
-            imagini: imagini[3],
-          ),
-          const SizedBox(height: 20),
+              // nume: nume[3],
+              // pret: pret[3],
+              // imagini: imagini[3],
+              ),
         ],
       ),
     );

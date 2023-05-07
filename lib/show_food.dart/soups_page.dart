@@ -23,11 +23,10 @@ class _SoupsState extends State<Soups> {
             height: MediaQuery.of(context).size.height * 0.01,
           ),
           Menu(
-            nume: nume[0],
-            pret: pret[0],
-            imagini: imagini[0],
-          ),
-          const SizedBox(height: 20),
+              // nume: nume[0],
+              // pret: pret[0],
+              // imagini: imagini[0],
+              ),
         ],
       ),
     );

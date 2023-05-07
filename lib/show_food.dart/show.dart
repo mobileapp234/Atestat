@@ -24,11 +24,11 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
     tb = TabController(length: 4, vsync: this);
 
     // Listen to the TabController and update the variable when the tab changes
-    tb.addListener(() {
-      setState(() {
-        c.categorie = tb.index;
-      });
-    });
+    // tb.addListener(() {
+    //   setState(() {
+    //     // c.categorie = tb.index;
+    //   });
+    // });
   }
 
   @override

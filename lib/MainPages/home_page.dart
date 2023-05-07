@@ -16,15 +16,6 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-List<String> imagini = [
-  "assets/images/tomatosoup_13560_16x9.jpg",
-  "assets/images/steak.jpg",
-  "assets/images/cake.jpg",
-  "assets/images/cocktails.jpg"
-];
-List<String> nume = ["Supa de perisoare", "Friptura", "Prajitura", "Cocktail"];
-List<int> pret = [12, 33, 15, 19];
-
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   bool isVerified = false;
   @override

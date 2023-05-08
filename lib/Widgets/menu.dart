@@ -10,21 +10,21 @@ class Menu extends StatefulWidget {
 
 List<String> imagini = [
   "assets/images/tomatosoup_13560_16x9.jpg",
-  "assets/images/steak.jpg",
-  "assets/images/cake.jpg",
-  "assets/images/cocktails.jpg",
-  "assets/images/steak1.jpg",
-  "assets/images/steak2.jpg"
+  "assets/images/soupes1.jpg",
+  "assets/images/Soupes2.jpg",
+  "assets/images/Soupes3.jpg",
+  "assets/images/Soupes4.jpg",
+  "assets/images/Soupes5.jpg",
 ];
 List<String> nume = [
   "Supa de perisoare",
-  "Friptura",
-  "Prajitura",
-  "Cocktail",
-  "Null",
-  "mmmm"
+  "Supa 2",
+  "Supa 3",
+  "Supa 4",
+  "Supa 5",
+  "Supa 6"
 ];
-List<int> pret = [12, 33, 15, 19, 0, 12];
+List<int> pret = [12, 33, 15, 19, 20, 12];
 
 class _MenuState extends State<Menu> {
   int i = -2;
@@ -32,7 +32,7 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return Container(
         width: MediaQuery.of(context).size.width * 1,
-        height: MediaQuery.of(context).size.height * 0.8,
+        height: MediaQuery.of(context).size.height * 0.75,
         child: ListView.builder(
             itemCount: 3,
             itemBuilder: (BuildContext ctxt, int index) {
@@ -52,7 +52,7 @@ class _MenuState extends State<Menu> {
                               BoxShadow(
                                 blurRadius: 4,
                                 color: Color(0x230E151B),
-                                offset: Offset(0, 2),
+                                offset: Offset(1, 3),
                               )
                             ]),
                         child: Column(children: [
@@ -105,7 +105,7 @@ class _MenuState extends State<Menu> {
                               BoxShadow(
                                 blurRadius: 4,
                                 color: Color(0x230E151B),
-                                offset: Offset(0, 2),
+                                offset: Offset(1, 3),
                               )
                             ]),
                         child: Column(children: [
@@ -150,9 +150,7 @@ class _MenuState extends State<Menu> {
                       const SizedBox(height: 20),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  )
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05)
                 ],
               );
             }));

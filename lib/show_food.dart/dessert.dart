@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/Widgets/menu1.dart';
+import 'package:mobile_app/Widgets/menu2.dart';
 
 import '../MainPages/home_page.dart';
 import '../Widgets/menu.dart';
@@ -19,11 +21,7 @@ class _DessertsState extends State<Desserts> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
           ),
-          Menu(
-              // nume: nume[2],
-              // pret: pret[2],
-              // imagini: imagini[2],
-              ),
+          Menu2()
         ],
       ),
     );

@@ -36,12 +36,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               const SizedBox(height: 12),
               SizedBox(
                   height: 200, width: double.infinity, child: HomeSlider()),
-              const SizedBox(height: 20),
-              // const ChooseFoodType(),
-
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
+              Divider(
+                height: 30,
+                thickness: 2,
+                indent: 25,
+                endIndent: 25,
               ),
+
+              // const ChooseFoodType(),
 
               Container(
                   width: MediaQuery.of(context).size.width * 0.9,
@@ -210,10 +212,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       )
                     ],
                   )),
-
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
+              Divider(
+                height: 30,
+                thickness: 2,
+                indent: 25,
+                endIndent: 25,
               ),
+
               Column(children: [
                 Container(
                     height: MediaQuery.of(context).size.height * 0.21,

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_app/Globals_Variables.dart' as ind;
 
-class ManuPage extends StatefulWidget {
-  const ManuPage({super.key});
+import 'menu.dart';
+
+class FoodPage extends StatefulWidget {
+  const FoodPage({super.key});
 
   @override
-  State<ManuPage> createState() => ManuPageState();
+  State<FoodPage> createState() => FoodPageState();
 }
 
-class ManuPageState extends State<ManuPage> {
+class FoodPageState extends State<FoodPage> {
   final PageController _pageController = PageController();
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +80,7 @@ class ManuPageState extends State<ManuPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("sdf6",
+                                  Text(name[ind.food],
                                       style: GoogleFonts.actor(
                                         fontSize: 30,
                                         color: Colors.black,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mobile_app/MainPages/setings_page.dart';
 import 'home_page.dart';
-import 'menu_page.dart';
+import '../Widgets/food_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,7 +13,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List pages = [
-    const ManuPage(),
+    const FoodPage(),
     const HomePage(),
     const SetingsPage(),
   ];

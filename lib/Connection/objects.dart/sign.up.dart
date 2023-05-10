@@ -12,8 +12,8 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final TextEditingController _emailValue1 = TextEditingController();
-  final TextEditingController _passwordlValue1 = TextEditingController();
-  final TextEditingController _passwordlValue2 = TextEditingController();
+  final TextEditingController _passwordValue1 = TextEditingController();
+  final TextEditingController _passwordValue2 = TextEditingController();
   bool _vizibility0 = true;
   void _toggleVizibility0() {
     setState(() {
@@ -129,7 +129,7 @@ class _SignUpState extends State<SignUp> {
                 onTap: _ChangeColor1,
                 style: TextStyle(fontSize: 17),
                 obscureText: _vizibility1,
-                controller: _passwordlValue1,
+                controller: _passwordValue1,
                 // textAlign: TextAlign.start,
                 decoration: InputDecoration(
                     suffixIcon: GestureDetector(
@@ -170,7 +170,7 @@ class _SignUpState extends State<SignUp> {
                 onTap: _ChangeColor2,
                 style: TextStyle(fontSize: 17),
                 obscureText: _vizibility2,
-                controller: _passwordlValue2,
+                controller: _passwordValue2,
                 // textAlign: TextAlign.start,
                 decoration: InputDecoration(
                     suffixIcon: GestureDetector(

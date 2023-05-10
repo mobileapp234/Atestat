@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -9,7 +10,7 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   final TextEditingController _emailValue0 = TextEditingController();
-  final TextEditingController _passwordlValue0 = TextEditingController();
+  final TextEditingController _passwordValue0 = TextEditingController();
   bool _vizibility = true;
   void _toggleVizibility() {
     setState(() {
@@ -42,6 +43,13 @@ class _SignInState extends State<SignIn> {
 
   FocusNode f0 = FocusNode();
   FocusNode f1 = FocusNode();
+
+  Future SignIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailValue0.text.trim(),
+      password: _passwordValue0.text.trim(),
+    );
+  }
 
 //   myFocusNode.addListener(() {
 //   setState(() {});
@@ -107,7 +115,7 @@ class _SignInState extends State<SignIn> {
                 onTap: _ChangeColor1,
                 style: TextStyle(fontSize: 17),
                 obscureText: _vizibility,
-                controller: _passwordlValue0,
+                controller: _passwordValue0,
                 // textAlign: TextAlign.start,
                 decoration: InputDecoration(
                     suffixIcon: GestureDetector(
@@ -142,7 +150,9 @@ class _SignInState extends State<SignIn> {
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                           side: const BorderSide(color: Colors.blue)))),
-              onPressed: () {},
+              onPressed: () {
+                SignIn();
+              },
               child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: Text("Login".toUpperCase(),

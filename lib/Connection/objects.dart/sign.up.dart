@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:mobile_app/MainPages/home_page.dart';
 import '../../MainPages/main_page.dart';
 
 class SignUp extends StatefulWidget {
@@ -40,33 +38,33 @@ class _SignUpState extends State<SignUp> {
   Color color2 = Colors.grey;
   void _ChangeColor000() {
     setState(() {
-      color0 = Colors.grey as Color;
-      color1 = Colors.grey as Color;
-      color2 = Colors.grey as Color;
+      color0 = Colors.grey;
+      color1 = Colors.grey;
+      color2 = Colors.grey;
     });
   }
 
   void _ChangeColor0() {
     setState(() {
-      color0 = Colors.black54 as Color;
-      color1 = Colors.grey as Color;
-      color2 = Colors.grey as Color;
+      color0 = Colors.black54;
+      color1 = Colors.grey;
+      color2 = Colors.grey;
     });
   }
 
   void _ChangeColor1() {
     setState(() {
-      color1 = Colors.black54 as Color;
-      color0 = Colors.grey as Color;
-      color2 = Colors.grey as Color;
+      color1 = Colors.black54;
+      color0 = Colors.grey;
+      color2 = Colors.grey;
     });
   }
 
   void _ChangeColor2() {
     setState(() {
-      color2 = Colors.black54 as Color;
-      color1 = Colors.grey as Color;
-      color0 = Colors.grey as Color;
+      color2 = Colors.black54;
+      color1 = Colors.grey;
+      color0 = Colors.grey;
     });
   }
 
@@ -95,7 +93,7 @@ class _SignUpState extends State<SignUp> {
                 onTap: _ChangeColor0,
                 focusNode: f0,
 
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
                 controller: _emailValue1,
                 keyboardType: TextInputType.emailAddress,
                 // textAlign: TextAlign.start,
@@ -104,8 +102,8 @@ class _SignUpState extends State<SignUp> {
                       Icons.email,
                       color: color0,
                     ),
-                    contentPadding: EdgeInsets.all(13),
-                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    contentPadding: const EdgeInsets.all(13),
+                    floatingLabelStyle: const TextStyle(fontSize: 12),
                     // filled: true,
                     // fillColor: Colors.white,
                     hintText: 'Email Address',
@@ -127,7 +125,7 @@ class _SignUpState extends State<SignUp> {
                 },
                 focusNode: f1,
                 onTap: _ChangeColor1,
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
                 obscureText: _vizibility1,
                 controller: _passwordValue1,
                 // textAlign: TextAlign.start,
@@ -139,15 +137,15 @@ class _SignUpState extends State<SignUp> {
                         color: color1,
                       ),
                     ),
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Colors.white, //<-- SEE HERE
                     ),
                     prefixIcon: Icon(
                       Icons.lock,
                       color: color1,
                     ),
-                    contentPadding: EdgeInsets.all(13),
-                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    contentPadding: const EdgeInsets.all(13),
+                    floatingLabelStyle: const TextStyle(fontSize: 12),
                     // filled: true,
                     // fillColor: Colors.white,
                     hintText: 'Password',
@@ -168,7 +166,7 @@ class _SignUpState extends State<SignUp> {
                 },
                 focusNode: f2,
                 onTap: _ChangeColor2,
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
                 obscureText: _vizibility2,
                 controller: _passwordValue2,
                 // textAlign: TextAlign.start,
@@ -180,15 +178,15 @@ class _SignUpState extends State<SignUp> {
                         color: color2,
                       ),
                     ),
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Colors.white,
                     ),
                     prefixIcon: Icon(
                       Icons.lock,
                       color: color2,
                     ),
-                    contentPadding: EdgeInsets.all(13),
-                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    contentPadding: const EdgeInsets.all(13),
+                    floatingLabelStyle: const TextStyle(fontSize: 12),
                     // filled: true,
                     // fillColor: Colors.white,
                     hintText: 'Repeat Password',

@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class HomeSlider extends StatefulWidget {
+  const HomeSlider({super.key});
+
   @override
   _HomeSliderState createState() => _HomeSliderState();
 }
@@ -37,7 +39,7 @@ class _HomeSliderState extends State<HomeSlider> {
           height: 80,
           width: 100,
           color: Colors.blue,
-          child: Center(
+          child: const Center(
             child: Text("Page 1"),
           ),
         ),
@@ -45,7 +47,7 @@ class _HomeSliderState extends State<HomeSlider> {
           height: 80,
           width: 100,
           color: Colors.green,
-          child: Center(
+          child: const Center(
             child: Text("Page 2"),
           ),
         ),
@@ -53,7 +55,7 @@ class _HomeSliderState extends State<HomeSlider> {
           height: 80,
           width: 100,
           color: Colors.red,
-          child: Center(
+          child: const Center(
             child: Text("Page 3"),
           ),
         ),

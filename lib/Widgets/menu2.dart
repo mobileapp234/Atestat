@@ -30,7 +30,7 @@ class _Menu2State extends State<Menu2> {
   int i2 = -2;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * 1,
       height: MediaQuery.of(context).size.height * 0.75,
       child: ListView.builder(
@@ -72,12 +72,12 @@ class _Menu2State extends State<Menu2> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                 top: 12,
                               ),
                               child: AutoSizeText(
                                 name2[i2],
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontFamily: "SignikaNegative-Regular",
                                     fontSize: 19,
                                     fontWeight: FontWeight.w400),
@@ -124,12 +124,12 @@ class _Menu2State extends State<Menu2> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                 top: 12,
                               ),
                               child: AutoSizeText(
                                 name2[i2 + 1],
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontFamily: "SignikaNegative-Regular",
                                     fontSize: 19,
                                     fontWeight: FontWeight.w400),

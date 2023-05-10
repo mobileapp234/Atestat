@@ -22,22 +22,22 @@ class _SignInState extends State<SignIn> {
   Color culoare1 = Colors.grey;
   void _ChangeColor00() {
     setState(() {
-      culoare1 = Colors.grey as Color;
-      culoare0 = Colors.grey as Color;
+      culoare1 = Colors.grey;
+      culoare0 = Colors.grey;
     });
   }
 
   void _ChangeColor0() {
     setState(() {
-      culoare0 = Colors.black54 as Color;
-      culoare1 = Colors.grey as Color;
+      culoare0 = Colors.black54;
+      culoare1 = Colors.grey;
     });
   }
 
   void _ChangeColor1() {
     setState(() {
-      culoare1 = Colors.black54 as Color;
-      culoare0 = Colors.grey as Color;
+      culoare1 = Colors.black54;
+      culoare0 = Colors.grey;
     });
   }
 
@@ -82,7 +82,7 @@ class _SignInState extends State<SignIn> {
                 onTap: _ChangeColor0,
                 focusNode: f0,
 
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
                 controller: _emailValue0,
                 keyboardType: TextInputType.emailAddress,
                 // textAlign: TextAlign.start,
@@ -91,8 +91,8 @@ class _SignInState extends State<SignIn> {
                       Icons.email,
                       color: culoare0,
                     ),
-                    contentPadding: EdgeInsets.all(13),
-                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    contentPadding: const EdgeInsets.all(13),
+                    floatingLabelStyle: const TextStyle(fontSize: 12),
                     // filled: true,
                     // fillColor: Colors.white,
                     hintText: 'Email Address',
@@ -113,7 +113,7 @@ class _SignInState extends State<SignIn> {
                 },
                 focusNode: f1,
                 onTap: _ChangeColor1,
-                style: TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17),
                 obscureText: _vizibility,
                 controller: _passwordValue0,
                 // textAlign: TextAlign.start,
@@ -125,15 +125,15 @@ class _SignInState extends State<SignIn> {
                         color: culoare1,
                       ),
                     ),
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Colors.white, //<-- SEE HERE
                     ),
                     prefixIcon: Icon(
                       Icons.lock,
                       color: culoare1,
                     ),
-                    contentPadding: EdgeInsets.all(13),
-                    floatingLabelStyle: TextStyle(fontSize: 12),
+                    contentPadding: const EdgeInsets.all(13),
+                    floatingLabelStyle: const TextStyle(fontSize: 12),
                     // filled: true,
                     // fillColor: Colors.white,
                     hintText: 'Password',

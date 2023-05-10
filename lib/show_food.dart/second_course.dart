@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../MainPages/home_page.dart';
-import '../Widgets/choose_food_type.dart';
-import '../Widgets/menu.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
 
 import '../Widgets/menu1.dart';
@@ -29,7 +26,7 @@ class _SecondCourseState extends State<SecondCourse> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
           ),
-          Menu1()
+          const Menu1()
         ],
       ),
     );

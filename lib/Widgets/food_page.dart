@@ -13,6 +13,7 @@ class FoodPage extends StatefulWidget {
 
 class FoodPageState extends State<FoodPage> {
   final PageController _pageController = PageController();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
@@ -20,12 +21,12 @@ class FoodPageState extends State<FoodPage> {
           children: [
             Stack(children: [
               Positioned(
-                  child: Container(
+                  child: SizedBox(
                 width: MediaQuery.of(context).size.width * 1,
                 height: MediaQuery.of(context).size.height * 1.5,
               )),
               Positioned(
-                  child: Container(
+                  child: SizedBox(
                 width: MediaQuery.of(context).size.width * 1,
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: PageView(
@@ -35,14 +36,14 @@ class FoodPageState extends State<FoodPage> {
                     Container(
                       width: MediaQuery.of(context).size.width * 1,
                       height: MediaQuery.of(context).size.height * 0.6,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("assets/images/download.jpg"))),
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: MediaQuery.of(context).size.height * 0.6,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
                                   "assets/images/Catalog-Kaufland-6-mai-12-mai-2020.jpg"))),
@@ -50,7 +51,7 @@ class FoodPageState extends State<FoodPage> {
                     Container(
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: MediaQuery.of(context).size.height * 0.6,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
                                   "assets/images/tomatosoup_13560_16x9.jpg"),

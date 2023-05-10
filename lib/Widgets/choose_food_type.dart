@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
-import 'package:mobile_app/Widgets/menu.dart';
 
-import '../MainPages/home_page.dart';
 
 class ChooseFoodType extends StatefulWidget {
   const ChooseFoodType({super.key});
@@ -15,7 +13,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
   @override
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: double.infinity,
         height: 100,
         child: ListView(
@@ -33,13 +31,13 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
                 // dispose();
               },
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 0, 8),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 0, 8),
                 child: Container(
                   width: 120,
                   height: 190,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 4,
                         color: Color(0x230E151B),
@@ -48,7 +46,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
                     ],
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -82,7 +80,7 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
                 });
               },
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 8, 0, 8),
+                padding: const EdgeInsetsDirectional.fromSTEB(12, 8, 0, 8),
                 child: Container(
                   width: 120,
                   height: 190,
@@ -131,13 +129,13 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
                 });
               },
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 8, 0, 8),
+                padding: const EdgeInsetsDirectional.fromSTEB(12, 8, 0, 8),
                 child: Container(
                   width: 120,
                   height: 190,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 4,
                         color: Color(0x230E151B),
@@ -179,13 +177,13 @@ class _ChooseFoodTypeState extends State<ChooseFoodType> {
                 });
               },
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 8, 0, 8),
+                padding: const EdgeInsetsDirectional.fromSTEB(12, 8, 0, 8),
                 child: Container(
                   width: 120,
                   height: 190,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 4,
                         color: Color(0x230E151B),

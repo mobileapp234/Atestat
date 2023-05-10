@@ -80,7 +80,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
         child: SingleChildScrollView(
           child: Column(children: [
             SizedBox(height: MediaQuery.of(context).size.width * 0.19),
-            Center(
+            const Center(
               child: SizedBox(
                   child: AutoSizeText("Themis Bistro",
                       maxLines: 1,
@@ -100,7 +100,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
               indicatorWeight: 3,
               indicatorSize: TabBarIndicatorSize.label,
               unselectedLabelColor: Colors.grey,
-              tabs: [
+              tabs: const [
                 Tab(
                     child: Text("Sign In",
                         style: TextStyle(

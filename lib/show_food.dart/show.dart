@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/Widgets/choose_food_type.dart';
 import 'package:mobile_app/show_food.dart/dessert.dart';
 import 'package:mobile_app/show_food.dart/drinks.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/soups_page.dart';
-import 'package:mobile_app/Globals_Variables.dart' as c;
 
 class Show extends StatefulWidget {
   const Show({super.key});
@@ -42,10 +40,10 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
-          title: Text("T H E M I S  B I S T R O"),
+          title: const Text("T H E M I S  B I S T R O"),
           centerTitle: true,
           actions: <Widget>[
-            IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_sharp))
+            IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
           ],
           bottom: PreferredSize(
             preferredSize:
@@ -55,7 +53,7 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
                 isScrollable: true,
                 indicatorColor: Colors.black,
                 indicatorWeight: 3,
-                tabs: [
+                tabs: const [
                   Text(
                     "Supe",
                     style: TextStyle(fontSize: 30),
@@ -77,7 +75,7 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
         ),
         body: TabBarView(
           controller: tb,
-          children: [Soups(), SecondCourse(), Desserts(), Drinks()],
+          children: const [Soups(), SecondCourse(), Desserts(), Drinks()],
         ));
   }
 }

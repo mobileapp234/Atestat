@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Widgets/menu3.dart';
 
-import '../MainPages/home_page.dart';
-import '../Widgets/menu.dart';
 
 class Drinks extends StatefulWidget {
   const Drinks({super.key});

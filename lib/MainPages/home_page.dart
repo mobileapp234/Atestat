@@ -1,11 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_app/Widgets/choose_food_type.dart';
 
 import 'package:mobile_app/Widgets/home_slider.dart';
-import 'package:mobile_app/Globals_Variables.dart' as c;
 import 'package:mobile_app/show_food.dart/show.dart';
-import '../Widgets/menu.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -23,10 +19,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.purple[800],
-          title: Text("T H E M I S  B I S T R O"),
+          title: const Text("T H E M I S  B I S T R O"),
           centerTitle: true,
           actions: <Widget>[
-            IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_sharp))
+            IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
           ],
         ),
         body: ListView(scrollDirection: Axis.vertical, children: [
@@ -34,9 +30,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             // crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               const SizedBox(height: 12),
-              SizedBox(
+              const SizedBox(
                   height: 200, width: double.infinity, child: HomeSlider()),
-              Divider(
+              const Divider(
                 height: 30,
                 thickness: 2,
                 indent: 25,
@@ -50,7 +46,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   height: MediaQuery.of(context).size.height * 0.3,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(110, 255, 153, 0),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 4,
                         color: Color(0x230E151B),
@@ -94,9 +90,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           Container(
                             alignment: Alignment.center,
                             width: MediaQuery.of(context).size.width * 0.9,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Color.fromARGB(255, 255, 245, 238)),
-                            child: Text(
+                            child: const Text(
                               "Cea mai buna oferta !",
                               style: TextStyle(
                                   fontSize: 25,
@@ -116,7 +112,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 height:
                                     MediaQuery.of(context).size.height * 0.1,
                                 decoration: BoxDecoration(
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 3,
                                       color: Color(0x230E151B),
@@ -125,7 +121,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ],
                                   border:
                                       Border.all(color: Colors.white, width: 5),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                       image: AssetImage(
                                           "assets/images/tomatosoup_13560_16x9.jpg"),
                                       fit: BoxFit.fill),
@@ -136,7 +132,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 width: MediaQuery.of(context).size.width * 0.1,
                                 height:
                                     MediaQuery.of(context).size.height * 0.1,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     image: DecorationImage(
                                         image:
                                             AssetImage("assets/png/plus.png"))),
@@ -146,7 +142,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 height:
                                     MediaQuery.of(context).size.height * 0.1,
                                 decoration: BoxDecoration(
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 3,
                                       color: Color(0x230E151B),
@@ -155,7 +151,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ],
                                   border:
                                       Border.all(color: Colors.white, width: 5),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                       image: AssetImage(
                                           "assets/images/friptura-la-cuptor.jpg"),
                                       fit: BoxFit.fill),
@@ -175,12 +171,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               GestureDetector(
-                                child: Icon(Icons.info_rounded),
+                                child: const Icon(Icons.info_rounded),
                                 onTap: () {},
                               ),
                               Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(3),
+                                decoration: BoxDecoration(
+                                    color: Colors.red[400],
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(3),
                                   child: Text(
                                     "25 lei",
                                     style: TextStyle(
@@ -189,9 +188,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         fontSize: 30),
                                   ),
                                 ),
-                                decoration: BoxDecoration(
-                                    color: Colors.red[400],
-                                    borderRadius: BorderRadius.circular(8)),
                               ),
                               GestureDetector(
                                 child: Icon(
@@ -212,7 +208,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       )
                     ],
                   )),
-              Divider(
+              const Divider(
                 height: 30,
                 thickness: 2,
                 indent: 25,
@@ -226,7 +222,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 4,
                           color: Color(0x230E151B),
@@ -237,7 +233,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Show()));
+                            MaterialPageRoute(builder: (context) => const Show()));
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.2,
@@ -248,7 +244,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 image: AssetImage(
                                     "assets/images/June21-chicken-noodle-soup-976x549.jpg"),
                                 fit: BoxFit.cover)),
-                        child: Text("Supe",
+                        alignment: Alignment.center,
+                        child: const Text("Supe",
                             style: TextStyle(
                                 shadows: <Shadow>[
                                   Shadow(
@@ -265,7 +262,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 fontFamily: "AbrilFatface-Regular.ttf",
                                 fontSize: 40,
                                 color: Colors.white)),
-                        alignment: Alignment.center,
                       ),
                     )),
                 SizedBox(
@@ -277,7 +273,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 4,
                           color: Color(0x230E151B),
@@ -293,7 +289,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           image: const DecorationImage(
                               image: AssetImage("assets/images/steak.jpg"),
                               fit: BoxFit.cover)),
-                      child: Text("Fripturi",
+                      alignment: Alignment.center,
+                      child: const Text("Fripturi",
                           style: TextStyle(
                               shadows: <Shadow>[
                                 Shadow(
@@ -310,7 +307,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               fontFamily: "AbrilFatface-Regular.ttf",
                               fontSize: 40,
                               color: Colors.white)),
-                      alignment: Alignment.center,
                     )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
@@ -321,7 +317,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 4,
                           color: Color(0x230E151B),
@@ -337,7 +333,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           image: const DecorationImage(
                               image: AssetImage("assets/images/cake.jpg"),
                               fit: BoxFit.cover)),
-                      child: Text("Prajituri",
+                      alignment: Alignment.center,
+                      child: const Text("Prajituri",
                           style: TextStyle(
                               shadows: <Shadow>[
                                 Shadow(
@@ -349,7 +346,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               fontFamily: "AbrilFatface-Regular.ttf",
                               fontSize: 40,
                               color: Colors.white)),
-                      alignment: Alignment.center,
                     )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
@@ -360,7 +356,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 4,
                           color: Color(0x230E151B),
@@ -376,7 +372,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           image: const DecorationImage(
                               image: AssetImage("assets/images/cocktails.jpg"),
                               fit: BoxFit.cover)),
-                      child: Text("Bauturi",
+                      alignment: Alignment.center,
+                      child: const Text("Bauturi",
                           style: TextStyle(
                               shadows: <Shadow>[
                                 Shadow(
@@ -388,7 +385,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               fontFamily: "AbrilFatface-Regular.ttf",
                               fontSize: 40,
                               color: Colors.white)),
-                      alignment: Alignment.center,
                     )),
               ])
 

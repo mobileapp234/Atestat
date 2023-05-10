@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/Widgets/choose_food_type.dart';
 
-import '../MainPages/home_page.dart';
 import '../Widgets/menu.dart';
-import 'package:mobile_app/Globals_Variables.dart' as c;
 
 class Soups extends StatefulWidget {
   const Soups({super.key});
@@ -22,7 +19,7 @@ class _SoupsState extends State<Soups> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
           ),
-          Menu(
+          const Menu(
               // nume: nume[0],
               // pret: pret[0],
               // imagini: imagini[0],

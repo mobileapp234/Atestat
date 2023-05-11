@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../MainPages/main_page.dart';
 
@@ -204,6 +205,7 @@ class _SignUpState extends State<SignUp> {
                           borderRadius: BorderRadius.circular(10),
                           side: const BorderSide(color: Colors.blue)))),
               onPressed: () {
+                SignUp();
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => const MainPage()));
               },

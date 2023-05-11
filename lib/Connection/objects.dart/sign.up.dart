@@ -13,12 +13,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _emailValue1 = TextEditingController();
   final TextEditingController _passwordValue1 = TextEditingController();
   final TextEditingController _passwordValue2 = TextEditingController();
-  bool _vizibility0 = true;
-  void _toggleVizibility0() {
-    setState(() {
-      _vizibility0 = !_vizibility0;
-    });
-  }
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   bool _vizibility1 = true;
   void _toggleVizibility1() {

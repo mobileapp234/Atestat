@@ -268,6 +268,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
                 GestureDetector(
                   onTap: () {
+                    c.course_index = 1;
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => const Show()));
                   },

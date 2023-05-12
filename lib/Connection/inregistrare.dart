@@ -602,24 +602,34 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 const SizedBox(width: 30),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: Colors.white),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/png/apple.png"),
-                                          fit: BoxFit.contain,
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const MainPage()),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius: BorderRadius.circular(16),
+                                        color: Colors.white),
+                                    child: const Padding(
+                                      padding: EdgeInsets.all(8),
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                "assets/png/apple.png"),
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
-                                      ),
-                                      child: SizedBox(
-                                        height: 40,
-                                        width: 40,
+                                        child: SizedBox(
+                                          height: 40,
+                                          width: 40,
+                                        ),
                                       ),
                                     ),
                                   ),

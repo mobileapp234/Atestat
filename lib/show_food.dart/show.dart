@@ -19,7 +19,6 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    // Initialize the TabController with the number of tabs
     tb = TabController(length: 4, vsync: this);
 
     // tb.addListener(() {
@@ -28,6 +27,13 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
     //     // c.categorie = tb.index;
     //   });
     // });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    tb.index = c.course_index;
   }
 
   @override

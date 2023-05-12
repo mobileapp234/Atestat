@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:mobile_app/Widgets/home_slider.dart';
+import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/show.dart';
+import 'package:mobile_app/Globals_Variables.dart' as c;
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -22,7 +24,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           title: const Text("T H E M I S  B I S T R O"),
           centerTitle: true,
           actions: <Widget>[
-            IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
+            IconButton(
+                onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
           ],
         ),
         body: ListView(scrollDirection: Axis.vertical, children: [
@@ -232,8 +235,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => const Show()));
+                        c.course_index = 0;
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const Show()));
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.2,
@@ -253,11 +257,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     blurRadius: 5,
                                     color: Color.fromARGB(255, 0, 0, 0),
                                   ),
-                                  // Shadow(
-                                  //   offset: Offset(10.0, 10.0),
-                                  //   blurRadius: 8.0,
-                                  //   color: Color.fromARGB(125, 0, 0, 255),
-                                  // ),
                                 ],
                                 fontFamily: "AbrilFatface-Regular.ttf",
                                 fontSize: 40,
@@ -267,125 +266,145 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
-                Container(
-                    height: MediaQuery.of(context).size.height * 0.21,
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 4,
-                          color: Color(0x230E151B),
-                          offset: Offset(0, 2),
-                        )
-                      ],
-                    ),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => const Show()));
+                  },
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.21,
                       width: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: const DecorationImage(
-                              image: AssetImage("assets/images/steak.jpg"),
-                              fit: BoxFit.cover)),
-                      alignment: Alignment.center,
-                      child: const Text("Fripturi",
-                          style: TextStyle(
-                              shadows: <Shadow>[
-                                Shadow(
-                                  offset: Offset(1, 3),
-                                  blurRadius: 5,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                ),
-                                // Shadow(
-                                //   offset: Offset(10.0, 10.0),
-                                //   blurRadius: 8.0,
-                                //   color: Color.fromARGB(125, 0, 0, 255),
-                                // ),
-                              ],
-                              fontFamily: "AbrilFatface-Regular.ttf",
-                              fontSize: 40,
-                              color: Colors.white)),
-                    )),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 4,
+                            color: Color(0x230E151B),
+                            offset: Offset(0, 2),
+                          )
+                        ],
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            image: const DecorationImage(
+                                image: AssetImage("assets/images/steak.jpg"),
+                                fit: BoxFit.cover)),
+                        alignment: Alignment.center,
+                        child: const Text("Fripturi",
+                            style: TextStyle(
+                                shadows: <Shadow>[
+                                  Shadow(
+                                    offset: Offset(1, 3),
+                                    blurRadius: 5,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ],
+                                fontFamily: "AbrilFatface-Regular.ttf",
+                                fontSize: 40,
+                                color: Colors.white)),
+                      )),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
-                Container(
-                    height: MediaQuery.of(context).size.height * 0.21,
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 4,
-                          color: Color(0x230E151B),
-                          offset: Offset(0, 2),
-                        )
-                      ],
-                    ),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      c.course_index = 2;
+                    });
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => const Show()));
+                  },
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.21,
                       width: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: const DecorationImage(
-                              image: AssetImage("assets/images/cake.jpg"),
-                              fit: BoxFit.cover)),
-                      alignment: Alignment.center,
-                      child: const Text("Prajituri",
-                          style: TextStyle(
-                              shadows: <Shadow>[
-                                Shadow(
-                                  offset: Offset(1, 3),
-                                  blurRadius: 5,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                ),
-                              ],
-                              fontFamily: "AbrilFatface-Regular.ttf",
-                              fontSize: 40,
-                              color: Colors.white)),
-                    )),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 4,
+                            color: Color(0x230E151B),
+                            offset: Offset(0, 2),
+                          )
+                        ],
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            image: const DecorationImage(
+                                image: AssetImage("assets/images/cake.jpg"),
+                                fit: BoxFit.cover)),
+                        alignment: Alignment.center,
+                        child: const Text("Prajituri",
+                            style: TextStyle(
+                                shadows: <Shadow>[
+                                  Shadow(
+                                    offset: Offset(1, 3),
+                                    blurRadius: 5,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ],
+                                fontFamily: "AbrilFatface-Regular.ttf",
+                                fontSize: 40,
+                                color: Colors.white)),
+                      )),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
-                Container(
-                    height: MediaQuery.of(context).size.height * 0.21,
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 4,
-                          color: Color(0x230E151B),
-                          offset: Offset(0, 2),
-                        )
-                      ],
-                    ),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      c.course_index = 3;
+                    });
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => const Show()));
+                  },
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.21,
                       width: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: const DecorationImage(
-                              image: AssetImage("assets/images/cocktails.jpg"),
-                              fit: BoxFit.cover)),
-                      alignment: Alignment.center,
-                      child: const Text("Bauturi",
-                          style: TextStyle(
-                              shadows: <Shadow>[
-                                Shadow(
-                                  offset: Offset(1, 3),
-                                  blurRadius: 5,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                ),
-                              ],
-                              fontFamily: "AbrilFatface-Regular.ttf",
-                              fontSize: 40,
-                              color: Colors.white)),
-                    )),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 4,
+                            color: Color(0x230E151B),
+                            offset: Offset(0, 2),
+                          )
+                        ],
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/cocktails.jpg"),
+                                fit: BoxFit.cover)),
+                        alignment: Alignment.center,
+                        child: const Text("Bauturi",
+                            style: TextStyle(
+                                shadows: <Shadow>[
+                                  Shadow(
+                                    offset: Offset(1, 3),
+                                    blurRadius: 5,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ],
+                                fontFamily: "AbrilFatface-Regular.ttf",
+                                fontSize: 40,
+                                color: Colors.white)),
+                      )),
+                ),
               ])
 
               // for (int i = 1; i <= 10; i++)

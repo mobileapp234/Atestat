@@ -322,7 +322,28 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                         borderRadius: BorderRadius.circular(10),
                                         side: const BorderSide(
                                             color: Colors.blue)))),
-                            onPressed: () {},
+                            onPressed: () async {
+                              try {
+                                UserCredential userCredential =
+                                    await FirebaseAuth.instance
+                                        .signInWithEmailAndPassword(
+                                            email: _emailValue0.text,
+                                            password: _passwordValue0.text);
+                              } on FirebaseAuthException catch (e) {
+                                if (e.code == 'user-not-found') {
+                                  print('No user found for that email.');
+                                } else if (e.code == 'wrong-password') {
+                                  print(
+                                      'Wrong password provided for that user.');
+                                }
+                              }
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MainPage()),
+                              );
+                            },
                             child: Padding(
                               padding: const EdgeInsets.all(15),
                               child: Text("Login".toUpperCase(),
@@ -527,9 +548,25 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                         borderRadius: BorderRadius.circular(10),
                                         side: const BorderSide(
                                             color: Colors.blue)))),
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const MainPage()));
+                            onPressed: () async {
+                              try {
+                                print(1);
+                                UserCredential userCredential =
+                                    await FirebaseAuth.instance
+                                        .createUserWithEmailAndPassword(
+                                  email: _emailValue1.text,
+                                  password: _passwordValue1.text,
+                                );
+                              } on FirebaseAuthException catch (e) {
+                                print(2);
+                                if (e.code == 'weak-password')
+                                  print('The password providedn is too weak.');
+                                else if (e.code == 'email-is-already-in-use') {
+                                  print('The account is already in use.');
+                                }
+                              } catch (e) {
+                                print(e);
+                              }
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(15),

@@ -3,6 +3,7 @@ import 'package:mobile_app/show_food.dart/dessert.dart';
 import 'package:mobile_app/show_food.dart/drinks.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/soups_page.dart';
+import 'package:mobile_app/Globals_Variables.dart' as c;
 
 class Show extends StatefulWidget {
   const Show({super.key});
@@ -21,9 +22,9 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
     // Initialize the TabController with the number of tabs
     tb = TabController(length: 4, vsync: this);
 
-    // Listen to the TabController and update the variable when the tab changes
     // tb.addListener(() {
     //   setState(() {
+    //     tb.index = c.course_index;
     //     // c.categorie = tb.index;
     //   });
     // });
@@ -43,7 +44,8 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
           title: const Text("T H E M I S  B I S T R O"),
           centerTitle: true,
           actions: <Widget>[
-            IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
+            IconButton(
+                onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
           ],
           bottom: PreferredSize(
             preferredSize:
@@ -75,7 +77,7 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
         ),
         body: TabBarView(
           controller: tb,
-          children: const [Soups(), SecondCourse(), Desserts(), Drinks()],
+          children: [Soups(), SecondCourse(), Desserts(), Drinks()],
         ));
   }
 }

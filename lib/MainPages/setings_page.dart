@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SetingsPage extends StatefulWidget {
@@ -9,9 +10,13 @@ class SetingsPage extends StatefulWidget {
 class SetingsState extends State<SetingsPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text("Setings"),
+        child: Center(child: FloatingActionButton(
+          onPressed: () {
+            FirebaseAuth.instance.signOut();
+          },
+        )),
       ),
     );
   }

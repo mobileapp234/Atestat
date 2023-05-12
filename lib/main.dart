@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
 import 'Connection/inregistrare.dart';
 
-Future main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -17,38 +17,39 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuthWrapper(),
+      home: Isconnected(),
     );
   }
 }
 
-class AuthWrapper extends StatefulWidget {
-  const AuthWrapper({Key? key});
+class Isconnected extends StatefulWidget {
+  const Isconnected({Key? key});
 
   @override
-  _AuthWrapperState createState() => _AuthWrapperState();
+  _IsconnectedState createState() => _IsconnectedState();
 }
 
-class _AuthWrapperState extends State<AuthWrapper> {
-  User? _user;
+class _IsconnectedState extends State<Isconnected> {
+  User? user;
 
   @override
   void initState() {
     super.initState();
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    FirebaseAuth.instance.idTokenChanges().listen((User? newUser) {
       setState(() {
-        _user = user;
+        user = newUser;
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_user == null) {
-      return MainPage();
-    } else {
-      // return some other widget if user is logged in
+    if (user == null) {
+      print('User is currently signed out');
       return Logare();
+    } else {
+      print('User is signed in');
+      return MainPage();
     }
   }
 }

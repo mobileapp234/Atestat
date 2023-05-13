@@ -1,7 +1,10 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-
+import 'package:mobile_app/main.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../MainPages/main_page.dart';
 
 class Logare extends StatefulWidget {
@@ -13,10 +16,29 @@ class Logare extends StatefulWidget {
 
 bool whichpage = false;
 
+Future<UserCredential> signInWithGoogle() async {
+  // Trigger the authentication flow
+  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+  // Obtain the auth details from the request
+  final GoogleSignInAuthentication? googleAuth =
+      await googleUser?.authentication;
+
+  // Create a new credential
+  final credential = GoogleAuthProvider.credential(
+    accessToken: googleAuth?.accessToken,
+    idToken: googleAuth?.idToken,
+  );
+
+  // Once signed in, return the UserCredential
+  return await FirebaseAuth.instance.signInWithCredential(credential);
+}
+
 class _LogareState extends State<Logare> with TickerProviderStateMixin {
   final TextEditingController _emailValue0 = TextEditingController();
   final TextEditingController _passwordValue0 = TextEditingController();
   bool _vizibility = true;
+
   void _toggleVizibility() {
     setState(() {
       _vizibility = !_vizibility;
@@ -51,7 +73,8 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
   final TextEditingController _emailValue1 = TextEditingController();
   final TextEditingController _passwordValue1 = TextEditingController();
   final TextEditingController _passwordValue2 = TextEditingController();
-  FirebaseAuth auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   bool _vizibility1 = true;
   void _toggleVizibility1() {
@@ -337,12 +360,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                       'Wrong password provided for that user.');
                                 }
                               }
-
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const MainPage()),
-                              );
+                              Isconnected();
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(15),
@@ -350,60 +368,38 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                   style: const TextStyle(fontSize: 15)),
                             )),
                         const SizedBox(height: 30),
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: Colors.white),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/png/google.png"),
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                      child: SizedBox(
-                                        height: 40,
-                                        width: 40,
-                                      ),
-                                    ),
+                        GestureDetector(
+                          onTap: () async {
+                            try {
+                              await _googleSignIn.signIn();
+                            } catch (error) {
+                              print(error);
+                            }
+                            Isconnected();
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(16),
+                              color: Colors.white,
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/png/google.png"),
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
-                                const SizedBox(width: 30),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: Colors.white),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/png/apple.png"),
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                      child: SizedBox(
-                                        height: 40,
-                                        width: 40,
-                                      ),
-                                    ),
-                                  ),
+                                child: SizedBox(
+                                  height: 40,
+                                  width: 40,
                                 ),
-                              ],
-                            )
-                          ],
-                        )
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     )),
                   ),
@@ -567,6 +563,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                               } catch (e) {
                                 print(e);
                               }
+                              Isconnected();
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(15),
@@ -574,70 +571,38 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                   style: const TextStyle(fontSize: 15)),
                             )),
                         const SizedBox(height: 30),
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: Colors.white),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/png/google.png"),
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                      child: SizedBox(
-                                        height: 40,
-                                        width: 40,
-                                      ),
-                                    ),
+                        GestureDetector(
+                          onTap: () async {
+                            try {
+                              await _googleSignIn.signIn();
+                            } catch (error) {
+                              print(error);
+                            }
+                            Isconnected();
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(16),
+                              color: Colors.white,
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/png/google.png"),
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
-                                const SizedBox(width: 30),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const MainPage()),
-                                    );
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.grey),
-                                        borderRadius: BorderRadius.circular(16),
-                                        color: Colors.white),
-                                    child: const Padding(
-                                      padding: EdgeInsets.all(8),
-                                      child: DecoratedBox(
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage(
-                                                "assets/png/apple.png"),
-                                            fit: BoxFit.contain,
-                                          ),
-                                        ),
-                                        child: SizedBox(
-                                          height: 40,
-                                          width: 40,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+                                child: SizedBox(
+                                  height: 40,
+                                  width: 40,
                                 ),
-                              ],
-                            )
-                          ],
-                        )
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     )),
                   ),

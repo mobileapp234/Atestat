@@ -35,7 +35,7 @@ class _IsconnectedState extends State<Isconnected> {
   @override
   void initState() {
     super.initState();
-    FirebaseAuth.instance.idTokenChanges().listen((User? newUser) {
+    FirebaseAuth.instance.authStateChanges().listen((User? newUser) {
       setState(() {
         user = newUser;
       });

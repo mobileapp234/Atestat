@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
+import 'package:mobile_app/Widgets/menu1.dart';
+import 'package:mobile_app/Widgets/menu2.dart';
+import 'package:mobile_app/Widgets/menu3.dart';
 
 import 'menu.dart';
 
@@ -26,39 +29,21 @@ class FoodPageState extends State<FoodPage> {
                 height: MediaQuery.of(context).size.height * 1.5,
               )),
               Positioned(
-                  child: SizedBox(
+                  child: Container(
                 width: MediaQuery.of(context).size.width * 1,
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: PageView(
-                  controller: _pageController,
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 1,
-                      height: MediaQuery.of(context).size.height * 0.6,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/images/download.jpg"))),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      height: MediaQuery.of(context).size.height * 0.6,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  "assets/images/Catalog-Kaufland-6-mai-12-mai-2020.jpg"))),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      height: MediaQuery.of(context).size.height * 0.6,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  "assets/images/tomatosoup_13560_16x9.jpg"),
-                              fit: BoxFit.fill)),
-                    )
-                  ],
-                ),
+                height: MediaQuery.of(context).size.height * 0.25,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: ind.course_index == 0
+                            ? AssetImage(image[ind.food])
+                            : ind.course_index == 1
+                                ? AssetImage(image1[ind.food])
+                                : ind.course_index == 2
+                                    ? AssetImage(image2[ind.food])
+                                    : ind.course_index == 3
+                                        ? AssetImage(image3[ind.food])
+                                        : AssetImage(""),
+                        fit: BoxFit.fill)),
               )),
               Positioned(
                   top: 210,
@@ -81,7 +66,16 @@ class FoodPageState extends State<FoodPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(name[ind.food],
+                                  Text(
+                                      (ind.course_index == 0
+                                          ? name[ind.food]
+                                          : ind.course_index == 1
+                                              ? name1[ind.food]
+                                              : ind.course_index == 2
+                                                  ? name2[ind.food]
+                                                  : ind.course_index == 3
+                                                      ? name3[ind.food]
+                                                      : ""),
                                       style: GoogleFonts.actor(
                                         fontSize: 30,
                                         color: Colors.black,

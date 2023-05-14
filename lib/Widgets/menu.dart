@@ -10,7 +10,7 @@ class Menu extends StatefulWidget {
   State<Menu> createState() => _MenuState();
 }
 
-List<String> imagini = [
+List<String> image = [
   "assets/images/tomatosoup_13560_16x9.jpg",
   "assets/images/soupes1.jpg",
   "assets/images/Soupes2.jpg",
@@ -19,12 +19,12 @@ List<String> imagini = [
   "assets/images/Soupes5.jpg",
 ];
 List<String> name = [
-  "0",
   "Supa 1",
   "Supa 2",
   "Supa 3",
   "Supa 4",
   "Supa 5",
+  "Supa 6"
 ];
 List<int> pret = [
   12,
@@ -42,7 +42,7 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return SizedBox(
         width: MediaQuery.of(context).size.width * 1,
-        height: MediaQuery.of(context).size.height * 0.75,
+        height: MediaQuery.of(context).size.height * 0.8,
         child: ListView.builder(
             itemCount: 3,
             itemBuilder: (BuildContext ctxt, i) {
@@ -59,6 +59,7 @@ class _MenuState extends State<Menu> {
                         onTap: () {
                           setState(() {
                             ind.food = i;
+                            ind.course_index = 0;
                           });
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const FoodPage()));
@@ -84,7 +85,7 @@ class _MenuState extends State<Menu> {
                                 height: 120,
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: AssetImage(imagini[i]),
+                                        image: AssetImage(image[i]),
                                         fit: BoxFit.cover),
                                     borderRadius: BorderRadius.circular(10)),
                               ),
@@ -121,6 +122,7 @@ class _MenuState extends State<Menu> {
                         onTap: () {
                           setState(() {
                             ind.food = i + 1;
+                            ind.course_index = 0;
                           });
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const FoodPage()));
@@ -146,7 +148,7 @@ class _MenuState extends State<Menu> {
                                 height: 120,
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: AssetImage(imagini[i + 1]),
+                                        image: AssetImage(image[i + 1]),
                                         fit: BoxFit.cover),
                                     borderRadius: BorderRadius.circular(10)),
                               ),
@@ -181,7 +183,7 @@ class _MenuState extends State<Menu> {
                       const SizedBox(height: 20),
                     ],
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.05)
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02)
                 ],
               );
             }));

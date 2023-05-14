@@ -188,7 +188,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     style: TextStyle(
                                         fontFamily: "SourceSansPro-Italic.ttf",
                                         fontWeight: FontWeight.w400,
-                                        fontSize: 30),
+                                        fontSize: 25),
                                   ),
                                 ),
                               ),

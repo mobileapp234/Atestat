@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
@@ -8,7 +9,27 @@ import 'package:mobile_app/Widgets/menu3.dart';
 import 'package:readmore/readmore.dart';
 import 'menu.dart';
 
+int nr_ingredients = 7;
 bool showText = false;
+List<String> alergeni = [
+  "Cereale care conțin gluten (grâu, secară, orz, ovăz, grâ spelt, grâu mare, sau hibrizi ai acestora) și produse derivate",
+  "Crustacee și produse derivate",
+  "Ouă și produse derivate",
+  "Pește și produse derivate",
+  "Arahide și produse derivate",
+  "Soia și produse derivate",
+  " Lapte și produse derivate (inclusiv lactoza)",
+];
+
+List<String> ingredients = [
+  "Faina",
+  "Cacao",
+  "3 ora",
+  "Praf de copt",
+  "Ciocolata",
+  "Esenta de vanilie",
+  "Fructe de padure",
+];
 
 class FoodPage extends StatefulWidget {
   const FoodPage({super.key});
@@ -129,10 +150,10 @@ class FoodPageState extends State<FoodPage> {
                               child: Column(
                                 children: [
                                   ReadMoreText(
-                                    "sefg ekfhih iuefg fiusef iseufg iubf fkefg fuied fiuebfiyewr fi dsjgf jhfg jhgfuyfg jsdyfg jydfg jhdygf jygf kjhbf kusygdf fj fjehrfv jehrvjsefh fkj jsef ksdfhkfg jsdfgfyg sdf dsfd dsjf er  riu iu iurwvh i tiu iru  v  riu iu  igigfirfgb  ifygg ifyg",
+                                    "Prăjitura cu ciocolată și zmeură este o combinație perfectă între ciocolată bogată și aroma proaspătă a zmeurelor. Ea îmbină texturi și gusturi într-un mod surprinzător, oferind o experiență dulce de neuitat.",
                                     trimCollapsedText: "Citeste mai mult",
                                     trimExpandedText: "...Citeste mai putin",
-                                    trimLength: 70,
+                                    trimLength: 100,
                                     trimMode: TrimMode.Length,
                                     style: TextStyle(
                                       color: Colors.black, // Default color
@@ -141,18 +162,77 @@ class FoodPageState extends State<FoodPage> {
                                 ],
                               ),
                             ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Informatii",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontFamily: "SourceSansPro-Italic"),
-                                  ),
+                            Card(
+                              child: Theme(
+                                data: ThemeData.from(
+                                  colorScheme: ColorScheme.fromSwatch(
+                                      primarySwatch: Colors.lightBlue),
                                 ),
-                              ],
+                                child: ExpansionTile(
+                                    title: Text("Informatii"),
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 15),
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              "Ingrediente",
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            Container(
+                                                height: nr_ingredients < 10
+                                                    ? MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        0.2
+                                                    : MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        0.3,
+                                                child: ListView.builder(
+                                                    physics:
+                                                        const NeverScrollableScrollPhysics(),
+                                                    itemCount: 7,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return Text(
+                                                          "• ${ingredients[index]}");
+                                                    })),
+                                            Text(
+                                              "Alergeni",
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            SizedBox(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.015,
+                                            ),
+                                            Container(
+                                                height: nr_ingredients < 5
+                                                    ? MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        0.2
+                                                    : MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        0.3,
+                                                child: ListView.builder(
+                                                    physics:
+                                                        const NeverScrollableScrollPhysics(),
+                                                    itemCount: 7,
+                                                    itemBuilder:
+                                                        (context, index1) {
+                                                      return Text(
+                                                          "• ${alergeni[index1]}");
+                                                    })),
+                                          ],
+                                        ),
+                                      )
+                                    ]),
+                              ),
                             )
                             // Row(
                             //   children: [

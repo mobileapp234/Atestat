@@ -43,6 +43,7 @@ dependencies:
   cloud_firestore: ^4.6.0
   firebase_auth: ^4.5.0
   path_provider_android: ^2.0.27
+  readmore: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -103,6 +104,9 @@ flutter:
     - family: AbrilFatface-Regular
       fonts:
         - asset: fonts/AbrilFatface-Regular.ttf
+    - family: SourceSansPro-Italic.ttf
+      fonts:
+        - asset: fonts/SourceSansPro-Italic.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

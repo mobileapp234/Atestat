@@ -29,28 +29,23 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: CurvedNavigationBar(
-        height: 60,
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.blue[300],
+        unselectedItemColor: Colors.blueGrey,
         onTap: apasare,
-        backgroundColor: curentIndex == 1 ? Colors.transparent : Colors.white,
-        color: curentIndex == 0
-            ? Colors.orange.shade400
-            : curentIndex == 1
-                ? Colors.red
-                : Colors.lightBlue,
-        animationDuration: const Duration(milliseconds: 350),
-        items: const [
-          Icon(
-            Icons.home,
-            color: Colors.white,
+        currentIndex: curentIndex,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_sharp),
+            label: 'Comenzi',
           ),
-          Icon(
-            Icons.restaurant_rounded,
-            color: Colors.white,
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          Icon(
-            Icons.settings,
-            color: Colors.white,
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Setari',
           ),
         ],
       ),

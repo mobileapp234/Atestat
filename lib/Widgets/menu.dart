@@ -11,20 +11,20 @@ class Menu extends StatefulWidget {
 }
 
 List<String> image = [
-  "assets/images/tomatosoup_13560_16x9.jpg",
-  "assets/images/soupes1.jpg",
-  "assets/images/Soupes2.jpg",
-  "assets/images/Soupes3.jpg",
-  "assets/images/Soupes4.jpg",
-  "assets/images/Soupes5.jpg",
+  "assets/images/1.jpg",
+  "assets/images/2.jpg",
+  "assets/images/3.jpg",
+  "assets/images/4.jpg",
+  "assets/images/5.jpg",
+  "assets/images/istockphoto-614135148-612x612.jpg",
 ];
 List<String> name = [
-  "Supa 1",
-  "Supa 2",
-  "Supa 3",
-  "Supa 4",
-  "Supa 5",
-  "Supa 6"
+  "Sandwich 1",
+  "Sandwich 2",
+  "Sandwich 3",
+  "Sandwich 4",
+  "Sandwich 5",
+  "Sandwich 6",
 ];
 List<int> pret = [
   12,

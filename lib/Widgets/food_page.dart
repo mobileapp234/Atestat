@@ -9,6 +9,8 @@ import 'package:mobile_app/Widgets/menu3.dart';
 import 'package:readmore/readmore.dart';
 import 'menu.dart';
 
+int nr_food = 1;
+int price = 10;
 int nr_ingredients = 7;
 bool showText = false;
 List<String> alergeni = [
@@ -49,7 +51,7 @@ class FoodPageState extends State<FoodPage> {
               Positioned(
                   child: SizedBox(
                 width: MediaQuery.of(context).size.width * 1,
-                height: MediaQuery.of(context).size.height * 1.5,
+                height: MediaQuery.of(context).size.height * 1,
               )),
               Positioned(
                   // top: 0,
@@ -146,22 +148,29 @@ class FoodPageState extends State<FoodPage> {
                                   ),
                                 ]),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  ReadMoreText(
-                                    "Prăjitura cu ciocolată și zmeură este o combinație perfectă între ciocolată bogată și aroma proaspătă a zmeurelor. Ea îmbină texturi și gusturi într-un mod surprinzător, oferind o experiență dulce de neuitat.",
-                                    trimCollapsedText: "Citeste mai mult",
-                                    trimExpandedText: "...Citeste mai putin",
-                                    trimLength: 100,
-                                    trimMode: TrimMode.Length,
-                                    style: TextStyle(
-                                      color: Colors.black, // Default color
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, bottom: 10),
+                              child: Text(
+                                  "  Prăjitura cu ciocolată și zmeură este o combinație perfectă între ciocolată bogată și aroma proaspătă a zmeurelor. Ea îmbină texturi și gusturi într-un mod surprinzător, oferind o experiență dulce de neuitat"),
+                            )
+                            // Padding(
+                            //   padding: const EdgeInsets.all(8.0),
+                            //   child: Column(
+                            //     children: [
+                            //       ReadMoreText(
+                            //         "Prăjitura cu ciocolată și zmeură este o combinație perfectă între ciocolată bogată și aroma proaspătă a zmeurelor. Ea îmbină texturi și gusturi într-un mod surprinzător, oferind o experiență dulce de neuitat.",
+                            //         trimCollapsedText: "Citeste mai mult",
+                            //         trimExpandedText: "...Citeste mai putin",
+                            //         trimLength: 100,
+                            //         trimMode: TrimMode.Length,
+                            //         style: TextStyle(
+                            //           color: Colors.black, // Default color
+                            //         ),
+                            //       )
+                            //     ],
+                            //   ),
+                            // ),
+                            ,
                             Card(
                               child: Theme(
                                 data: ThemeData.from(
@@ -178,7 +187,7 @@ class FoodPageState extends State<FoodPage> {
                                           children: [
                                             Text(
                                               "Ingrediente",
-                                              style: TextStyle(fontSize: 15),
+                                              style: TextStyle(fontSize: 18),
                                             ),
                                             Container(
                                                 height: nr_ingredients < 10
@@ -201,7 +210,7 @@ class FoodPageState extends State<FoodPage> {
                                                     })),
                                             Text(
                                               "Alergeni",
-                                              style: TextStyle(fontSize: 15),
+                                              style: TextStyle(fontSize: 18),
                                             ),
                                             SizedBox(
                                               height: MediaQuery.of(context)
@@ -233,49 +242,225 @@ class FoodPageState extends State<FoodPage> {
                                       )
                                     ]),
                               ),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.width * 0.04,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.15,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.15,
+                                      decoration: BoxDecoration(
+                                          color: Colors.orange[100],
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Icon(
+                                        Icons.fireplace_rounded,
+                                        color: Colors.orange,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.04,
+                                    ),
+                                    Text(
+                                      "123 Kcal",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontStyle: FontStyle.italic,
+                                          fontWeight: FontWeight.bold,
+                                          //  fontWeight: FontWeight.w900,
+                                          fontFamily:
+                                              "CreativeThoughts-Regular"),
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.15,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.15,
+                                      decoration: BoxDecoration(
+                                          color: Colors.orange[100],
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Icon(
+                                        Icons.fireplace_rounded,
+                                        color: Colors.orange,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.04,
+                                    ),
+                                    Text(
+                                      "123 Kcal",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontStyle: FontStyle.italic,
+                                          fontWeight: FontWeight.bold,
+                                          //  fontWeight: FontWeight.w900,
+                                          fontFamily:
+                                              "CreativeThoughts-Regular"),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.04,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.15,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.15,
+                                      decoration: BoxDecoration(
+                                          color: Colors.orange[100],
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Icon(
+                                        Icons.fireplace_rounded,
+                                        color: Colors.orange,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.04,
+                                    ),
+                                    Text(
+                                      "123 Kcal",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontStyle: FontStyle.italic,
+                                          fontWeight: FontWeight.bold,
+                                          //  fontWeight: FontWeight.w900,
+                                          fontFamily:
+                                              "CreativeThoughts-Regular"),
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.15,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.15,
+                                      decoration: BoxDecoration(
+                                          color: Colors.orange[100],
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Icon(
+                                        Icons.fireplace_rounded,
+                                        color: Colors.orange,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.04,
+                                    ),
+                                    Text(
+                                      "123 Kcal",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontStyle: FontStyle.italic,
+                                          fontWeight: FontWeight.bold,
+                                          //  fontWeight: FontWeight.w900,
+                                          fontFamily:
+                                              "CreativeThoughts-Regular"),
+                                    )
+                                  ],
+                                ),
+                              ],
                             )
-                            // Row(
-                            //   children: [
-                            //     const Padding(
-                            //         padding: EdgeInsets.fromLTRB(10, 50, 0, 0)),
-                            //     Text("People",
-                            //         style: GoogleFonts.almendraSc(
-                            //           fontSize: 40,
-                            //           fontWeight: FontWeight.bold,
-                            //           color: Colors.white,
-                            //         )),
-                            //   ],
-                            // ),
-                            // const SizedBox(height: 1),
-                            // Row(
-                            //   children: [
-                            //     Text("All from Romania",
-                            //         style: GoogleFonts.annieUseYourTelescope(
-                            //             fontSize: 22,
-                            //             fontWeight: FontWeight.w100))
-                            //   ],
-                            // ),
-                            // const SizedBox(height: 10),
-                            // Wrap(
-                            //   children: List.generate(5, (index) {
-                            //     return Padding(
-                            //       padding: const EdgeInsets.all(5.0),
-                            //       child: Container(
-                            //           height: 60,
-                            //           width: 60,
-                            //           decoration: BoxDecoration(
-                            //               color: Colors.black12,
-                            //               borderRadius:
-                            //                   BorderRadius.circular(15))),
-                            //     );
-                            //   }),
-                            // )
                           ],
                         ),
                       ))),
             ]),
           ],
-        )
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if (nr_food > 1) nr_food -= 1;
+                  });
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.width * 0.09,
+                  width: MediaQuery.of(context).size.width * 0.09,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.blue,
+                  ),
+                  child: Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  nr_food.toString(),
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    nr_food += 1;
+                  });
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.width * 0.09,
+                  width: MediaQuery.of(context).size.width * 0.09,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.blue,
+                  ),
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: FloatingActionButton.extended(
+            onPressed: () {
+              //print("Tapped extended FAB");
+            },
+            heroTag: "2",
+            label: Text("Adauga pentru ${price * nr_food} lei"),
+            //icon: const Icon(Icons.arrow_upward),
+          ),
+        ),
       ]),
     );
   }

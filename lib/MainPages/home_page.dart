@@ -20,12 +20,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.purple[800],
+          backgroundColor: Colors.blue[400],
           title: const Text("T H E M I S  B I S T R O"),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
-                onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
+                onPressed: () {},
+                icon: const Icon(Icons.notifications_on_sharp))
           ],
         ),
         body: ListView(scrollDirection: Axis.vertical, children: [
@@ -33,14 +34,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             // crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               const SizedBox(height: 12),
-              const SizedBox(
-                  height: 200, width: double.infinity, child: HomeSlider()),
-              const Divider(
-                height: 30,
-                thickness: 2,
-                indent: 25,
-                endIndent: 25,
-              ),
+              // const SizedBox(
+              //     height: 200, width: double.infinity, child: HomeSlider()),
+              // const Divider(
+              //   height: 30,
+              //   thickness: 2,
+              //   indent: 25,
+              //   endIndent: 25,
+              // ),
 
               // const ChooseFoodType(),
 
@@ -246,10 +247,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(12),
                             image: const DecorationImage(
                                 image: AssetImage(
-                                    "assets/images/June21-chicken-noodle-soup-976x549.jpg"),
+                                    "assets/images/istockphoto-614135148-612x612.jpg"),
                                 fit: BoxFit.cover)),
                         alignment: Alignment.center,
-                        child: const Text("Supe",
+                        child: const Text("Gustari",
                             style: TextStyle(
                                 shadows: <Shadow>[
                                   Shadow(
@@ -263,59 +264,59 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 color: Colors.white)),
                       ),
                     )),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    c.course_index = 1;
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => const Show()));
-                  },
-                  child: Container(
-                      height: MediaQuery.of(context).size.height * 0.21,
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 4,
-                            color: Color(0x230E151B),
-                            offset: Offset(0, 2),
-                          )
-                        ],
-                      ),
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            image: const DecorationImage(
-                                image: AssetImage("assets/images/steak.jpg"),
-                                fit: BoxFit.cover)),
-                        alignment: Alignment.center,
-                        child: const Text("Fripturi",
-                            style: TextStyle(
-                                shadows: <Shadow>[
-                                  Shadow(
-                                    offset: Offset(1, 3),
-                                    blurRadius: 5,
-                                    color: Color.fromARGB(255, 0, 0, 0),
-                                  ),
-                                ],
-                                fontFamily: "AbrilFatface-Regular.ttf",
-                                fontSize: 40,
-                                color: Colors.white)),
-                      )),
-                ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.02,
+                // ),
+                // GestureDetector(
+                //   onTap: () {
+                //     c.course_index = 1;
+                //     Navigator.of(context).push(
+                //         MaterialPageRoute(builder: (context) => const Show()));
+                //   },
+                //   child: Container(
+                //       height: MediaQuery.of(context).size.height * 0.21,
+                //       width: MediaQuery.of(context).size.width * 0.9,
+                //       decoration: BoxDecoration(
+                //         color: Colors.white,
+                //         borderRadius: BorderRadius.circular(12),
+                //         boxShadow: const [
+                //           BoxShadow(
+                //             blurRadius: 4,
+                //             color: Color(0x230E151B),
+                //             offset: Offset(0, 2),
+                //           )
+                //         ],
+                //       ),
+                //       child: Container(
+                //         height: MediaQuery.of(context).size.height * 0.2,
+                //         width: MediaQuery.of(context).size.width * 0.9,
+                //         decoration: BoxDecoration(
+                //             borderRadius: BorderRadius.circular(12),
+                //             image: const DecorationImage(
+                //                 image: AssetImage("assets/images/steak.jpg"),
+                //                 fit: BoxFit.cover)),
+                //         alignment: Alignment.center,
+                //         child: const Text("Fripturi",
+                //             style: TextStyle(
+                //                 shadows: <Shadow>[
+                //                   Shadow(
+                //                     offset: Offset(1, 3),
+                //                     blurRadius: 5,
+                //                     color: Color.fromARGB(255, 0, 0, 0),
+                //                   ),
+                //                 ],
+                //                 fontFamily: "AbrilFatface-Regular.ttf",
+                //                 fontSize: 40,
+                //                 color: Colors.white)),
+                //       )),
+                // ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      c.course_index = 2;
+                      c.course_index = 1;
                     });
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => const Show()));
@@ -363,7 +364,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      c.course_index = 3;
+                      c.course_index = 2;
                     });
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => const Show()));

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/show_food.dart/dessert.dart';
 import 'package:mobile_app/show_food.dart/drinks.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
-import 'package:mobile_app/show_food.dart/soups_page.dart';
+import 'package:mobile_app/show_food.dart/gustari.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
 
 class Show extends StatefulWidget {
@@ -19,7 +19,7 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    tb = TabController(length: 4, vsync: this);
+    tb = TabController(length: 3, vsync: this);
 
     // tb.addListener(() {
     //   setState(() {
@@ -63,13 +63,13 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
                 indicatorWeight: 3,
                 tabs: const [
                   Text(
-                    "Supe",
+                    "Gustari",
                     style: TextStyle(fontSize: 30),
                   ),
-                  Text(
-                    "Felul 2",
-                    style: TextStyle(fontSize: 30),
-                  ),
+                  // Text(
+                  //   "Felul 2",
+                  //   style: TextStyle(fontSize: 30),
+                  // ),
                   Text(
                     "Prajituri",
                     style: TextStyle(fontSize: 30),
@@ -83,7 +83,7 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
         ),
         body: TabBarView(
           controller: tb,
-          children: [Soups(), SecondCourse(), Desserts(), Drinks()],
+          children: [Gustari(), Desserts(), Drinks()],
         ));
   }
 }

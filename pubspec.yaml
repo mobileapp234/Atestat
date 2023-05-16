@@ -44,6 +44,7 @@ dependencies:
   firebase_auth: ^4.5.0
   path_provider_android: ^2.0.27
   readmore: ^2.2.0
+  slide_action: ^0.0.2
 
 dev_dependencies:
   flutter_test:
@@ -107,6 +108,9 @@ flutter:
     - family: SourceSansPro-Italic.ttf
       fonts:
         - asset: fonts/SourceSansPro-Italic.ttf
+    - family: CreativeThoughts-Regular
+      fonts:
+        - asset: fonts/CreativeThoughts-Regular.otf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

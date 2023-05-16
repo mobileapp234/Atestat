@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../Widgets/menu.dart';
 
-class Soups extends StatefulWidget {
-  const Soups({super.key});
+class Gustari extends StatefulWidget {
+  const Gustari({super.key});
 
   @override
-  State<Soups> createState() => _SoupsState();
+  State<Gustari> createState() => _GustariState();
 }
 
-class _SoupsState extends State<Soups> {
+class _GustariState extends State<Gustari> {
   @override
   Widget build(BuildContext context) {
     var c;

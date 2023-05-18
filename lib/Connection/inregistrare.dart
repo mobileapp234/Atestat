@@ -1,11 +1,11 @@
-// ignore_for_file: unused_local_variable
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:mobile_app/main.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 import '../MainPages/main_page.dart';
+import 'google_sign_in.dart';
 
 class Logare extends StatefulWidget {
   const Logare({super.key});
@@ -369,13 +369,11 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             )),
                         const SizedBox(height: 30),
                         GestureDetector(
-                          onTap: () async {
-                            try {
-                              await _googleSignIn.signIn();
-                            } catch (error) {
-                              print(error);
-                            }
-                            Isconnected();
+                          onTap: () {
+                            final provider = Provider.of<GoogleSignInProvider>(
+                                context,
+                                listen: false);
+                            provider.googleLogin();
                           },
                           child: Container(
                             decoration: BoxDecoration(

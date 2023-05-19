@@ -16,24 +16,6 @@ class Logare extends StatefulWidget {
 
 bool whichpage = false;
 
-Future<UserCredential> signInWithGoogle() async {
-  // Trigger the authentication flow
-  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-  // Obtain the auth details from the request
-  final GoogleSignInAuthentication? googleAuth =
-      await googleUser?.authentication;
-
-  // Create a new credential
-  final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth?.accessToken,
-    idToken: googleAuth?.idToken,
-  );
-
-  // Once signed in, return the UserCredential
-  return await FirebaseAuth.instance.signInWithCredential(credential);
-}
-
 class _LogareState extends State<Logare> with TickerProviderStateMixin {
   final TextEditingController _emailValue0 = TextEditingController();
   final TextEditingController _passwordValue0 = TextEditingController();
@@ -369,12 +351,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             )),
                         const SizedBox(height: 30),
                         GestureDetector(
-                          onTap: () {
-                            final provider = Provider.of<GoogleSignInProvider>(
-                                context,
-                                listen: false);
-                            provider.googleLogin();
-                          },
+                          onTap: () => AuthGoogle().singInWithGoogle(),
                           child: Container(
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
@@ -569,38 +546,6 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                   style: const TextStyle(fontSize: 15)),
                             )),
                         const SizedBox(height: 30),
-                        GestureDetector(
-                          onTap: () async {
-                            try {
-                              await _googleSignIn.signIn();
-                            } catch (error) {
-                              print(error);
-                            }
-                            Isconnected();
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.white,
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage("assets/png/google.png"),
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                                child: SizedBox(
-                                  height: 40,
-                                  width: 40,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
                       ],
                     )),
                   ),

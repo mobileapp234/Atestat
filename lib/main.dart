@@ -5,27 +5,23 @@ import 'package:mobile_app/Connection/google_sign_in.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
 import 'Connection/inregistrare.dart';
 
-Future<void> main() async {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'MainPage';
+  const MyApp({Key? key});
 
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-      create: (context) => GoogleSignInProvider(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Isconnected(),
-      ));
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Isconnected(),
+    );
+  }
 }
-
-ChangeNotifierProvider(
-    {required GoogleSignInProvider Function(dynamic context) create,
-    required MaterialApp child}) {}
 
 class Isconnected extends StatefulWidget {
   const Isconnected({Key? key});

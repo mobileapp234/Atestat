@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:mobile_app/MainPages/orders.dart';
 import 'package:mobile_app/MainPages/setings_page.dart';
 import 'home_page.dart';
 import '../Widgets/food_page.dart';
@@ -13,7 +14,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List pages = [
-    const FoodPage(),
+    const Orders(),
     const HomePage(),
     const SetingsPage(),
   ];

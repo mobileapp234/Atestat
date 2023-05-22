@@ -4,16 +4,16 @@ import 'package:mobile_app/show_food.dart/dessert.dart';
 import 'package:mobile_app/show_food.dart/drinks.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/gustari.dart';
-import 'package:mobile_app/Globals_Variables.dart' as c;
+import 'package:mobile_app/Globals_Variables.dart' as ind;
 
-class Show extends StatefulWidget {
-  const Show({super.key});
+class ShowFood extends StatefulWidget {
+  const ShowFood({super.key});
 
   @override
-  State<Show> createState() => _ShowState();
+  State<ShowFood> createState() => _ShowFoodState();
 }
 
-class _ShowState extends State<Show> with TickerProviderStateMixin {
+class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
   late TabController tb;
 
   @override
@@ -34,7 +34,7 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    tb.index = c.course_index;
+    tb.index = ind.course_index;
   }
 
   @override
@@ -47,7 +47,7 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.blue[400],
           title: const Text("T H E M I S  B I S T R O"),
           centerTitle: true,
           leading: GestureDetector(
@@ -64,11 +64,16 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
           ),
           actions: <Widget>[
             IconButton(
-                onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
+                onPressed: () {
+                  ind.index_bottom_navigation_bar = 0;
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MainPage()));
+                },
+                icon: const Icon(Icons.shopping_cart_sharp))
           ],
           bottom: PreferredSize(
             preferredSize:
-                Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
+                Size.fromHeight(MediaQuery.of(context).size.height * 0.06),
             child: TabBar(
                 controller: tb,
                 isScrollable: true,

@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
+import 'package:mobile_app/MainPages/main_page.dart';
 import 'package:mobile_app/Widgets/menu1.dart';
 import 'package:mobile_app/Widgets/menu2.dart';
 import 'package:mobile_app/Widgets/menu2.dart';
@@ -97,15 +98,8 @@ class FoodPageState extends State<FoodPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Show()),
+                                      builder: (context) => const ShowFood()),
                                 );
-                                // } else if (ind.course_index == 1) {
-                                //   Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => const Desserts()),
-                                //   );
-                                // }
                               },
                               child: Icon(
                                 Icons.arrow_back_outlined,
@@ -118,7 +112,11 @@ class FoodPageState extends State<FoodPage> {
                             FloatingActionButton(
                               heroTag: 11,
                               backgroundColor: Colors.white,
-                              onPressed: () {},
+                              onPressed: () {
+                                ind.index_bottom_navigation_bar = 0;
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const MainPage()));
+                              },
                               child: Icon(
                                 FontAwesomeIcons.basketShopping,
                                 color: Colors.black,
@@ -512,10 +510,9 @@ class FoodPageState extends State<FoodPage> {
             ),
           ])),
       Positioned(
-          top: 680,
-          left: 100,
+          top: MediaQuery.of(context).size.height * 0.83,
+          left: MediaQuery.of(context).size.width * 0.22,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 10),

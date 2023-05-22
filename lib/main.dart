@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/Connection/google_sign_in.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
 import 'Connection/inregistrare.dart';
+import 'package:flutter/services.dart';
 
 Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());

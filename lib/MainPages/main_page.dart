@@ -4,6 +4,7 @@ import 'package:mobile_app/MainPages/orders.dart';
 import 'package:mobile_app/MainPages/setings_page.dart';
 import 'home_page.dart';
 import '../Widgets/food_page.dart';
+import 'package:mobile_app/Globals_Variables.dart' as ind;
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -19,10 +20,9 @@ class _MainPageState extends State<MainPage> {
     const SetingsPage(),
   ];
 
-  int curentIndex = 1;
   void apasare(index) {
     setState(() {
-      curentIndex = index;
+      ind.index_bottom_navigation_bar = index;
     });
   }
 
@@ -34,7 +34,7 @@ class _MainPageState extends State<MainPage> {
         selectedItemColor: Colors.blue[300],
         unselectedItemColor: Colors.blueGrey,
         onTap: apasare,
-        currentIndex: curentIndex,
+        currentIndex: ind.index_bottom_navigation_bar,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart_sharp),
@@ -50,7 +50,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: pages[curentIndex],
+      body: pages[ind.index_bottom_navigation_bar],
     );
   }
 }

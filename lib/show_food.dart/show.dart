@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/MainPages/main_page.dart';
 import 'package:mobile_app/show_food.dart/dessert.dart';
 import 'package:mobile_app/show_food.dart/drinks.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
@@ -49,6 +50,18 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
           backgroundColor: Colors.red,
           title: const Text("T H E M I S  B I S T R O"),
           centerTitle: true,
+          leading: GestureDetector(
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MainPage()),
+              );
+            },
+          ),
           actions: <Widget>[
             IconButton(
                 onPressed: () {}, icon: const Icon(Icons.shopping_cart_sharp))
@@ -66,10 +79,6 @@ class _ShowState extends State<Show> with TickerProviderStateMixin {
                     "Gustari",
                     style: TextStyle(fontSize: 30),
                   ),
-                  // Text(
-                  //   "Felul 2",
-                  //   style: TextStyle(fontSize: 30),
-                  // ),
                   Text(
                     "Prajituri",
                     style: TextStyle(fontSize: 30),

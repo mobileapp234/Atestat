@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/Widgets/menu3.dart';
-
+import 'package:mobile_app/Widgets/menu2.dart';
 
 class Drinks extends StatefulWidget {
   const Drinks({super.key});
@@ -18,7 +17,7 @@ class _DrinksState extends State<Drinks> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
           ),
-          const Menu3()
+          const Menu2()
         ],
       ),
     );

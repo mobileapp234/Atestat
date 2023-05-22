@@ -7,9 +7,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
 import 'package:mobile_app/Widgets/menu1.dart';
 import 'package:mobile_app/Widgets/menu2.dart';
-import 'package:mobile_app/Widgets/menu3.dart';
+import 'package:mobile_app/Widgets/menu2.dart';
+import 'package:mobile_app/show_food.dart/dessert.dart';
+import 'package:mobile_app/show_food.dart/gustari.dart';
+import 'package:mobile_app/show_food.dart/show.dart';
 import 'package:readmore/readmore.dart';
 import 'menu.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 double screen_size = 1;
 bool extend_screen = false;
@@ -61,13 +65,6 @@ class FoodPageState extends State<FoodPage> {
                   width: MediaQuery.of(context).size.width * 1,
                   height: MediaQuery.of(context).size.height * screen_size,
                   child: Stack(children: [
-                    // Positioned(
-                    //     //  top: 0,
-                    //     child: SizedBox(
-                    //   width: MediaQuery.of(context).size.width * 1,
-                    //   height: MediaQuery.of(context).size.height * screen_size,
-
-                    // )),
                     Positioned(
                         //top: 0,
                         child: Container(
@@ -81,21 +78,53 @@ class FoodPageState extends State<FoodPage> {
                                       ? AssetImage(image1[ind.food])
                                       : ind.course_index == 2
                                           ? AssetImage(image2[ind.food])
-                                          : ind.course_index == 3
-                                              ? AssetImage(image3[ind.food])
-                                              : AssetImage(""),
+                                          // : ind.course_index == 3
+                                          //     ? AssetImage(image3[ind.food])
+                                          : AssetImage(""),
                               fit: BoxFit.cover)),
                     )),
                     Positioned(
                         left: 10,
                         top: 10,
-                        child: FloatingActionButton(
-                          backgroundColor: Colors.white,
-                          onPressed: () {},
-                          child: Icon(
-                            Icons.arrow_back_outlined,
-                            color: Colors.black,
-                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            FloatingActionButton(
+                              heroTag: 10,
+                              backgroundColor: Colors.white,
+                              onPressed: () {
+                                // if (ind.course_index == 0) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Show()),
+                                );
+                                // } else if (ind.course_index == 1) {
+                                //   Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => const Desserts()),
+                                //   );
+                                // }
+                              },
+                              child: Icon(
+                                Icons.arrow_back_outlined,
+                                color: Colors.black,
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.67,
+                            ),
+                            FloatingActionButton(
+                              heroTag: 11,
+                              backgroundColor: Colors.white,
+                              onPressed: () {},
+                              child: Icon(
+                                FontAwesomeIcons.basketShopping,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
                         )),
                     Positioned(
                         top: 210,
@@ -137,8 +166,40 @@ class FoodPageState extends State<FoodPage> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              Icon(Icons.local_drink_outlined),
-                                              Text("Cafele")
+                                              Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.08,
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.08,
+                                                decoration: BoxDecoration(
+                                                    image: DecorationImage(
+                                                  image: ind.course_index == 0
+                                                      ? AssetImage(
+                                                          "assets/png/sandwich-icon (1).png")
+                                                      : ind.course_index == 1
+                                                          ? AssetImage(
+                                                              "assets/png/cake-cup-icon.png")
+                                                          : ind.course_index ==
+                                                                  2
+                                                              ? AssetImage(
+                                                                  "assets/png/plastic-takeaway-coffee-icon.png")
+                                                              // : ind.course_index == 3
+                                                              //     ? AssetImage(image3[ind.food])
+                                                              : AssetImage(""),
+                                                  // fit: BoxFit.cover
+                                                )),
+                                              ),
+                                              Text(ind.course_index == 0
+                                                  ? "Gustari"
+                                                  : ind.course_index == 1
+                                                      ? "Prajituri"
+                                                      : ind.course_index == 2
+                                                          ? "Cefele"
+                                                          : "")
                                             ]),
                                       ),
                                     ],
@@ -158,9 +219,9 @@ class FoodPageState extends State<FoodPage> {
                                                   ? name1[ind.food]
                                                   : ind.course_index == 2
                                                       ? name2[ind.food]
-                                                      : ind.course_index == 3
-                                                          ? name3[ind.food]
-                                                          : ""),
+                                                      // : ind.course_index == 3
+                                                      //     ? name3[ind.food]
+                                                      : ""),
                                           style: const TextStyle(
                                               fontFamily:
                                                   "AbrilFatface-Regular",
@@ -278,23 +339,26 @@ class FoodPageState extends State<FoodPage> {
                                       Row(
                                         children: [
                                           Container(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.15,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.15,
-                                            decoration: BoxDecoration(
-                                                color: Colors.orange[100],
-                                                borderRadius:
-                                                    BorderRadius.circular(30)),
-                                            child: Icon(
-                                              Icons.fireplace_rounded,
-                                              color: Colors.orange,
-                                            ),
-                                          ),
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.15,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.15,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.orange[100],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          30)),
+                                              child: Icon(
+                                                FontAwesomeIcons.burger,
+                                                // Icons.lightMode,
+                                                size:
+                                                    24, // Adjust the size as needed
+                                                //  color: ,
+                                              )),
                                           SizedBox(
                                             width: MediaQuery.of(context)
                                                     .size

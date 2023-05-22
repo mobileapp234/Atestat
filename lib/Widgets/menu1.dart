@@ -5,22 +5,22 @@ import 'package:mobile_app/Globals_Variables.dart' as ind;
 import 'food_page.dart';
 
 List<String> image1 = [
-  "assets/images/steak.jpg",
-  "assets/images/steak1.jpg",
-  "assets/images/steak2.jpg",
-  "assets/images/steak3.jpg",
-  "assets/images/steak4.jpg",
-  "assets/images/friptura-la-cuptor.jpg",
+  "assets/images/cake.jpg",
+  "assets/images/cake1.jpg",
+  "assets/images/cake2.jpg",
+  "assets/images/cake3.jpg",
+  "assets/images/cake4.jpg",
+  "assets/images/cake5.jpg",
 ];
 List<String> name1 = [
-  "Friptura 1",
-  "Friptura 2",
-  "friptura 3",
-  "Friptura 4",
-  "Friptura 5",
-  "Friptura 6",
+  "Prajitura 1",
+  "Prajitura 2",
+  "Prajitura 3",
+  "Prajitura 4",
+  "Prajitura 5",
+  "Prajitura 6",
 ];
-List<int> price1 = [20, 33, 25, 39, 22, 29];
+List<int> price1 = [10, 13, 15, 12, 14, 22];
 
 class Menu1 extends StatefulWidget {
   const Menu1({super.key});

@@ -12,22 +12,22 @@ class Menu2 extends StatefulWidget {
 }
 
 List<String> image2 = [
-  "assets/images/cake.jpg",
-  "assets/images/cake2.jpg",
-  "assets/images/cake1.jpg",
-  "assets/images/cake4.jpg",
-  "assets/images/cake5.jpg",
-  "assets/images/cake3.jpg",
+  "assets/images/cocktails.jpg",
+  "assets/images/beverage1.jpg",
+  "assets/images/beverage2.jpg",
+  "assets/images/beverage3.jpg",
+  "assets/images/beverage4.jpg",
+  "assets/images/beverage5.jpg",
 ];
 List<String> name2 = [
-  "Prajitura 1",
-  "Prijitura 2",
-  "Prajitura 3",
-  "Prajitura 4",
-  "Prajitura 5",
-  "Prajitura 6",
+  "Bautura 1",
+  "Bautura 2",
+  "Bautura 3",
+  "Bautura 4",
+  "Bautura 5",
+  "Bautura 6",
 ];
-List<int> price2 = [8, 10, 12, 7, 9, 18];
+List<int> price2 = [10, 12, 33, 22, 11, 14];
 
 class _Menu2State extends State<Menu2> {
   int i2 = 0;
@@ -38,7 +38,7 @@ class _Menu2State extends State<Menu2> {
       height: MediaQuery.of(context).size.height * 0.8,
       child: ListView.builder(
           itemCount: 3,
-          itemBuilder: (BuildContext ctxt, int i2) {
+          itemBuilder: (BuildContext ctxt, i2) {
             if (i2 > 0) i2++;
             if (i2 > 2) i2++;
             return Column(

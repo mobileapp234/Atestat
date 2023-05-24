@@ -2,9 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:mobile_app/main.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:provider/provider.dart';
-import '../MainPages/main_page.dart';
 import 'google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -56,7 +53,6 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
   final TextEditingController _emailValue1 = TextEditingController();
   final TextEditingController _passwordValue1 = TextEditingController();
   final TextEditingController _passwordValue2 = TextEditingController();
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   bool _vizibility1 = true;

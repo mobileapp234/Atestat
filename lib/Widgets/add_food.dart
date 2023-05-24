@@ -14,7 +14,9 @@ class _AddFoodState extends State<AddFood> {
   @override
   void initState() {
     super.initState();
-    FirebaseDatabase.instance.setPersistenceEnabled(true);
+    final String databaseUrl =
+        'https://aplicatie-c564b-default-rtdb.europe-west1.firebasedatabase.app';
+    FirebaseDatabase database = FirebaseDatabase(databaseURL: databaseUrl);
     fbRef = FirebaseDatabase.instance.reference().child("Meniu");
   }
 

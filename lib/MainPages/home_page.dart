@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/Widgets/add_food.dart';
 
 import 'package:mobile_app/Widgets/home_slider.dart';
+import 'package:mobile_app/Widgets/test.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/show.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
@@ -25,22 +26,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         title: const Text("T H E M I S  B I S T R O"),
         centerTitle: true,
         automaticallyImplyLeading: false,
-        // actions: <Widget>[
-        //   IconButton(
-        //       onPressed: () {}, icon: const Icon(Icons.notifications_on_sharp))
-        // ],
       ),
       body: WillPopScope(
           onWillPop: () async {
-            // Disable back button functionality
             return false;
           },
           child: ListView(scrollDirection: Axis.vertical, children: [
             Column(
               children: [
                 FloatingActionButton(onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const AddFood()));
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Test()));
                 }),
                 const SizedBox(height: 12),
 

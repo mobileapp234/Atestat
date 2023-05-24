@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../main.dart';
+
 class SetingsPage extends StatefulWidget {
   const SetingsPage({super.key});
   @override
@@ -312,6 +314,7 @@ class SetingsState extends State<SetingsPage> {
                   child: GestureDetector(
                     onTap: () {
                       FirebaseAuth.instance.signOut();
+                      Isconnected();
                     },
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),

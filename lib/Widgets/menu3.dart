@@ -29,6 +29,10 @@ List<String> name3 = [
 ];
 List<int> price3 = [10, 6, 8, 4, 7, 4];
 List<int> nr_products3 = [0, 0, 0, 0, 0, 0];
+List<int> calories3 = [140, 150, 120, 160, 180, 130];
+List<int> protein3 = [0, 0, 0, 0, 0, 0];
+List<int> fats3 = [0, 0, 0, 0, 0, 0];
+List<int> carbs3 = [39, 41, 33, 45, 48, 36];
 
 class _Menu3State extends State<Menu3> {
   int i3 = 0;

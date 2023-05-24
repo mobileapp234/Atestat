@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Widgets/menu2.dart';
+import 'package:mobile_app/Widgets/menu3.dart';
 
-class Drinks extends StatefulWidget {
-  const Drinks({super.key});
+class Soda extends StatefulWidget {
+  const Soda({super.key});
 
   @override
-  State<Drinks> createState() => _DrinksState();
+  State<Soda> createState() => _SodaState();
 }
 
-class _DrinksState extends State<Drinks> {
+class _SodaState extends State<Soda> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +18,7 @@ class _DrinksState extends State<Drinks> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
           ),
-          const Menu2()
+          const Menu3()
         ],
       ),
     );

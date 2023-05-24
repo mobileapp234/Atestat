@@ -342,11 +342,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
                               image: const DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/cocktails.jpg"),
+                                  image: AssetImage("assets/images/cafea.png"),
                                   fit: BoxFit.cover)),
                           alignment: Alignment.center,
-                          child: const Text("Bauturi",
+                          child: const Text("Cafea",
                               style: TextStyle(
                                   shadows: <Shadow>[
                                     Shadow(
@@ -360,6 +359,52 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   color: Colors.white)),
                         )),
                   ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Container(
+                      height: MediaQuery.of(context).size.height * 0.21,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 4,
+                            color: Color(0x230E151B),
+                            offset: Offset(0, 2),
+                          )
+                        ],
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          c.course_index = 3;
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const ShowFood()));
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              image: const DecorationImage(
+                                  image: AssetImage("assets/images/pepsi.jpg"),
+                                  fit: BoxFit.cover)),
+                          alignment: Alignment.center,
+                          child: const Text("Sucuri",
+                              style: TextStyle(
+                                  shadows: <Shadow>[
+                                    Shadow(
+                                      offset: Offset(1, 3),
+                                      blurRadius: 5,
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                    ),
+                                  ],
+                                  fontFamily: "AbrilFatface-Regular.ttf",
+                                  fontSize: 40,
+                                  color: Colors.white)),
+                        ),
+                      )),
                 ])
 
                 // for (int i = 1; i <= 10; i++)

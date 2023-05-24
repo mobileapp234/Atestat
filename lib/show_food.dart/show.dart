@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
 import 'package:mobile_app/show_food.dart/dessert.dart';
-import 'package:mobile_app/show_food.dart/drinks.dart';
+import 'package:mobile_app/show_food.dart/coffee.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/gustari.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
+import 'package:mobile_app/show_food.dart/soda.dart';
 
 class ShowFood extends StatefulWidget {
   const ShowFood({super.key});
@@ -20,7 +21,7 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    tb = TabController(length: 3, vsync: this);
+    tb = TabController(length: 4, vsync: this);
 
     // tb.addListener(() {
     //   setState(() {
@@ -78,7 +79,7 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
                 controller: tb,
                 isScrollable: true,
                 indicatorColor: Colors.black,
-                indicatorWeight: 3,
+                indicatorWeight: 4,
                 tabs: const [
                   Text(
                     "Gustari",
@@ -89,7 +90,11 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
                     style: TextStyle(fontSize: 30),
                   ),
                   Text(
-                    "Bauturi",
+                    "Cafea",
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    "Sucuri",
                     style: TextStyle(fontSize: 30),
                   ),
                 ]),
@@ -97,7 +102,7 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
         ),
         body: TabBarView(
           controller: tb,
-          children: [Gustari(), Desserts(), Drinks()],
+          children: [Gustari(), Desserts(), Coffee(), Soda()],
         ));
   }
 }

@@ -16,6 +16,8 @@ import 'package:readmore/readmore.dart';
 import 'menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'menu3.dart';
+
 double screen_size = 1;
 bool extend_screen = false;
 int nr_food = 1;
@@ -79,9 +81,9 @@ class FoodPageState extends State<FoodPage> {
                                       ? AssetImage(image1[ind.food])
                                       : ind.course_index == 2
                                           ? AssetImage(image2[ind.food])
-                                          // : ind.course_index == 3
-                                          //     ? AssetImage(image3[ind.food])
-                                          : AssetImage(""),
+                                          : ind.course_index == 3
+                                              ? AssetImage(image3[ind.food])
+                                              : AssetImage(""),
                               fit: BoxFit.cover)),
                     )),
                     Positioned(
@@ -185,9 +187,12 @@ class FoodPageState extends State<FoodPage> {
                                                                   2
                                                               ? AssetImage(
                                                                   "assets/png/plastic-takeaway-coffee-icon.png")
-                                                              // : ind.course_index == 3
-                                                              //     ? AssetImage(image3[ind.food])
-                                                              : AssetImage(""),
+                                                              : ind.course_index ==
+                                                                      3
+                                                                  ? AssetImage(
+                                                                      "assets/png/sandwich-icon (1).png")
+                                                                  : AssetImage(
+                                                                      ""),
                                                   // fit: BoxFit.cover
                                                 )),
                                               ),
@@ -217,9 +222,9 @@ class FoodPageState extends State<FoodPage> {
                                                   ? name1[ind.food]
                                                   : ind.course_index == 2
                                                       ? name2[ind.food]
-                                                      // : ind.course_index == 3
-                                                      //     ? name3[ind.food]
-                                                      : ""),
+                                                      : ind.course_index == 3
+                                                          ? name3[ind.food]
+                                                          : ""),
                                           style: const TextStyle(
                                               fontFamily:
                                                   "AbrilFatface-Regular",

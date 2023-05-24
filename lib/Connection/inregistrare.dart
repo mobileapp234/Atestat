@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import '../MainPages/main_page.dart';
 import 'google_sign_in.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Logare extends StatefulWidget {
   const Logare({super.key});
@@ -351,7 +352,8 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                             )),
                         const SizedBox(height: 30),
                         GestureDetector(
-                          onTap: () => AuthGoogle().singInWithGoogle(),
+                          onTap: () =>
+                              AuthGoogle().signInWithGoogleAndSaveUid(),
                           child: Container(
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
@@ -521,18 +523,28 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                             color: Colors.blue)))),
                             onPressed: () async {
                               try {
-                                print(1);
                                 UserCredential userCredential =
                                     await FirebaseAuth.instance
                                         .createUserWithEmailAndPassword(
                                   email: _emailValue1.text,
                                   password: _passwordValue1.text,
                                 );
+
+                                final CollectionReference usersCollection =
+                                    FirebaseFirestore.instance
+                                        .collection('users');
+                                final currentUser =
+                                    FirebaseAuth.instance.currentUser;
+
+                                await usersCollection
+                                    .doc(currentUser?.uid)
+                                    .set({
+                                  // You can add additional fields here if needed
+                                });
                               } on FirebaseAuthException catch (e) {
-                                print(2);
-                                if (e.code == 'weak-password')
-                                  print('The password providedn is too weak.');
-                                else if (e.code == 'email-is-already-in-use') {
+                                if (e.code == 'weak-password') {
+                                  print('The password provided is too weak.');
+                                } else if (e.code == 'email-already-in-use') {
                                   print('The account is already in use.');
                                 }
                               } catch (e) {

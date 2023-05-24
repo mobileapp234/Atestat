@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "539042013250",
+    "firebase_url": "https://aplicatie-c564b-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "aplicatie-c564b",
     "storage_bucket": "aplicatie-c564b.appspot.com"
   },
@@ -14,7 +15,23 @@
       },
       "oauth_client": [
         {
-          "client_id": "539042013250-bpda9pfv3ds22p843859tbrbt8og3hgi.apps.googleusercontent.com",
+          "client_id": "539042013250-bgfplg55r73tc2k7llq99enmsvatq3l1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobile_app",
+            "certificate_hash": "43f4237443dd26f7c5fa80567cb19d402ca02004"
+          }
+        },
+        {
+          "client_id": "539042013250-jqht6loc37c39rk6tmr1o7mae44kdnr0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobile_app",
+            "certificate_hash": "36064033309aa4c383c44c9803b160d11cc3d7a5"
+          }
+        },
+        {
+          "client_id": "539042013250-pomnhmj72r114rnn270dqvjjj976sb63.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +46,13 @@
             {
               "client_id": "539042013250-bpda9pfv3ds22p843859tbrbt8og3hgi.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "539042013250-jj22m64jp2br3m2q6pjh99i0miurb366.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mobileApp.RunnerTests"
+              }
             }
           ]
         }

@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class AddFood extends StatefulWidget {
-  const AddFood({super.key});
+  const AddFood({Key? key}) : super(key: key);
 
   @override
   State<AddFood> createState() => _AddFoodState();
 }
 
 class _AddFoodState extends State<AddFood> {
+  late DatabaseReference fbRef;
+  @override
+  void initState() {
+    super.initState();
+    FirebaseDatabase.instance.setPersistenceEnabled(true);
+    fbRef = FirebaseDatabase.instance.reference().child("Meniu");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: FloatingActionButton(
-        onPressed: () {},
-      )),
+        child: FloatingActionButton(
+          child: Icon(Icons.food_bank),
+          onPressed: () {
+            Map<String, String> food = {
+              'nume': "sd",
+              'pret': "lala",
+            };
+            fbRef.push().set(food);
+          },
+        ),
+      ),
     );
   }
 }

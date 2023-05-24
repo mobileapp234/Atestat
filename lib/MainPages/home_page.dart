@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/Widgets/add_food.dart';
 
 import 'package:mobile_app/Widgets/home_slider.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
@@ -37,6 +38,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: ListView(scrollDirection: Axis.vertical, children: [
             Column(
               children: [
+                FloatingActionButton(onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const AddFood()));
+                }),
                 const SizedBox(height: 12),
 
                 Container(

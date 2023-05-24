@@ -28,6 +28,7 @@ List<String> name3 = [
   "Apa 1",
 ];
 List<int> price3 = [10, 6, 8, 4, 7, 4];
+List<int> nr_products3 = [0, 0, 0, 0, 0, 0];
 
 class _Menu3State extends State<Menu3> {
   int i3 = 0;

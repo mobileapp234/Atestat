@@ -34,6 +34,7 @@ List<int> pret = [
   20,
   12,
 ];
+List<int> nr_products = [0, 0, 0, 0, 0, 0];
 
 class _MenuState extends State<Menu> {
   int i = 0;

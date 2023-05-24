@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Globals_Variables.dart' as c;
 
-
 class ChooseFoodType extends StatefulWidget {
   const ChooseFoodType({super.key});
 

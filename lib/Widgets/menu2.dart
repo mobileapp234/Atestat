@@ -28,6 +28,7 @@ List<String> name2 = [
   "Cafea 6",
 ];
 List<int> price2 = [10, 8, 33, 9, 11, 14];
+List<int> nr_products2 = [0, 0, 0, 0, 0, 0];
 
 class _Menu2State extends State<Menu2> {
   int i2 = 0;

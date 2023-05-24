@@ -21,6 +21,7 @@ List<String> name1 = [
   "Prajitura 6",
 ];
 List<int> price1 = [10, 13, 15, 12, 14, 22];
+List<int> nr_products1 = [0, 0, 0, 0, 0, 0];
 
 class Menu1 extends StatefulWidget {
   const Menu1({super.key});

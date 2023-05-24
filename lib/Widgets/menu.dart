@@ -34,7 +34,13 @@ List<int> pret = [
   20,
   12,
 ];
+
 List<int> nr_products = [0, 0, 0, 0, 0, 0];
+List<int> calorii = [];
+List<int> protein = [];
+List<int> fats = [];
+List<int> carbs = [];
+// List<int>
 
 class _MenuState extends State<Menu> {
   int i = 0;
@@ -206,8 +212,6 @@ class _MenuState extends State<Menu> {
 //     return _Menu();
 //   }
 // }
-
-
 
 // class _Menu extends State<Menu> {
 //   int i = -2;

@@ -5,7 +5,6 @@ import 'package:mobile_app/MainPages/setings_page.dart';
 import 'home_page.dart';
 import '../Widgets/food_page.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
-import 'package:badges/badges.dart';
 
 // import 'package:flutter_icons/flutter_icons.dart';
 class MainPage extends StatefulWidget {

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_app/Widgets/food_page.dart';
+import 'package:mobile_app/Widgets/menu.dart';
 import 'package:mobile_app/Widgets/product.dart';
 import 'package:mobile_app/Widgets/show_qr_Code.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
@@ -38,11 +40,21 @@ class _OrdersState extends State<Orders> {
         },
         child: Column(children: [
           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-          Product(
-              nume: "Sanswich cu pui",
-              pret: "12 lei",
-              photo: "assets/images/1.jpg",
-              nrproducts: 1),
+          Container(
+            height: 300,
+            width: 300,
+            child: ListView(
+              children: [
+                for (var i = 0; i <= 5; i++)
+                  if (nr_products[i] > 0)
+                    Product(
+                        nume: name[i],
+                        pret: pret[i],
+                        photo: image[i],
+                        nrproducts: nr_products[i]),
+              ],
+            ),
+          ),
 
           // Expanded(
           //   child: ListView.builder(

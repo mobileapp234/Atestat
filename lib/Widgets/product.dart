@@ -22,9 +22,16 @@ class Product extends StatefulWidget {
 
   @override
   _ProductState createState() => _ProductState();
+
+//  void dispose() {}
 }
 
 class _ProductState extends State<Product> {
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
+
   int nr_food1 = 1;
   @override
   Widget build(BuildContext context) {
@@ -91,16 +98,60 @@ class _ProductState extends State<Product> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            if (nr_food1 > 1) nr_food1 -= 1;
+                            if (nr_products[widget.index] == 1) {
+                              // widget.dispose();
+                            }
+                            switch (widget.categ) {
+                              case 0:
+                                if (nr_products[widget.index] > 1) {
+                                  nr_products[widget.index] -= 1;
+                                }
+                                break;
+                              case 1:
+                                if (nr_products1[widget.index] > 1) {
+                                  nr_products1[widget.index] -= 1;
+                                }
+                                break;
+                              case 2:
+                                if (nr_products2[widget.index] > 1) {
+                                  nr_products2[widget.index] -= 1;
+                                }
+                                break;
+                              case 3:
+                                if (nr_products3[widget.index] > 1) {
+                                  nr_products3[widget.index] -= 1;
+                                }
+                                break;
+                            }
                           });
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.width * 0.09,
                           width: MediaQuery.of(context).size.width * 0.09,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.blue,
-                          ),
+                              borderRadius: BorderRadius.circular(30),
+                              color: nr_products[widget.index] == 1
+                                  ? Colors.red
+                                  : nr_products1[widget.index] == 1
+                                      ? Colors.red
+                                      : nr_products2[widget.index] == 1
+                                          ? Colors.red
+                                          : nr_products3[widget.index] == 1
+                                              ? Colors.red
+                                              : nr_products[widget.index] > 1
+                                                  ? Colors.blue
+                                                  : nr_products1[widget.index] >
+                                                          1
+                                                      ? Colors.blue
+                                                      : nr_products2[widget
+                                                                  .index] >
+                                                              1
+                                                          ? Colors.blue
+                                                          : nr_products3[widget
+                                                                      .index] >
+                                                                  1
+                                                              ? Colors.blue
+                                                              : Colors.blue),
                           child: Icon(
                             Icons.remove,
                             color: Colors.white,
@@ -130,16 +181,28 @@ class _ProductState extends State<Product> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            nr_food1 += 1;
+                            switch (widget.categ) {
+                              case 0:
+                                nr_products[widget.index] += 1;
+                                break;
+                              case 1:
+                                nr_products1[widget.index] += 1;
+                                break;
+                              case 2:
+                                nr_products2[widget.index] += 1;
+                                break;
+                              case 3:
+                                nr_products3[widget.index] += 1;
+                                break;
+                            }
                           });
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.width * 0.09,
                           width: MediaQuery.of(context).size.width * 0.09,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.blue,
-                          ),
+                              borderRadius: BorderRadius.circular(30),
+                              color: Colors.blue),
                           child: Icon(
                             Icons.add,
                             color: Colors.white,

@@ -33,7 +33,6 @@ List<String> calories3 = ['140', '150', '120', '160', '180', '130'];
 List<String> protein3 = ['0', '0', '0', '0', '0', '0'];
 List<String> fats3 = ['0', '0', '0', '0', '0', '0'];
 List<String> carbs3 = ['39', '41', '33', '45', '48', '36'];
-List<int> category3 = [3, 3, 3, 3, 3, 3];
 
 class _Menu3State extends State<Menu3> {
   int i3 = 0;

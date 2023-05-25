@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
 import 'package:mobile_app/Widgets/menu.dart';

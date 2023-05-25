@@ -202,7 +202,10 @@ class FoodPageState extends State<FoodPage> {
                                                       ? "Prajituri"
                                                       : ind.course_index == 2
                                                           ? "Cefele"
-                                                          : "")
+                                                          : ind.course_index ==
+                                                                  3
+                                                              ? "Sucuri"
+                                                              : "")
                                             ]),
                                       ),
                                     ],
@@ -416,7 +419,15 @@ class FoodPageState extends State<FoodPage> {
                                                 0.04,
                                           ),
                                           Text(
-                                            "123 Kcal",
+                                            (ind.course_index == 0
+                                                ? protein[ind.food]
+                                                : ind.course_index == 1
+                                                    ? protein1[ind.food]
+                                                    : ind.course_index == 2
+                                                        ? protein2[ind.food]
+                                                        : ind.course_index == 3
+                                                            ? protein3[ind.food]
+                                                            : ""),
                                             style: TextStyle(
                                                 fontSize: 16,
                                                 fontStyle: FontStyle.italic,
@@ -464,7 +475,15 @@ class FoodPageState extends State<FoodPage> {
                                                 0.04,
                                           ),
                                           Text(
-                                            "123 Kcal",
+                                            (ind.course_index == 0
+                                                ? fats[ind.food]
+                                                : ind.course_index == 1
+                                                    ? fats1[ind.food]
+                                                    : ind.course_index == 2
+                                                        ? fats2[ind.food]
+                                                        : ind.course_index == 3
+                                                            ? fats3[ind.food]
+                                                            : ""),
                                             style: TextStyle(
                                                 fontSize: 16,
                                                 fontStyle: FontStyle.italic,
@@ -502,7 +521,15 @@ class FoodPageState extends State<FoodPage> {
                                                 0.04,
                                           ),
                                           Text(
-                                            "123 Kcal",
+                                            (ind.course_index == 0
+                                                ? carbs[ind.food]
+                                                : ind.course_index == 1
+                                                    ? carbs1[ind.food]
+                                                    : ind.course_index == 2
+                                                        ? carbs2[ind.food]
+                                                        : ind.course_index == 3
+                                                            ? carbs3[ind.food]
+                                                            : ""),
                                             style: TextStyle(
                                                 fontSize: 16,
                                                 fontStyle: FontStyle.italic,

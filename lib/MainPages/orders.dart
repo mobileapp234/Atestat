@@ -51,186 +51,47 @@ class _OrdersState extends State<Orders> {
                 for (var i = 0; i <= 5; i++)
                   if (nr_products[i] > 0)
                     Product(
-                        nume: name[i],
-                        pret: price[i],
-                        photo: image[i],
-                        nrproducts: nr_products[i]),
+                      nume: name[i],
+                      pret: price[i],
+                      photo: image[i],
+                      nrproducts: nr_products[i],
+                      index: i,
+                      categ: 0,
+                    ),
                 for (var i = 0; i <= 5; i++)
                   if (nr_products1[i] > 0)
                     Product(
-                        nume: name1[i],
-                        pret: price1[i],
-                        photo: image1[i],
-                        nrproducts: nr_products1[i]),
+                      nume: name1[i],
+                      pret: price1[i],
+                      photo: image1[i],
+                      nrproducts: nr_products1[i],
+                      index: i,
+                      categ: 1,
+                    ),
                 for (var i = 0; i <= 5; i++)
                   if (nr_products2[i] > 0)
                     Product(
-                        nume: name2[i],
-                        pret: price2[i],
-                        photo: image[i],
-                        nrproducts: nr_products2[i]),
+                      nume: name2[i],
+                      pret: price2[i],
+                      photo: image2[i],
+                      nrproducts: nr_products2[i],
+                      index: i,
+                      categ: 2,
+                    ),
                 for (var i = 0; i <= 5; i++)
                   if (nr_products3[i] > 0)
                     Product(
-                        nume: name3[i],
-                        pret: price3[i],
-                        photo: image3[i],
-                        nrproducts: nr_products3[i]),
+                      nume: name3[i],
+                      pret: price3[i],
+                      photo: image3[i],
+                      nrproducts: nr_products3[i],
+                      index: i,
+                      categ: 3,
+                    ),
               ],
             ),
           ),
 
-          // Expanded(
-          //   child: ListView.builder(
-
-          //       // physics: const NeverScrollableScrollPhysics(),
-          //       itemCount: 4,
-          //       itemBuilder: (context, index1) {
-          //         // setState(() {
-          //         //   final_price += 10;
-          //         // });
-          //         return Column(
-          //           children: [
-          //             Container(
-          //                 height: MediaQuery.of(context).size.height * 0.09,
-          //                 width: MediaQuery.of(context).size.width * 0.9,
-          //                 decoration: BoxDecoration(
-          //                   color: Colors.white,
-          //                   borderRadius: BorderRadius.circular(12),
-          //                   boxShadow: const [
-          //                     BoxShadow(
-          //                       blurRadius: 5,
-          //                       color: Color(0x230E151B),
-          //                       offset: Offset(2, 0),
-          //                     )
-          //                   ],
-          //                 ),
-          //                 child: Row(
-          //                   children: [
-          //                     Padding(
-          //                       padding: const EdgeInsets.all(8.0),
-          //                       child: Container(
-          //                         height:
-          //                             MediaQuery.of(context).size.height * 0.2,
-          //                         width:
-          //                             MediaQuery.of(context).size.width * 0.2,
-          //                         decoration: BoxDecoration(
-          //                             borderRadius: BorderRadius.circular(10),
-          //                             image: DecorationImage(
-          //                                 image: AssetImage(
-          //                                     "assets/images/steak1.jpg"))),
-          //                       ),
-          //                     ),
-          //                     SizedBox(
-          //                       width: MediaQuery.of(context).size.width * 0.03,
-          //                     ),
-          //                     Column(
-          //                       mainAxisAlignment: MainAxisAlignment.center,
-          //                       children: [
-          //                         Text(
-          //                           "Prajitura de mere",
-          //                           style: TextStyle(
-          //                               fontSize:
-          //                                   MediaQuery.of(context).size.height *
-          //                                           0.1 *
-          //                                           MediaQuery.of(context)
-          //                                               .size
-          //                                               .width /
-          //                                           1000 -
-          //                                       20),
-          //                         ),
-          //                         Text(
-          //                           "12 lei",
-          //                           style: TextStyle(
-          //                               fontSize:
-          //                                   MediaQuery.of(context).size.height *
-          //                                           0.1 *
-          //                                           MediaQuery.of(context)
-          //                                               .size
-          //                                               .width /
-          //                                           1000 -
-          //                                       20),
-          //                         )
-          //                       ],
-          //                     ),
-          //                     Padding(
-          //                       padding: const EdgeInsets.only(left: 20),
-          //                       child: Row(
-          //                         mainAxisAlignment: MainAxisAlignment.center,
-          //                         children: [
-          //                           GestureDetector(
-          //                             onTap: () {
-          //                               setState(() {
-          //                                 if (nr_food1 > 1) nr_food1 -= 1;
-          //                               });
-          //                             },
-          //                             child: Container(
-          //                               height:
-          //                                   MediaQuery.of(context).size.width *
-          //                                       0.09,
-          //                               width:
-          //                                   MediaQuery.of(context).size.width *
-          //                                       0.09,
-          //                               decoration: BoxDecoration(
-          //                                 borderRadius:
-          //                                     BorderRadius.circular(30),
-          //                                 color: Colors.blue,
-          //                               ),
-          //                               child: Icon(
-          //                                 Icons.remove,
-          //                                 color: Colors.white,
-          //                               ),
-          //                             ),
-          //                           ),
-          //                           Padding(
-          //                             padding: const EdgeInsets.all(8.0),
-          //                             child: Text(nr_food1.toString(),
-          //                                 style: TextStyle(
-          //                                     fontSize: MediaQuery.of(context)
-          //                                                 .size
-          //                                                 .height *
-          //                                             0.1 *
-          //                                             MediaQuery.of(context)
-          //                                                 .size
-          //                                                 .width /
-          //                                             1000 -
-          //                                         10)),
-          //                           ),
-          //                           GestureDetector(
-          //                             onTap: () {
-          //                               setState(() {
-          //                                 nr_food1 += 1;
-          //                               });
-          //                             },
-          //                             child: Container(
-          //                               height:
-          //                                   MediaQuery.of(context).size.width *
-          //                                       0.09,
-          //                               width:
-          //                                   MediaQuery.of(context).size.width *
-          //                                       0.09,
-          //                               decoration: BoxDecoration(
-          //                                 borderRadius:
-          //                                     BorderRadius.circular(30),
-          //                                 color: Colors.blue,
-          //                               ),
-          //                               child: Icon(
-          //                                 Icons.add,
-          //                                 color: Colors.white,
-          //                               ),
-          //                             ),
-          //                           ),
-          //                         ],
-          //                       ),
-          //                     ),
-          //                   ],
-          //                 )),
-          //             SizedBox(
-          //                 height: MediaQuery.of(context).size.height * 0.02),
-          //           ],
-          //         );
-          //       }),
-          // ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 25),
               child: SwipeableButtonView(

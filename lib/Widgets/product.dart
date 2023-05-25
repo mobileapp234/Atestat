@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/Globals_Variables.dart' as ind;
+import 'package:mobile_app/Widgets/menu.dart';
+import 'package:mobile_app/Widgets/menu1.dart';
+import 'package:mobile_app/Widgets/menu2.dart';
+import 'package:mobile_app/Widgets/menu3.dart';
 
 class Product extends StatefulWidget {
   final String nume;
   final int pret;
   final String photo;
   final int nrproducts;
-
+  final int index;
+  final int categ;
   const Product(
       {required this.nume,
       required this.pret,
       required this.photo,
-      required this.nrproducts});
+      required this.nrproducts,
+      required this.index,
+      required this.categ});
 
   @override
   _ProductState createState() => _ProductState();
@@ -62,16 +70,16 @@ class _ProductState extends State<Product> {
                                   0.1 *
                                   MediaQuery.of(context).size.width /
                                   1000 -
-                              20),
+                              15),
                     ),
                     Text(
-                      widget.pret.toString(),
+                      " ${widget.pret} lei",
                       style: TextStyle(
                           fontSize: MediaQuery.of(context).size.height *
                                   0.1 *
                                   MediaQuery.of(context).size.width /
                                   1000 -
-                              20),
+                              15),
                     )
                   ],
                 ),
@@ -101,7 +109,17 @@ class _ProductState extends State<Product> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(nr_food1.toString(),
+                        child: Text(
+                            (widget.categ == 0
+                                ? nr_products[widget.index].toString()
+                                : widget.categ == 1
+                                    ? nr_products1[widget.index].toString()
+                                    : widget.categ == 2
+                                        ? nr_products2[widget.index].toString()
+                                        : widget.categ == 3
+                                            ? nr_products3[widget.index]
+                                                .toString()
+                                            : ""),
                             style: TextStyle(
                                 fontSize: MediaQuery.of(context).size.height *
                                         0.1 *

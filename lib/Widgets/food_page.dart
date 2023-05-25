@@ -22,7 +22,6 @@ import 'menu3.dart';
 
 double screen_size = 1;
 bool extend_screen = false;
-int nr_food = 1;
 int product_price = 10;
 int nr_ingredients = 7;
 bool showText = false;
@@ -55,6 +54,7 @@ class FoodPage extends StatefulWidget {
 
 class FoodPageState extends State<FoodPage> {
   bool _isExpanded = false;
+  int nr_food = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -565,7 +565,9 @@ class FoodPageState extends State<FoodPage> {
                     GestureDetector(
                       onTap: () {
                         setState(() {
-                          if (nr_food > 1) nr_food -= 1;
+                          if (nr_food > 1) {
+                            nr_food -= 1;
+                          }
                         });
                       },
                       child: Container(

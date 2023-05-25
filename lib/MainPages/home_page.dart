@@ -36,10 +36,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: ListView(scrollDirection: Axis.vertical, children: [
             Column(
               children: [
-                FloatingActionButton(onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Test()));
-                }),
                 const SizedBox(height: 12),
 
                 Container(

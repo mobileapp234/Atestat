@@ -26,6 +26,7 @@ List<String> calories1 = ['300', '400', '250', '350', '320', '280'];
 List<String> protein1 = ['4', '6', '3', '5', '4', '3'];
 List<String> fats1 = ['12', '18', '10', '15', '14', '11'];
 List<String> carbs1 = ['45', '60', '35', '50', '48', '40'];
+List<int> category1 = [1, 1, 1, 1, 1, 1];
 
 class Menu1 extends StatefulWidget {
   const Menu1({super.key});

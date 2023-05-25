@@ -5,6 +5,7 @@ import 'package:mobile_app/MainPages/setings_page.dart';
 import 'home_page.dart';
 import '../Widgets/food_page.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
+import 'package:badges/badges.dart';
 
 // import 'package:flutter_icons/flutter_icons.dart';
 class MainPage extends StatefulWidget {
@@ -38,10 +39,8 @@ class _MainPageState extends State<MainPage> {
         currentIndex: ind.index_bottom_navigation_bar,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Badge(
-                // badgeContent:Text('1'),
-                child: Icon(Icons.shopping_cart_sharp)),
-            label: 'Comenzi',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

@@ -612,7 +612,20 @@ class FoodPageState extends State<FoodPage> {
                 padding: const EdgeInsets.all(15),
                 child: FloatingActionButton.extended(
                   onPressed: () {
-                    //print("Tapped extended FAB");
+                    switch (ind.course_index) {
+                      case 0:
+                        nr_products[ind.food] += nr_food;
+                        break;
+                      case 1:
+                        nr_products1[ind.food] += nr_food;
+                        break;
+                      case 2:
+                        nr_products2[ind.food] += nr_food;
+                        break;
+                      case 3:
+                        nr_products3[ind.food] += nr_food;
+                        break;
+                    }
                   },
                   heroTag: "2",
                   label: Text("Adauga pentru ${price * nr_food} lei"),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Product extends StatefulWidget {
   final String nume;
-  final String pret;
+  final int pret;
   final String photo;
   final int nrproducts;
 

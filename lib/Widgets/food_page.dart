@@ -369,7 +369,16 @@ class FoodPageState extends State<FoodPage> {
                                                 0.04,
                                           ),
                                           Text(
-                                            "123 Kcal",
+                                            (ind.course_index == 0
+                                                ? calories[ind.food]
+                                                : ind.course_index == 1
+                                                    ? calories1[ind.food]
+                                                    : ind.course_index == 2
+                                                        ? calories2[ind.food]
+                                                        : ind.course_index == 3
+                                                            ? calories3[
+                                                                ind.food]
+                                                            : ""),
                                             style: TextStyle(
                                                 fontSize: 16,
                                                 fontStyle: FontStyle.italic,

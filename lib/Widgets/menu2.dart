@@ -29,10 +29,10 @@ List<String> name2 = [
 ];
 List<int> price2 = [10, 8, 33, 9, 11, 14];
 List<int> nr_products2 = [0, 0, 0, 0, 0, 0];
-List<int> calories2 = [5, 10, 2, 7, 15, 0];
-List<int> protein2 = [0, 0, 0, 0, 0, 0];
-List<int> fats2 = [0, 0, 0, 0, 0, 0];
-List<int> carbs2 = [1, 2, 0, 1, 3, 0];
+List<String> calories2 = ['5', '10', '2', '7', '15', '0'];
+List<String> protein2 = ['0', '0', '0', '0', '0', '0'];
+List<String> fats2 = ['0', '0', '0', '0', '0', '0'];
+List<String> carbs2 = ['1', '2', '0', '1', '3', '0'];
 
 class _Menu2State extends State<Menu2> {
   int i2 = 0;

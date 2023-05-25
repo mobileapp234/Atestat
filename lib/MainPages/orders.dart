@@ -41,8 +41,8 @@ class _OrdersState extends State<Orders> {
         child: Column(children: [
           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
           Container(
-            height: 300,
-            width: 300,
+            height: MediaQuery.of(context).size.height * 0.65,
+            width: MediaQuery.of(context).size.height * 1,
             child: ListView(
               children: [
                 for (var i = 0; i <= 5; i++)

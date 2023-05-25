@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field, duplicate_import, unused_import
+
 import 'dart:ffi';
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -21,7 +23,7 @@ import 'menu3.dart';
 double screen_size = 1;
 bool extend_screen = false;
 int nr_food = 1;
-int price = 10;
+int product_price = 10;
 int nr_ingredients = 7;
 bool showText = false;
 List<String> alergeni = [
@@ -628,7 +630,7 @@ class FoodPageState extends State<FoodPage> {
                     }
                   },
                   heroTag: "2",
-                  label: Text("Adauga pentru ${price * nr_food} lei"),
+                  label: Text("Adauga pentru ${product_price * nr_food} lei"),
                   //icon: const Icon(Icons.arrow_upward),
                 ),
               ),

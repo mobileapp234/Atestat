@@ -12,7 +12,6 @@ class Gustari extends StatefulWidget {
 class _GustariState extends State<Gustari> {
   @override
   Widget build(BuildContext context) {
-    var c;
     return Container(
       child: Column(
         children: [

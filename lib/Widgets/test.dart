@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'dart:async';
 import 'dart:ffi';
 
@@ -38,7 +40,7 @@ class _TestState extends State<Test> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text(text!)),
+      body: Center(child: Text(text)),
     );
   }
 

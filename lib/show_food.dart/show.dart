@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
 import 'package:mobile_app/show_food.dart/dessert.dart';
 import 'package:mobile_app/show_food.dart/coffee.dart';
-import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/gustari.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
 import 'package:mobile_app/show_food.dart/soda.dart';

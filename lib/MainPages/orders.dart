@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_app/Widgets/food_page.dart';
 import 'package:mobile_app/Widgets/menu.dart';
 import 'package:mobile_app/Widgets/product.dart';
 import 'package:mobile_app/Widgets/show_qr_Code.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 import 'package:page_transition/page_transition.dart';
+
+import '../Widgets/menu1.dart';
+import '../Widgets/menu2.dart';
+import '../Widgets/menu3.dart';
 
 int nr_food1 = 1;
 int final_price = 0;
@@ -49,9 +52,30 @@ class _OrdersState extends State<Orders> {
                   if (nr_products[i] > 0)
                     Product(
                         nume: name[i],
-                        pret: pret[i],
+                        pret: price[i],
                         photo: image[i],
                         nrproducts: nr_products[i]),
+                for (var i = 0; i <= 5; i++)
+                  if (nr_products1[i] > 0)
+                    Product(
+                        nume: name1[i],
+                        pret: price1[i],
+                        photo: image1[i],
+                        nrproducts: nr_products1[i]),
+                for (var i = 0; i <= 5; i++)
+                  if (nr_products2[i] > 0)
+                    Product(
+                        nume: name2[i],
+                        pret: price2[i],
+                        photo: image[i],
+                        nrproducts: nr_products2[i]),
+                for (var i = 0; i <= 5; i++)
+                  if (nr_products3[i] > 0)
+                    Product(
+                        nume: name3[i],
+                        pret: price3[i],
+                        photo: image3[i],
+                        nrproducts: nr_products3[i]),
               ],
             ),
           ),

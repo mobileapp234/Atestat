@@ -26,7 +26,7 @@ List<String> name = [
   "Sandwich 5",
   "Sandwich 6",
 ];
-List<int> pret = [
+List<int> price = [
   12,
   33,
   15,
@@ -115,7 +115,7 @@ class _MenuState extends State<Menu> {
                                 Padding(
                                   padding:
                                       const EdgeInsets.only(top: 2, bottom: 5),
-                                  child: Text("${pret[i]} lei",
+                                  child: Text("${price[i]} lei",
                                       style: const TextStyle(fontSize: 18)),
                                 ),
                               ],
@@ -178,7 +178,7 @@ class _MenuState extends State<Menu> {
                                 Padding(
                                   padding:
                                       const EdgeInsets.only(top: 2, bottom: 5),
-                                  child: Text("${pret[i + 1]} lei",
+                                  child: Text("${price[i + 1]} lei",
                                       style: const TextStyle(fontSize: 18)),
                                 ),
                               ],
@@ -198,12 +198,12 @@ class _MenuState extends State<Menu> {
 
 // class Menu extends StatefulWidget {
 //   final String nume;
-//   final int pret;
+//   final int price;
 //   final String imagini;
 //   const Menu(
 //       {super.key,
 //       required this.nume,
-//       required this.pret,
+//       required this.price,
 //       required this.imagini});
 
 //   @override
@@ -272,7 +272,7 @@ class _MenuState extends State<Menu> {
 //                             ),
 //                             Padding(
 //                               padding: const EdgeInsets.only(top: 2, bottom: 5),
-//                               child: Text("${pret[i]} lei",
+//                               child: Text("${price[i]} lei",
 //                                   style: const TextStyle(fontSize: 18)),
 //                             ),
 //                           ],
@@ -324,7 +324,7 @@ class _MenuState extends State<Menu> {
 //                             ),
 //                             Padding(
 //                               padding: const EdgeInsets.only(top: 2, bottom: 5),
-//                               child: Text("${pret[i + 1]} lei",
+//                               child: Text("${price[i + 1]} lei",
 //                                   style: const TextStyle(fontSize: 18)),
 //                             ),
 //                           ],

@@ -117,7 +117,7 @@ class _OrdersState extends State<Orders> {
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 25),
               child: SwipeableButtonView(
-                  buttonText: "Send the order for $final_price lei",
+                  buttonText: "Send he order for $final_price lei",
                   buttonWidget: Container(
                     child: Icon(
                       Icons.arrow_forward_ios_rounded,
@@ -134,17 +134,25 @@ class _OrdersState extends State<Orders> {
                     });
                   },
                   onFinish: () async {
-                    String orderNumber = generateOrderNumber();
+                    final CollectionReference ordersCollection =
+                        FirebaseFirestore.instance.collection('orders');
+                    String uid = FirebaseAuth.instance.currentUser!.uid;
 
-                    // Create a new Firestore document with the order data
-                    await FirebaseFirestore.instance
-                        .collection('orders')
-                        .doc(orderNumber)
-                        .set({
-                      'orderNumber': orderNumber,
-                      'userId': FirebaseAuth.instance.currentUser!.uid,
-                      'timestamp': FieldValue.serverTimestamp(),
-                      // Add other order data as needed
+                    // Get the current date and time
+                    DateTime now = DateTime.now();
+
+                    // Format the date and time as a string
+                    String formattedDateTime = now.toString();
+
+                    // Remove any special characters from the formatted string
+                    formattedDateTime = formattedDateTime.replaceAll(
+                        RegExp(r'[^a-zA-Z0-9]'), '');
+
+                    // Combine the UID and formatted date and time to create the order number
+                    String orderNumber = '$uid-$formattedDateTime';
+
+                    await ordersCollection.doc(orderNumber).set({
+                      // You can add additional fields here if needed
                     });
 
                     await Navigator.push(
@@ -154,7 +162,6 @@ class _OrdersState extends State<Orders> {
                         child: const ShowQrCode(),
                       ),
                     );
-                    print("Order sent!");
 
                     setState(() {
                       isFinished = false;

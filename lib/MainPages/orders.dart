@@ -5,6 +5,8 @@ import 'package:mobile_app/Widgets/product.dart';
 import 'package:mobile_app/Widgets/show_qr_Code.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../Widgets/menu1.dart';
 import '../Widgets/menu2.dart';
@@ -23,6 +25,26 @@ class Orders extends StatefulWidget {
 
 class _OrdersState extends State<Orders> {
   bool isFinished = false;
+
+  String generateOrderNumber() {
+    // Get the current user's UID
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+
+    // Get the current date and time
+    DateTime now = DateTime.now();
+
+    // Format the date and time as a string
+    String formattedDateTime = now.toString();
+
+    // Remove any special characters from the formatted string
+    formattedDateTime =
+        formattedDateTime.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '');
+
+    // Combine the UID and formatted date and time to create the order number
+    String orderNumber = '$uid-$formattedDateTime';
+
+    return orderNumber;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +117,7 @@ class _OrdersState extends State<Orders> {
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 25),
               child: SwipeableButtonView(
-                  buttonText: "Send Rhe order for $final_price lei",
+                  buttonText: "Send the order for $final_price lei",
                   buttonWidget: Container(
                     child: Icon(
                       Icons.arrow_forward_ios_rounded,
@@ -112,11 +134,27 @@ class _OrdersState extends State<Orders> {
                     });
                   },
                   onFinish: () async {
+                    String orderNumber = generateOrderNumber();
+
+                    // Create a new Firestore document with the order data
+                    await FirebaseFirestore.instance
+                        .collection('orders')
+                        .doc(orderNumber)
+                        .set({
+                      'orderNumber': orderNumber,
+                      'userId': FirebaseAuth.instance.currentUser!.uid,
+                      'timestamp': FieldValue.serverTimestamp(),
+                      // Add other order data as needed
+                    });
+
                     await Navigator.push(
-                        context,
-                        PageTransition(
-                            type: PageTransitionType.fade,
-                            child: const ShowQrCode()));
+                      context,
+                      PageTransition(
+                        type: PageTransitionType.fade,
+                        child: const ShowQrCode(),
+                      ),
+                    );
+                    print("Order sent!");
 
                     setState(() {
                       isFinished = false;

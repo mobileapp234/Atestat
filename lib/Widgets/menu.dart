@@ -36,11 +36,10 @@ List<int> pret = [
 ];
 
 List<int> nr_products = [0, 0, 0, 0, 0, 0];
-List<int> calorii = [];
-List<int> protein = [];
-List<int> fats = [];
-List<int> carbs = [];
-// List<int>
+List<String> calories = ['250', '320', '280', '350', '400', '290'];
+List<String> protein = ['10', '15', '12', '18', '20', '14'];
+List<String> fats = ['8', '12', '10', '15', '18', '11'];
+List<String> carbs = ['35', '40', '30', '45', '50', '38'];
 
 class _MenuState extends State<Menu> {
   int i = 0;

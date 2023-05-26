@@ -161,48 +161,47 @@ class _OrdersState extends State<Orders> {
 
               String orderNumber = '$uid-$formattedDateTime';
 
-              for (var i = 0; i <= 5; i++)
-                if (nr_products[i] > 0)
-                  Product(
-                    nume: name[i],
-                    pret: price[i],
-                    photo: image[i],
-                    nrproducts: nr_products[i],
-                    index: i,
-                    categ: 0,
-                  );
-              for (var i = 0; i <= 5; i++)
-                if (nr_products1[i] > 0)
-                  Product(
-                    nume: name1[i],
-                    pret: price1[i],
-                    photo: image1[i],
-                    nrproducts: nr_products1[i],
-                    index: i,
-                    categ: 1,
-                  );
-              for (var i = 0; i <= 5; i++)
-                if (nr_products2[i] > 0)
-                  (
-                    nume: name2[i],
-                    nrproducts: nr_products2[i],
-                  );
-              for (var i = 0; i <= 5; i++)
-                if (nr_products3[i] > 0) {
-                  await FirebaseFirestore.instance
-                      .collection('orders')
-                      .doc(orderNumber)
-                      .set({
-                    'orderNumber': orderNumber,
-                    'formattedDateTime': formattedDateTime,
-                    name3[i]: nr_products3[i]
-                  }).then((value) => {print("te rog")});
+              var orderData = {};
+
+              for (var i = 0; i <= 5; i++) {
+                if (nr_products[i] > 0) {
+                  orderData[name[i]] = nr_products[i];
                 }
+              }
+
+              for (var i = 0; i <= 5; i++) {
+                if (nr_products1[i] > 0) {
+                  orderData[name1[i]] = nr_products1[i];
+                }
+              }
+
+              for (var i = 0; i <= 5; i++) {
+                if (nr_products2[i] > 0) {
+                  orderData[name2[i]] = nr_products2[i];
+                }
+              }
+
+              for (var i = 0; i <= 5; i++) {
+                if (nr_products3[i] > 0) {
+                  orderData[name3[i]] = nr_products3[i];
+                }
+              }
+
+              await FirebaseFirestore.instance
+                  .collection('orders')
+                  .doc(orderNumber)
+                  .set({
+                'orderNumber': orderNumber,
+                'formattedDateTime': DateTime.now(),
+                'products': orderData
+              }).then((value) => {
+                        print("te rog"),
+                      });
 
               Navigator.of(context).pop();
             },
             label: Text(
-              "Slide to cancel Event",
+              "Slide to place order",
               style: TextStyle(
                   color: Color(0xff4a4a4a),
                   fontWeight: FontWeight.w500,

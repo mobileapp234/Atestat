@@ -8,6 +8,7 @@ import 'package:swipeable_button_view/swipeable_button_view.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:slider_button/slider_button.dart';
 
 import '../Widgets/menu1.dart';
 import '../Widgets/menu2.dart';
@@ -114,66 +115,85 @@ class _OrdersState extends State<Orders> {
               ],
             ),
           ),
+          // FloatingActionButton(
+          //     child: Icon(Icons.help),
+          //     onPressed: () async {
+          //       final CollectionReference ordersCollection =
+          //           FirebaseFirestore.instance.collection('orders');
+          //       String uid = FirebaseAuth.instance.currentUser!.uid;
 
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 25),
-              child: SwipeableButtonView(
-                  buttonText: "Send he order for $final_price lei",
-                  buttonWidget: Container(
-                    child: Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  activeColor: Color(0xff3398F6),
-                  isFinished: isFinished,
-                  onWaitingProcess: () {
-                    Future.delayed(Duration(seconds: 2), () {
-                      setState(() {
-                        isFinished = true;
-                      });
-                    });
-                  },
-                  onFinish: () async {
-                    final CollectionReference ordersCollection =
-                        FirebaseFirestore.instance.collection('orders');
-                    String uid = FirebaseAuth.instance.currentUser!.uid;
+          //       // Get the current date and time
+          //       DateTime now = DateTime.now();
 
-                    // Get the current date and time
-                    DateTime now = DateTime.now();
+          //       // Format the date and time as a string
+          //       String formattedDateTime = now.toString();
 
-                    // Format the date and time as a string
-                    String formattedDateTime = now.toString();
+          //       // Remove any special characters from the formatted string
+          //       formattedDateTime =
+          //           formattedDateTime.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '');
 
-                    // Remove any special characters from the formatted string
-                    formattedDateTime = formattedDateTime.replaceAll(
-                        RegExp(r'[^a-zA-Z0-9]'), '');
+          //       // Combine the UID and formatted date and time to create the order number
+          //       String orderNumber = '$uid-$formattedDateTime';
 
-                    // Combine the UID and formatted date and time to create the order number
-                    String orderNumber = '$uid-$formattedDateTime';
+          //       //ordersCollection.doc(orderNumber).set({
+          //       // You can add additional fields here if needed
+          //       // myObject.toMap(),
+          //       //});
 
-                    await ordersCollection.doc(orderNumber).set({
-                      // You can add additional fields here if needed
-                    });
+          //       await FirebaseFirestore.instance
+          //           .collection('orders')
+          //           .doc(orderNumber)
+          //           .set({'orderNumbert': orderNumber});
 
-                    await Navigator.push(
-                      context,
-                      PageTransition(
-                        type: PageTransitionType.fade,
-                        child: const ShowQrCode(),
-                      ),
-                    );
+          //     }),
+          SliderButton(
+            action: () async {
+              final CollectionReference ordersCollection =
+                  FirebaseFirestore.instance.collection('orders');
+              String uid = FirebaseAuth.instance.currentUser!.uid;
 
-                    setState(() {
-                      isFinished = false;
-                    });
-                  })),
-          // const Divider(
-          //   height: 30,
-          //   thickness: 2,
-          //   indent: 25,
-          //   endIndent: 25,
-          // ),
+              // Get the current date and time
+              DateTime now = DateTime.now();
+
+              // Format the date and time as a string
+              String formattedDateTime = now.toString();
+
+              // Remove any special characters from the formatted string
+              formattedDateTime =
+                  formattedDateTime.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '');
+
+              // Combine the UID and formatted date and time to create the order number
+              String orderNumber = '$uid-$formattedDateTime';
+
+              //ordersCollection.doc(orderNumber).set({
+              // You can add additional fields here if needed
+              // myObject.toMap(),
+              //});
+
+              await FirebaseFirestore.instance
+                  .collection('orders')
+                  .doc(orderNumber)
+                  .set({'orderNumbert': orderNumber});
+
+              print("te rog");
+              Navigator.of(context).pop();
+            },
+            label: Text(
+              "Slide to cancel Event",
+              style: TextStyle(
+                  color: Color(0xff4a4a4a),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 17),
+            ),
+            icon: Text(
+              "x",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w400,
+                fontSize: 44,
+              ),
+            ),
+          )
         ]),
       ),
     );

@@ -170,7 +170,7 @@ class _OrdersState extends State<Orders> {
                 'formattedDateTime': DateTime.now(),
                 'products': orderData
               }).then((value) => {
-                        print("te rog"),
+                        print("Order added!"),
                       });
               Navigator.push(
                 context,

@@ -195,7 +195,7 @@ class _OrdersState extends State<Orders> {
                       .set({
                     'orderNumber': orderNumber,
                     'formattedDateTime': formattedDateTime,
-                    '${name3[i]}': {name3[i]: nr_products3[i]}
+                    name3[i]: nr_products3[i]
                   }).then((value) => {print("te rog")});
                 }
 

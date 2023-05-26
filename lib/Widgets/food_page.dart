@@ -17,7 +17,6 @@ import 'package:mobile_app/show_food.dart/show.dart';
 import 'package:readmore/readmore.dart';
 import 'menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'menu3.dart';
 
 double screen_size = 1;
@@ -239,12 +238,12 @@ class FoodPageState extends State<FoodPage> {
                                           maxLines: 2,
                                         ),
                                       ]),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 10, top: 10, bottom: 10),
-                                    child: Text(
-                                        "  Prăjitura cu ciocolată și zmeură este o combinație perfectă între ciocolată bogată și aroma proaspătă a zmeurelor. Ea îmbină texturi și gusturi într-un mod surprinzător, oferind o experiență dulce de neuitat"),
-                                  ),
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(
+                                  //       left: 10, top: 10, bottom: 10),
+                                  //   child: Text(
+                                  //       "  Prăjitura cu ciocolată și zmeură este o combinație perfectă între ciocolată bogată și aroma proaspătă a zmeurelor. Ea îmbină texturi și gusturi într-un mod surprinzător, oferind o experiență dulce de neuitat"),
+                                  // ),
                                   Card(
                                     child: Theme(
                                       data: ThemeData.from(
@@ -359,21 +358,9 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.001,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.001,
-                                              decoration: const BoxDecoration(
-                                                  image: DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/png/calories.png"),
-                                                fit: BoxFit.scaleDown,
-                                              )),
+                                            child: Icon(
+                                              FontAwesomeIcons.fire,
+                                              color: Colors.black,
                                             ),
                                           ),
                                           SizedBox(
@@ -417,21 +404,9 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.001,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.001,
-                                              decoration: const BoxDecoration(
-                                                  image: DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/png/fats.png"),
-                                                fit: BoxFit.scaleDown,
-                                              )),
+                                            child: Icon(
+                                              FontAwesomeIcons.egg,
+                                              color: Colors.black,
                                             ),
                                           ),
                                           SizedBox(

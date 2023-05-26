@@ -15,7 +15,6 @@ import '../Widgets/menu3.dart';
 
 int nr_food1 = 1;
 int final_price = 0;
-List<String> orders = [];
 
 class Orders extends StatefulWidget {
   const Orders({super.key});

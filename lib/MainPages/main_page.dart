@@ -12,6 +12,8 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
+String test = "Orders()";
+
 class _MainPageState extends State<MainPage> {
   List pages = [
     const Orders(),
@@ -37,7 +39,7 @@ class _MainPageState extends State<MainPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
-            label: 'Home',
+            label: 'Orders',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

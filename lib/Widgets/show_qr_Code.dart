@@ -15,6 +15,27 @@ class _ShowQrCodeState extends State<ShowQrCode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue[400],
+        centerTitle: true,
+        leading: GestureDetector(
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MainPage()),
+            );
+          },
+        ),
+        automaticallyImplyLeading: false,
+        title: Text(
+          "Q R  P A G E",
+          style: TextStyle(fontSize: 20, fontFamily: "SignikaNegative-Regular"),
+        ),
+      ),
       body: WillPopScope(
         onWillPop: () async {
           // Disable back button functionality
@@ -31,16 +52,6 @@ class _ShowQrCodeState extends State<ShowQrCode> {
                   version: QrVersions.auto,
                   size: 200.0,
                 ),
-              ),
-            ),
-            Center(
-              child: FloatingActionButton(
-                child: Icon(Icons.keyboard_backspace),
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const MainPage()),
-                  );
-                },
               ),
             ),
           ],

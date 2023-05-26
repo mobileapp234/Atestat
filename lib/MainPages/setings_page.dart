@@ -140,8 +140,8 @@ class SetingsState extends State<SetingsPage> {
                     shape: BoxShape.rectangle,
                   ),
                   child: GestureDetector(
-                    onTap: () async {
-                      await FirebaseAuth.instance.signOut();
+                    onTap: () {
+                      FirebaseAuth.instance.signOut();
                       ind.index_bottom_navigation_bar = 1;
                     },
                     child: Padding(

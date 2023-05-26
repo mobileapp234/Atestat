@@ -17,13 +17,13 @@ class AuthGoogle {
 
     final User? user = userCredential.user;
     final uid = user?.uid;
-
+    final email = user?.email;
     if (uid != null) {
       // Save UID to Firestore
       await FirebaseFirestore.instance
           .collection('users')
           .doc(uid)
-          .set({'uid': uid});
+          .set({'uid': uid, 'email': email});
     }
 
     return userCredential;

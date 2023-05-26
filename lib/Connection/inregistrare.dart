@@ -528,17 +528,17 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                   password: _passwordValue1.text,
                                 );
 
-                                final CollectionReference usersCollection =
-                                    FirebaseFirestore.instance
-                                        .collection('users');
-                                final currentUser =
-                                    FirebaseAuth.instance.currentUser;
+                                final User? user = userCredential.user;
+                                final uid = user?.uid;
+                                final email = user?.email;
 
-                                await usersCollection
-                                    .doc(currentUser?.uid)
-                                    .set({
-                                  // You can add additional fields here if needed
-                                });
+                                if (uid != null) {
+                                  // Save UID to Firestore
+                                  await FirebaseFirestore.instance
+                                      .collection('users')
+                                      .doc(uid)
+                                      .set({'uid': uid, 'email': email});
+                                }
                               } on FirebaseAuthException catch (e) {
                                 if (e.code == 'weak-password') {
                                   print('The password provided is too weak.');

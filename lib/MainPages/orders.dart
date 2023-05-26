@@ -119,7 +119,9 @@ class _OrdersState extends State<Orders> {
             buttonColor: Colors.blue,
             baseColor: Colors.blue,
             action: () async {
-              setState(() {});
+              // setState(() {
+              //   ind.verify = "ShowQrCode()";
+              // });
 
               final CollectionReference ordersCollection =
                   FirebaseFirestore.instance.collection('orders');

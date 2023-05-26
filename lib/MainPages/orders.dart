@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_app/MainPages/home_page.dart';
+import 'package:mobile_app/Globals_Variables.dart';
 import 'package:mobile_app/Widgets/menu.dart';
 import 'package:mobile_app/Widgets/product.dart';
 import 'package:mobile_app/Widgets/show_qr_Code.dart';
-import 'package:swipeable_button_view/swipeable_button_view.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:slider_button/slider_button.dart';
-
+import 'package:mobile_app/Globals_Variables.dart' as ind;
 import '../Widgets/menu1.dart';
 import '../Widgets/menu2.dart';
 import '../Widgets/menu3.dart';
@@ -24,9 +23,10 @@ class Orders extends StatefulWidget {
   State<Orders> createState() => _OrdersState();
 }
 
+String orderNumber = "";
+
 class _OrdersState extends State<Orders> {
   bool isFinished = false;
-
   String generateOrderNumber() {
     // Get the current user's UID
     String uid = FirebaseAuth.instance.currentUser!.uid;
@@ -42,7 +42,7 @@ class _OrdersState extends State<Orders> {
         formattedDateTime.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '');
 
     // Combine the UID and formatted date and time to create the order number
-    String orderNumber = '$uid-$formattedDateTime';
+    orderNumber = '$uid-$formattedDateTime';
 
     return orderNumber;
   }
@@ -115,39 +115,12 @@ class _OrdersState extends State<Orders> {
               ],
             ),
           ),
-          // FloatingActionButton(
-          //     child: Icon(Icons.help),
-          //     onPressed: () async {
-          //       final CollectionReference ordersCollection =
-          //           FirebaseFirestore.instance.collection('orders');
-          //       String uid = FirebaseAuth.instance.currentUser!.uid;
-
-          //       // Get the current date and time
-          //       DateTime now = DateTime.now();
-
-          //       // Format the date and time as a string
-          //       String formattedDateTime = now.toString();
-
-          //       // Remove any special characters from the formatted string
-          //       formattedDateTime =
-          //           formattedDateTime.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '');
-
-          //       // Combine the UID and formatted date and time to create the order number
-          //       String orderNumber = '$uid-$formattedDateTime';
-
-          //       //ordersCollection.doc(orderNumber).set({
-          //       // You can add additional fields here if needed
-          //       // myObject.toMap(),
-          //       //});
-
-          //       await FirebaseFirestore.instance
-          //           .collection('orders')
-          //           .doc(orderNumber)
-          //           .set({'orderNumbert': orderNumber});
-
-          //     }),
           SliderButton(
+            buttonColor: Colors.blue,
+            baseColor: Colors.blue,
             action: () async {
+              setState(() {});
+
               final CollectionReference ordersCollection =
                   FirebaseFirestore.instance.collection('orders');
               String uid = FirebaseAuth.instance.currentUser!.uid;
@@ -159,7 +132,7 @@ class _OrdersState extends State<Orders> {
               formattedDateTime =
                   formattedDateTime.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '');
 
-              String orderNumber = '$uid-$formattedDateTime';
+              orderNumber = '$uid-$formattedDateTime';
 
               var orderData = {};
 
@@ -197,23 +170,24 @@ class _OrdersState extends State<Orders> {
               }).then((value) => {
                         print("te rog"),
                       });
-
-              Navigator.of(context).pop();
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.fade, // Choose the transition type
+                  child: ShowQrCode(), // The page you want to navigate to
+                ),
+              );
             },
             label: Text(
-              "Slide to place order",
+              "Plasati comanda",
               style: TextStyle(
                   color: Color(0xff4a4a4a),
                   fontWeight: FontWeight.w500,
                   fontSize: 17),
             ),
-            icon: Text(
-              "x",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w400,
-                fontSize: 44,
-              ),
+            icon: const Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
             ),
           )
         ]),

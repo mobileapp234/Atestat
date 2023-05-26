@@ -53,6 +53,7 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   fluttericon: ^2.0.0
   slider_button: ^2.0.0
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:

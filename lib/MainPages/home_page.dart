@@ -7,7 +7,9 @@ import 'package:mobile_app/Widgets/home_slider.dart';
 import 'package:mobile_app/Widgets/test.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/show.dart';
-import 'package:mobile_app/Globals_Variables.dart' as c;
+import 'package:mobile_app/Globals_Variables.dart' as ind;
+
+int day_menu = 0;
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -199,9 +201,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   onTap: () {
                                     setState(() {
                                       isVerified = !isVerified;
+                                      if (isVerified == true) {
+                                        day_menu = 1;
+                                      }
                                     });
                                   },
-                                  // color: isVerified ? Colors.grey : null,
                                 )
                               ],
                             )
@@ -233,7 +237,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          c.course_index = 0;
+                          ind.course_index = 0;
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const ShowFood()));
                         },
@@ -267,7 +271,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        c.course_index = 1;
+                        ind.course_index = 1;
                       });
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ShowFood()));
@@ -315,7 +319,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        c.course_index = 2;
+                        ind.course_index = 2;
                       });
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ShowFood()));
@@ -376,7 +380,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          c.course_index = 3;
+                          ind.course_index = 3;
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const ShowFood()));
                         },

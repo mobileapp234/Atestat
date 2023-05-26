@@ -347,26 +347,35 @@ class FoodPageState extends State<FoodPage> {
                                       Row(
                                         children: [
                                           Container(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.15,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.15,
+                                            decoration: BoxDecoration(
+                                                color: Colors.orange[100],
+                                                borderRadius:
+                                                    BorderRadius.circular(30)),
+                                            child: Container(
                                               height: MediaQuery.of(context)
                                                       .size
                                                       .width *
-                                                  0.15,
+                                                  0.001,
                                               width: MediaQuery.of(context)
                                                       .size
                                                       .width *
-                                                  0.15,
-                                              decoration: BoxDecoration(
-                                                  color: Colors.orange[100],
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30)),
-                                              child: Icon(
-                                                FontAwesomeIcons.burger,
-                                                // Icons.lightMode,
-                                                size:
-                                                    24, // Adjust the size as needed
-                                                //  color: ,
+                                                  0.001,
+                                              decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                image: AssetImage(
+                                                    "assets/png/calories.png"),
+                                                fit: BoxFit.scaleDown,
                                               )),
+                                            ),
+                                          ),
                                           SizedBox(
                                             width: MediaQuery.of(context)
                                                     .size
@@ -375,14 +384,13 @@ class FoodPageState extends State<FoodPage> {
                                           ),
                                           Text(
                                             (ind.course_index == 0
-                                                ? calories[ind.food]
+                                                ? "${calories[ind.food]} Kcal"
                                                 : ind.course_index == 1
-                                                    ? calories1[ind.food]
+                                                    ? "${calories1[ind.food]} Kcal"
                                                     : ind.course_index == 2
-                                                        ? calories2[ind.food]
+                                                        ? "${calories2[ind.food]} Kcal"
                                                         : ind.course_index == 3
-                                                            ? calories3[
-                                                                ind.food]
+                                                            ? "${calories3[ind.food]} Kcal"
                                                             : ""),
                                             style: TextStyle(
                                                 fontSize: 16,
@@ -409,9 +417,21 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Icon(
-                                              Icons.fireplace_rounded,
-                                              color: Colors.orange,
+                                            child: Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.001,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.001,
+                                              decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                image: AssetImage(
+                                                    "assets/png/fats.png"),
+                                                fit: BoxFit.scaleDown,
+                                              )),
                                             ),
                                           ),
                                           SizedBox(
@@ -422,13 +442,13 @@ class FoodPageState extends State<FoodPage> {
                                           ),
                                           Text(
                                             (ind.course_index == 0
-                                                ? protein[ind.food]
+                                                ? "${fats[ind.food]}g Gasimi"
                                                 : ind.course_index == 1
-                                                    ? protein1[ind.food]
+                                                    ? "${fats2[ind.food]}g Grasimi"
                                                     : ind.course_index == 2
-                                                        ? protein2[ind.food]
+                                                        ? "${fats2[ind.food]}g Grasimi"
                                                         : ind.course_index == 3
-                                                            ? protein3[ind.food]
+                                                            ? "${fats3[ind.food]}g Grasimi"
                                                             : ""),
                                             style: TextStyle(
                                                 fontSize: 16,
@@ -465,9 +485,21 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Icon(
-                                              Icons.fireplace_rounded,
-                                              color: Colors.orange,
+                                            child: Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.001,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.001,
+                                              decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                image: AssetImage(
+                                                    "assets/png/protein.png"),
+                                                fit: BoxFit.scaleDown,
+                                              )),
                                             ),
                                           ),
                                           SizedBox(
@@ -478,13 +510,13 @@ class FoodPageState extends State<FoodPage> {
                                           ),
                                           Text(
                                             (ind.course_index == 0
-                                                ? fats[ind.food]
+                                                ? "${protein[ind.food]} g proteine"
                                                 : ind.course_index == 1
-                                                    ? fats1[ind.food]
+                                                    ? "${protein1[ind.food]} g proteine"
                                                     : ind.course_index == 2
-                                                        ? fats2[ind.food]
+                                                        ? "${protein2[ind.food]} g proteine"
                                                         : ind.course_index == 3
-                                                            ? fats3[ind.food]
+                                                            ? "${protein3[ind.food]} g proteine"
                                                             : ""),
                                             style: TextStyle(
                                                 fontSize: 16,
@@ -511,9 +543,21 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Icon(
-                                              Icons.fireplace_rounded,
-                                              color: Colors.orange,
+                                            child: Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.001,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.001,
+                                              decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                image: AssetImage(
+                                                    "assets/png/carbs.png"),
+                                                fit: BoxFit.fitWidth,
+                                              )),
                                             ),
                                           ),
                                           SizedBox(
@@ -524,13 +568,13 @@ class FoodPageState extends State<FoodPage> {
                                           ),
                                           Text(
                                             (ind.course_index == 0
-                                                ? carbs[ind.food]
+                                                ? "${carbs[ind.food]}g carbohidrati"
                                                 : ind.course_index == 1
-                                                    ? carbs1[ind.food]
+                                                    ? "${carbs1[ind.food]}g carbohidrati"
                                                     : ind.course_index == 2
-                                                        ? carbs2[ind.food]
+                                                        ? "${carbs2[ind.food]}g carbohidrati"
                                                         : ind.course_index == 3
-                                                            ? carbs3[ind.food]
+                                                            ? "${carbs3[ind.food]}g carbohidrati"
                                                             : ""),
                                             style: TextStyle(
                                                 fontSize: 16,

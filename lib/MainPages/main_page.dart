@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
         currentIndex: ind.index_bottom_navigation_bar,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.shopping_cart),
             label: 'Home',
           ),
           BottomNavigationBarItem(

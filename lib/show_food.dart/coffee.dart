@@ -11,15 +11,13 @@ class Coffee extends StatefulWidget {
 class _CoffeeState extends State<Coffee> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          const Menu2()
-        ],
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
+        ),
+        const Menu2()
+      ],
     );
   }
 }

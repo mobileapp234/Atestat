@@ -9,6 +9,7 @@ import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/show.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
 
+// ignore: non_constant_identifier_names
 int day_menu = 0;
 
 class HomePage extends StatefulWidget {

@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, avoid_print
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +29,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
 
   Color culoare0 = Colors.grey;
   Color culoare1 = Colors.grey;
+  // ignore: non_constant_identifier_names
   void _ChangeColor00() {
     setState(() {
       culoare1 = Colors.grey;
@@ -36,6 +37,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
     });
   }
 
+  // ignore: non_constant_identifier_names
   void _ChangeColor0() {
     setState(() {
       culoare0 = Colors.black54;
@@ -43,6 +45,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
     });
   }
 
+  // ignore: non_constant_identifier_names
   void _ChangeColor1() {
     setState(() {
       culoare1 = Colors.black54;
@@ -74,6 +77,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
   Color color0 = Colors.grey;
   Color color1 = Colors.grey;
   Color color2 = Colors.grey;
+  // ignore: non_constant_identifier_names
   void _ChangeColor000() {
     setState(() {
       color0 = Colors.grey;
@@ -82,22 +86,25 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
     });
   }
 
-  // void _ChangeColor0() {
-  //   setState(() {
-  //     color0 = Colors.black54;
-  //     color1 = Colors.grey;
-  //     color2 = Colors.grey;
-  //   });
-  // }
+  // ignore: non_constant_identifier_names
+  void _ChangeColor10() {
+    setState(() {
+      color0 = Colors.black54;
+      color1 = Colors.grey;
+      color2 = Colors.grey;
+    });
+  }
 
-  // void _ChangeColor1() {
-  //   setState(() {
-  //     color1 = Colors.black54;
-  //     color0 = Colors.grey;
-  //     color2 = Colors.grey;
-  //   });
-  // }
+  // ignore: non_constant_identifier_names
+  void _ChangeColor11() {
+    setState(() {
+      color1 = Colors.black54;
+      color0 = Colors.grey;
+      color2 = Colors.grey;
+    });
+  }
 
+  // ignore: non_constant_identifier_names
   void _ChangeColor2() {
     setState(() {
       color2 = Colors.black54;
@@ -106,37 +113,12 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
     });
   }
 
-  // FocusNode f0 = FocusNode();
-  //FocusNode f1 = FocusNode();
   FocusNode f2 = FocusNode();
-
-  // Future SignIn() async {
-  //   await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //     email: _emailValue0.text.trim(),
-  //     password: _passwordValue0.text.trim(),
-  //   );
-  // }
 
   final textcontoller = TextEditingController();
 
   late TabController tb;
 
-  // late FocusNode myFocusNode;
-
-  // void initState1() {
-  //   super.initState();
-
-  //   myFocusNode = FocusNode();
-  // }
-
-  // void dispose1() {
-  //   // Clean up the focus node when the Form is disposed.
-  //   myFocusNode.dispose();
-
-  //   super.dispose();
-  // }
-
-  //
   @override
   void initState() {
     super.initState();
@@ -150,26 +132,8 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  //
   @override
   Widget build(BuildContext context) {
-    // TabController tb1 = TabController(length: 2, vsync: this);
-
-    // @override
-    // void dispose() {
-    //   tb1.dispose();
-    //   super.dispose();
-    // }
-
-    // void sc(index) {
-    //   setState(() {
-    //     if (index == 0) {
-    //       dispose();
-    //       TB = tb1 as String;
-    //     } else {}
-    //   });
-    // }
-
     return Scaffold(
         body: Center(
       child: Container(
@@ -341,7 +305,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                       'Wrong password provided for that user.');
                                 }
                               }
-                              Isconnected();
+                              const Isconnected();
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(15),
@@ -395,7 +359,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                   _ChangeColor1();
                                 });
                               },
-                              onTap: _ChangeColor0,
+                              onTap: _ChangeColor10,
                               focusNode: f0,
 
                               style: const TextStyle(fontSize: 17),
@@ -430,7 +394,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                 });
                               },
                               focusNode: f1,
-                              onTap: _ChangeColor1,
+                              onTap: _ChangeColor11,
                               style: const TextStyle(fontSize: 17),
                               obscureText: _vizibility1,
                               controller: _passwordValue1,
@@ -548,7 +512,7 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                               } catch (e) {
                                 print(e);
                               }
-                              Isconnected();
+                              const Isconnected();
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(15),

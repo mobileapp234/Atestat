@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
-import 'package:mobile_app/Globals_Variables.dart';
 import 'package:mobile_app/Widgets/menu.dart';
 import 'package:mobile_app/Widgets/product.dart';
 import 'package:mobile_app/Widgets/show_qr_Code.dart';
@@ -8,12 +8,13 @@ import 'package:page_transition/page_transition.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:slider_button/slider_button.dart';
-import 'package:mobile_app/Globals_Variables.dart' as ind;
 import '../Widgets/menu1.dart';
 import '../Widgets/menu2.dart';
 import '../Widgets/menu3.dart';
 
+// ignore: non_constant_identifier_names
 int nr_food1 = 1;
+// ignore: non_constant_identifier_names
 int final_price = 0;
 
 class Orders extends StatefulWidget {
@@ -54,7 +55,7 @@ class _OrdersState extends State<Orders> {
         backgroundColor: Colors.blue[400],
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           "O R D E R S",
           style: TextStyle(fontSize: 20, fontFamily: "SignikaNegative-Regular"),
         ),
@@ -66,7 +67,7 @@ class _OrdersState extends State<Orders> {
         },
         child: Column(children: [
           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.65,
             width: MediaQuery.of(context).size.height * 1,
             child: ListView(
@@ -172,15 +173,16 @@ class _OrdersState extends State<Orders> {
               }).then((value) => {
                         print("Order added!"),
                       });
+              // ignore: use_build_context_synchronously
               Navigator.push(
                 context,
                 PageTransition(
                   type: PageTransitionType.fade, // Choose the transition type
-                  child: ShowQrCode(), // The page you want to navigate to
+                  child: const ShowQrCode(), // The page you want to navigate to
                 ),
               );
             },
-            label: Text(
+            label: const Text(
               "Plasati comanda",
               style: TextStyle(
                   color: Color(0xff4a4a4a),

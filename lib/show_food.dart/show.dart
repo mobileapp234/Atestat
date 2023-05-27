@@ -51,7 +51,7 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
           title: const Text("T H E M I S  B I S T R O"),
           centerTitle: true,
           leading: GestureDetector(
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,
             ),
@@ -101,7 +101,7 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
         ),
         body: TabBarView(
           controller: tb,
-          children: [Gustari(), Desserts(), Coffee(), Soda()],
+          children: const [Gustari(), Desserts(), Coffee(), Soda()],
         ));
   }
 }

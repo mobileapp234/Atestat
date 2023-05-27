@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
 import 'package:mobile_app/MainPages/orders.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:mobile_app/Globals_Variables.dart' as ind;
 
 class ShowQrCode extends StatefulWidget {
   const ShowQrCode({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class _ShowQrCodeState extends State<ShowQrCode> {
         backgroundColor: Colors.blue[400],
         centerTitle: true,
         leading: GestureDetector(
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
@@ -31,7 +30,7 @@ class _ShowQrCodeState extends State<ShowQrCode> {
           },
         ),
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           "Q R  P A G E",
           style: TextStyle(fontSize: 20, fontFamily: "SignikaNegative-Regular"),
         ),

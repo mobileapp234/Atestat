@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
-import '../main.dart';
 
 class SetingsPage extends StatefulWidget {
   const SetingsPage({super.key});
@@ -24,20 +23,20 @@ class SetingsState extends State<SetingsPage> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 16, 0, 0),
                 child: Text(
                   'Account',
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 60,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 5,
                         color: Color(0x3416202A),
@@ -47,7 +46,7 @@ class SetingsState extends State<SetingsPage> {
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -77,13 +76,13 @@ class SetingsState extends State<SetingsPage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 60,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 5,
                         color: Color(0x3416202A),
@@ -93,7 +92,7 @@ class SetingsState extends State<SetingsPage> {
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -123,13 +122,13 @@ class SetingsState extends State<SetingsPage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 60,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 5,
                         color: Color(0x3416202A),
@@ -144,7 +143,7 @@ class SetingsState extends State<SetingsPage> {
                       FirebaseAuth.instance.signOut();
                       ind.index_bottom_navigation_bar = 1;
                     },
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -175,7 +174,7 @@ class SetingsState extends State<SetingsPage> {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 16, 0, 0),
                 child: Text(
                   'General',
@@ -183,13 +182,13 @@ class SetingsState extends State<SetingsPage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 60,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 5,
                         color: Color(0x3416202A),
@@ -199,7 +198,7 @@ class SetingsState extends State<SetingsPage> {
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -232,13 +231,13 @@ class SetingsState extends State<SetingsPage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   height: 60,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 5,
                         color: Color(0x3416202A),
@@ -248,7 +247,7 @@ class SetingsState extends State<SetingsPage> {
                     borderRadius: BorderRadius.circular(12),
                     shape: BoxShape.rectangle,
                   ),
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,

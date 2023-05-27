@@ -12,19 +12,17 @@ class Gustari extends StatefulWidget {
 class _GustariState extends State<Gustari> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          const Menu(
-              // nume: nume[0],
-              // pret: pret[0],
-              // imagini: imagini[0],
-              ),
-        ],
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
+        ),
+        const Menu(
+            // nume: nume[0],
+            // pret: pret[0],
+            // imagini: imagini[0],
+            ),
+      ],
     );
   }
 }

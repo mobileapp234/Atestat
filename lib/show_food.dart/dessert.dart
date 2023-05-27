@@ -14,15 +14,13 @@ class Desserts extends StatefulWidget {
 class _DessertsState extends State<Desserts> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          const Menu1()
-        ],
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
+        ),
+        const Menu1()
+      ],
     );
   }
 }

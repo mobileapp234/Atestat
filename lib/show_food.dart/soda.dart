@@ -14,15 +14,13 @@ class Soda extends StatefulWidget {
 class _SodaState extends State<Soda> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          const Menu3()
-        ],
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
+        ),
+        const Menu3()
+      ],
     );
   }
 }

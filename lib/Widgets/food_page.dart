@@ -19,9 +19,13 @@ import 'menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'menu3.dart';
 
+// ignore: non_constant_identifier_names
 double screen_size = 1;
+// ignore: non_constant_identifier_names
 bool extend_screen = false;
+// ignore: non_constant_identifier_names
 int product_price = 10;
+// ignore: non_constant_identifier_names
 int nr_ingredients = 7;
 bool showText = false;
 List<String> alergeni = [
@@ -53,6 +57,7 @@ class FoodPage extends StatefulWidget {
 
 class FoodPageState extends State<FoodPage> {
   bool _isExpanded = false;
+  // ignore: non_constant_identifier_names
   int nr_food = 1;
   @override
   Widget build(BuildContext context) {
@@ -65,7 +70,7 @@ class FoodPageState extends State<FoodPage> {
               children: [
             Column(
               children: [
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width * 1,
                   height: MediaQuery.of(context).size.height * screen_size,
                   child: Stack(children: [
@@ -84,7 +89,7 @@ class FoodPageState extends State<FoodPage> {
                                           ? AssetImage(image2[ind.food])
                                           : ind.course_index == 3
                                               ? AssetImage(image3[ind.food])
-                                              : AssetImage(""),
+                                              : const AssetImage(""),
                               fit: BoxFit.cover)),
                     )),
                     Positioned(
@@ -104,7 +109,7 @@ class FoodPageState extends State<FoodPage> {
                                       builder: (context) => const ShowFood()),
                                 );
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.arrow_back_outlined,
                                 color: Colors.black,
                               ),
@@ -120,7 +125,7 @@ class FoodPageState extends State<FoodPage> {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => const MainPage()));
                               },
-                              child: Icon(
+                              child: const Icon(
                                 FontAwesomeIcons.basketShopping,
                                 color: Colors.black,
                               ),
@@ -134,9 +139,9 @@ class FoodPageState extends State<FoodPage> {
                                 left: 20, right: 20, top: 20),
                             height: MediaQuery.of(context).size.height * 2,
                             width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(30),
                                   topRight: Radius.circular(30),
                                 )),
@@ -159,7 +164,7 @@ class FoodPageState extends State<FoodPage> {
                                             MediaQuery.of(context).size.width *
                                                 0.3,
                                         decoration: BoxDecoration(
-                                            color: Color.fromARGB(
+                                            color: const Color.fromARGB(
                                                 255, 242, 232, 226),
                                             borderRadius:
                                                 BorderRadius.circular(15)),
@@ -179,20 +184,20 @@ class FoodPageState extends State<FoodPage> {
                                                 decoration: BoxDecoration(
                                                     image: DecorationImage(
                                                   image: ind.course_index == 0
-                                                      ? AssetImage(
+                                                      ? const AssetImage(
                                                           "assets/png/sandwich-icon (1).png")
                                                       : ind.course_index == 1
-                                                          ? AssetImage(
+                                                          ? const AssetImage(
                                                               "assets/png/cake-cup-icon.png")
                                                           : ind.course_index ==
                                                                   2
-                                                              ? AssetImage(
+                                                              ? const AssetImage(
                                                                   "assets/png/plastic-takeaway-coffee-icon.png")
                                                               : ind.course_index ==
                                                                       3
-                                                                  ? AssetImage(
+                                                                  ? const AssetImage(
                                                                       "assets/png/sandwich-icon (1).png")
-                                                                  : AssetImage(
+                                                                  : const AssetImage(
                                                                       ""),
                                                   // fit: BoxFit.cover
                                                 )),
@@ -251,10 +256,11 @@ class FoodPageState extends State<FoodPage> {
                                             primarySwatch: Colors.lightBlue),
                                       ),
                                       child: ExpansionTile(
-                                          title: Text("Informatii"),
+                                          title: const Text("Informatii"),
                                           onExpansionChanged: (isExpanded) {
                                             setState(() {
                                               _isExpanded = isExpanded;
+                                              // ignore: avoid_print
                                               print(isExpanded);
                                               if (isExpanded == false) {
                                                 screen_size = 1;
@@ -269,12 +275,12 @@ class FoodPageState extends State<FoodPage> {
                                                   left: 15),
                                               child: Column(
                                                 children: [
-                                                  Text(
+                                                  const Text(
                                                     "Ingrediente",
                                                     style:
                                                         TextStyle(fontSize: 18),
                                                   ),
-                                                  Container(
+                                                  SizedBox(
                                                       height: nr_ingredients <
                                                               10
                                                           ? MediaQuery.of(
@@ -296,7 +302,7 @@ class FoodPageState extends State<FoodPage> {
                                                             return Text(
                                                                 "• ${ingredients[index]}");
                                                           })),
-                                                  Text(
+                                                  const Text(
                                                     "Alergeni",
                                                     style:
                                                         TextStyle(fontSize: 18),
@@ -308,7 +314,7 @@ class FoodPageState extends State<FoodPage> {
                                                                 .height *
                                                             0.015,
                                                   ),
-                                                  Container(
+                                                  SizedBox(
                                                       height: nr_ingredients < 5
                                                           ? MediaQuery.of(
                                                                       context)
@@ -358,7 +364,7 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Icon(
+                                            child: const Icon(
                                               FontAwesomeIcons.fire,
                                               color: Colors.black,
                                             ),
@@ -379,7 +385,7 @@ class FoodPageState extends State<FoodPage> {
                                                         : ind.course_index == 3
                                                             ? "${calories3[ind.food]} Kcal"
                                                             : ""),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 16,
                                                 fontStyle: FontStyle.italic,
                                                 fontWeight: FontWeight.bold,
@@ -404,8 +410,8 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Icon(
-                                              FontAwesomeIcons.egg,
+                                            child: const Icon(
+                                              FontAwesomeIcons.fish,
                                               color: Colors.black,
                                             ),
                                           ),
@@ -425,7 +431,7 @@ class FoodPageState extends State<FoodPage> {
                                                         : ind.course_index == 3
                                                             ? "${fats3[ind.food]}g Grasimi"
                                                             : ""),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 16,
                                                 fontStyle: FontStyle.italic,
                                                 fontWeight: FontWeight.bold,
@@ -460,21 +466,9 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.001,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.001,
-                                              decoration: const BoxDecoration(
-                                                  image: DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/png/protein.png"),
-                                                fit: BoxFit.scaleDown,
-                                              )),
+                                            child: const Icon(
+                                              FontAwesomeIcons.egg,
+                                              color: Colors.black,
                                             ),
                                           ),
                                           SizedBox(
@@ -493,7 +487,7 @@ class FoodPageState extends State<FoodPage> {
                                                         : ind.course_index == 3
                                                             ? "${protein3[ind.food]} g proteine"
                                                             : ""),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 16,
                                                 fontStyle: FontStyle.italic,
                                                 fontWeight: FontWeight.bold,
@@ -518,21 +512,9 @@ class FoodPageState extends State<FoodPage> {
                                                 color: Colors.orange[100],
                                                 borderRadius:
                                                     BorderRadius.circular(30)),
-                                            child: Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.001,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.001,
-                                              decoration: const BoxDecoration(
-                                                  image: DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/png/carbs.png"),
-                                                fit: BoxFit.fitWidth,
-                                              )),
+                                            child: const Icon(
+                                              FontAwesomeIcons.breadSlice,
+                                              color: Colors.black,
                                             ),
                                           ),
                                           SizedBox(
@@ -543,15 +525,15 @@ class FoodPageState extends State<FoodPage> {
                                           ),
                                           Text(
                                             (ind.course_index == 0
-                                                ? "${carbs[ind.food]}g carbohidrati"
+                                                ? "${carbs[ind.food]}g carbs"
                                                 : ind.course_index == 1
-                                                    ? "${carbs1[ind.food]}g carbohidrati"
+                                                    ? "${carbs1[ind.food]}g carbs"
                                                     : ind.course_index == 2
-                                                        ? "${carbs2[ind.food]}g carbohidrati"
+                                                        ? "${carbs2[ind.food]}g carbs"
                                                         : ind.course_index == 3
-                                                            ? "${carbs3[ind.food]}g carbohidrati"
+                                                            ? "${carbs3[ind.food]}g carbs"
                                                             : ""),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 16,
                                                 fontStyle: FontStyle.italic,
                                                 fontWeight: FontWeight.bold,
@@ -596,7 +578,7 @@ class FoodPageState extends State<FoodPage> {
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.blue,
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.remove,
                           color: Colors.white,
                         ),
@@ -606,7 +588,7 @@ class FoodPageState extends State<FoodPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         nr_food.toString(),
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
                     ),
                     GestureDetector(
@@ -622,7 +604,7 @@ class FoodPageState extends State<FoodPage> {
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.blue,
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.add,
                           color: Colors.white,
                         ),

@@ -21,6 +21,7 @@ List<String> name1 = [
   "Prajitura 6",
 ];
 List<int> price1 = [10, 13, 15, 12, 14, 22];
+// ignore: non_constant_identifier_names
 List<int> nr_products1 = [0, 0, 0, 0, 0, 0];
 List<String> calories1 = ['300', '400', '250', '350', '320', '280'];
 List<String> protein1 = ['4', '6', '3', '5', '4', '3'];

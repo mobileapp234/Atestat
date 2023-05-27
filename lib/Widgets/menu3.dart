@@ -28,6 +28,7 @@ List<String> name3 = [
   "Apa 1",
 ];
 List<int> price3 = [10, 6, 8, 4, 7, 4];
+// ignore: non_constant_identifier_names
 List<int> nr_products3 = [0, 0, 0, 0, 0, 0];
 List<String> calories3 = ['140', '150', '120', '160', '180', '130'];
 List<String> protein3 = ['0', '0', '0', '0', '0', '0'];

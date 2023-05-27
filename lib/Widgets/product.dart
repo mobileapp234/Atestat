@@ -15,7 +15,8 @@ class Product extends StatefulWidget {
   final int index;
   final int categ;
   const Product(
-      {required this.nume,
+      {super.key,
+      required this.nume,
       required this.pret,
       required this.photo,
       required this.nrproducts,
@@ -23,17 +24,12 @@ class Product extends StatefulWidget {
       required this.categ});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ProductState createState() => _ProductState();
-
-//  void dispose() {}
 }
 
 class _ProductState extends State<Product> {
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  // }
-
+  // ignore: non_constant_identifier_names
   int nr_food1 = 1;
   @override
   Widget build(BuildContext context) {
@@ -154,7 +150,7 @@ class _ProductState extends State<Product> {
                                                                   1
                                                               ? Colors.blue
                                                               : Colors.blue),
-                          child: Icon(
+                          child: const Icon(
                             Icons.remove,
                             color: Colors.white,
                           ),
@@ -205,7 +201,7 @@ class _ProductState extends State<Product> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               color: Colors.blue),
-                          child: Icon(
+                          child: const Icon(
                             Icons.add,
                             color: Colors.white,
                           ),

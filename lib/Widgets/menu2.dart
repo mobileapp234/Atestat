@@ -28,6 +28,7 @@ List<String> name2 = [
   "Cafea 6",
 ];
 List<int> price2 = [10, 8, 33, 9, 11, 14];
+// ignore: non_constant_identifier_names
 List<int> nr_products2 = [0, 0, 0, 0, 0, 0];
 List<String> calories2 = ['5', '10', '2', '7', '15', '0'];
 List<String> protein2 = ['0', '0', '0', '0', '0', '0'];

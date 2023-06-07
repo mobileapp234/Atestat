@@ -82,8 +82,8 @@ class _Menu3State extends State<Menu3> {
                               height: 120,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
-                                      image: AssetImage(image3[i3]),
-                                      fit: BoxFit.cover),
+                                    image: AssetImage(image3[i3]),
+                                  ),
                                   borderRadius: BorderRadius.circular(10)),
                             ),
                           ),
@@ -145,8 +145,8 @@ class _Menu3State extends State<Menu3> {
                               height: 120,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
-                                      image: AssetImage(image3[i3 + 1]),
-                                      fit: BoxFit.cover),
+                                    image: AssetImage(image3[i3 + 1]),
+                                  ),
                                   borderRadius: BorderRadius.circular(10)),
                             ),
                           ),

@@ -25,6 +25,7 @@ class Orders extends StatefulWidget {
 }
 
 String orderNumber = "";
+int order_value = 0;
 
 class _OrdersState extends State<Orders> {
   bool isFinished = false;
@@ -46,6 +47,46 @@ class _OrdersState extends State<Orders> {
     orderNumber = '$uid-$formattedDateTime';
 
     return orderNumber;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      order_value = 0;
+    });
+    calculateSum();
+  }
+
+  void calculateSum() {
+    for (int ii = 0; ii < price.length; ii++) {
+      setState(() {
+        if (nr_products[ii] > 0) {
+          order_value += price[ii] * nr_products[ii];
+        }
+      });
+    }
+    for (int ii1 = 0; ii1 < price1.length; ii1++) {
+      setState(() {
+        if (nr_products1[ii1] > 0) {
+          order_value += price1[ii1] * nr_products1[ii1];
+        }
+      });
+    }
+    for (int ii2 = 0; ii2 < price2.length; ii2++) {
+      setState(() {
+        if (nr_products2[ii2] > 0) {
+          order_value += price2[ii2] * nr_products2[ii2];
+        }
+      });
+    }
+    for (int ii3 = 0; ii3 < price3.length; ii3++) {
+      setState(() {
+        if (nr_products3[ii3] > 0) {
+          order_value += price3[ii3] * nr_products3[ii3];
+        }
+      });
+    }
   }
 
   @override
@@ -72,9 +113,9 @@ class _OrdersState extends State<Orders> {
             width: MediaQuery.of(context).size.height * 1,
             child: ListView(
               children: [
-                // if (day_menu == 1)
                 for (var i = 0; i <= 5; i++)
                   if (nr_products[i] > 0)
+                    //  order_value=order_value+(price[i]*nr_products[i]);
                     Product(
                       nume: name[i],
                       pret: price[i],
@@ -116,6 +157,11 @@ class _OrdersState extends State<Orders> {
               ],
             ),
           ),
+          FloatingActionButton(
+              child: Icon(Icons.dangerous),
+              onPressed: () {
+                print(order_value.toString());
+              }),
           SliderButton(
             buttonColor: Colors.blue,
             baseColor: Colors.blue,

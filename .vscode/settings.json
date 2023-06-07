@@ -1,4 +1,4 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/windows/flutter",
+    "cmake.sourceDirectory": "C:/Themis Bistro App/MobileAPP/linux",
     "java.configuration.updateBuildConfiguration": "interactive"
 }

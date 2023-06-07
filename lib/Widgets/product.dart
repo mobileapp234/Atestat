@@ -28,6 +28,9 @@ class Product extends StatefulWidget {
   _ProductState createState() => _ProductState();
 }
 
+// int _counter = 0;
+// Key _pageKey = UniqueKey();
+
 class _ProductState extends State<Product> {
   // ignore: non_constant_identifier_names
   int nr_food1 = 1;
@@ -96,6 +99,10 @@ class _ProductState extends State<Product> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
+                            //  _pageKey = UniqueKey();
+
+                            // Increment the counter to simulate a page refresh
+                            //   _counter++;
                             if (nr_products[widget.index] == 1) {
                               // widget.dispose();
                             }
@@ -174,7 +181,7 @@ class _ProductState extends State<Product> {
                                         0.1 *
                                         MediaQuery.of(context).size.width /
                                         1000 -
-                                    10)),
+                                    20)),
                       ),
                       GestureDetector(
                         onTap: () {

@@ -60,9 +60,15 @@ class FoodPageState extends State<FoodPage> {
   // ignore: non_constant_identifier_names
   int nr_food = 1;
   @override
+  void initState() {
+    super.initState();
+    nr_food = 1;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(children: [
+        body: Stack(alignment: Alignment.center, children: [
       Positioned(
           child: ListView(
 
@@ -555,64 +561,64 @@ class FoodPageState extends State<FoodPage> {
           ])),
       Positioned(
           top: MediaQuery.of(context).size.height * 0.83,
-          left: MediaQuery.of(context).size.width * 0.22,
+          // left: MediaQuery.of(context).size.width * 0.22,
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (nr_food > 1) {
-                            nr_food -= 1;
-                          }
-                        });
-                      },
-                      child: Container(
-                        height: MediaQuery.of(context).size.width * 0.09,
-                        width: MediaQuery.of(context).size.width * 0.09,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
-                        ),
-                        child: const Icon(
-                          Icons.remove,
-                          color: Colors.white,
-                        ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (nr_food > 1) {
+                          nr_food -= 1;
+                        }
+                      });
+                    },
+                    child: Container(
+                      height: MediaQuery.of(context).size.width * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.09,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.blue,
+                      ),
+                      child: const Icon(
+                        Icons.remove,
+                        color: Colors.white,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        nr_food.toString(),
-                        style: const TextStyle(fontSize: 20),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      nr_food.toString(),
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        nr_food += 1;
+                      });
+                    },
+                    child: Container(
+                      height: MediaQuery.of(context).size.width * 0.09,
+                      width: MediaQuery.of(context).size.width * 0.09,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.blue,
+                      ),
+                      child: const Icon(
+                        Icons.add,
+                        color: Colors.white,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          nr_food += 1;
-                        });
-                      },
-                      child: Container(
-                        height: MediaQuery.of(context).size.width * 0.09,
-                        width: MediaQuery.of(context).size.width * 0.09,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue,
-                        ),
-                        child: const Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: FloatingActionButton.extended(
@@ -633,7 +639,19 @@ class FoodPageState extends State<FoodPage> {
                     }
                   },
                   heroTag: "2",
-                  label: Text("Adauga pentru ${product_price * nr_food} lei"),
+                  label: ind.course_index == 0
+                      ? Text(
+                          "Adauga in cos pentru ${price[ind.food] * nr_food} lei")
+                      : ind.course_index == 1
+                          ? Text(
+                              "Adauga in cos pentru ${price1[ind.food] * nr_food} lei")
+                          : ind.course_index == 2
+                              ? Text(
+                                  "Adauga in cos pentru ${price2[ind.food] * nr_food} lei")
+                              : ind.course_index == 3
+                                  ? Text(
+                                      "Adauga in cos pentru ${price3[ind.food] * nr_food} lei")
+                                  : Text(''),
                   //icon: const Icon(Icons.arrow_upward),
                 ),
               ),

@@ -637,6 +637,9 @@ class FoodPageState extends State<FoodPage> {
                         nr_products3[ind.food] += nr_food;
                         break;
                     }
+                    setState(() {
+                      nr_food = 1;
+                    });
                   },
                   heroTag: "2",
                   label: ind.course_index == 0

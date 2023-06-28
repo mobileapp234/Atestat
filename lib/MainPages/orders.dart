@@ -13,6 +13,7 @@ import '../Widgets/menu2.dart';
 import '../Widgets/menu3.dart';
 
 // ignore: non_constant_identifier_names
+bool isAlertDialogVisible = false;
 int nr_food1 = 1;
 // ignore: non_constant_identifier_names
 int final_price = 0;
@@ -157,87 +158,117 @@ class _OrdersState extends State<Orders> {
               ],
             ),
           ),
-          FloatingActionButton(
-              child: Icon(Icons.dangerous),
-              onPressed: () {
-                print(order_value.toString());
-              }),
-          SliderButton(
-            buttonColor: Colors.blue,
-            baseColor: Colors.blue,
-            action: () async {
-              // setState(() {
-              //   ind.verify = "ShowQrCode()";
-              // });
+          Visibility(
+            visible: !isAlertDialogVisible,
+            child: SliderButton(
+              buttonColor: Colors.blue,
+              baseColor: Colors.blue,
+              action: () async {
+                final CollectionReference ordersCollection =
+                    FirebaseFirestore.instance.collection('orders');
+                String uid = FirebaseAuth.instance.currentUser!.uid;
 
-              final CollectionReference ordersCollection =
-                  FirebaseFirestore.instance.collection('orders');
-              String uid = FirebaseAuth.instance.currentUser!.uid;
+                DateTime now = DateTime.now();
 
-              DateTime now = DateTime.now();
+                String formattedDateTime = now.toString();
 
-              String formattedDateTime = now.toString();
+                formattedDateTime =
+                    formattedDateTime.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '');
 
-              formattedDateTime =
-                  formattedDateTime.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '');
+                orderNumber = '$uid-$formattedDateTime';
+                int ver = 0;
+                var orderData = {};
 
-              orderNumber = '$uid-$formattedDateTime';
-
-              var orderData = {};
-
-              for (var i = 0; i <= 5; i++) {
-                if (nr_products[i] > 0) {
-                  orderData[name[i]] = nr_products[i];
+                for (var i = 0; i <= 5; i++) {
+                  if (nr_products[i] > 0) {
+                    orderData[name[i]] = nr_products[i];
+                    ver = 1;
+                  }
                 }
-              }
 
-              for (var i = 0; i <= 5; i++) {
-                if (nr_products1[i] > 0) {
-                  orderData[name1[i]] = nr_products1[i];
+                for (var i = 0; i <= 5; i++) {
+                  if (nr_products1[i] > 0) {
+                    orderData[name1[i]] = nr_products1[i];
+                    ver = 1;
+                  }
                 }
-              }
 
-              for (var i = 0; i <= 5; i++) {
-                if (nr_products2[i] > 0) {
-                  orderData[name2[i]] = nr_products2[i];
+                for (var i = 0; i <= 5; i++) {
+                  if (nr_products2[i] > 0) {
+                    orderData[name2[i]] = nr_products2[i];
+                    ver = 1;
+                  }
                 }
-              }
 
-              for (var i = 0; i <= 5; i++) {
-                if (nr_products3[i] > 0) {
-                  orderData[name3[i]] = nr_products3[i];
+                for (var i = 0; i <= 5; i++) {
+                  if (nr_products3[i] > 0) {
+                    orderData[name3[i]] = nr_products3[i];
+                    ver = 1;
+                  }
                 }
-              }
-
-              await FirebaseFirestore.instance
-                  .collection('orders')
-                  .doc(orderNumber)
-                  .set({
-                'orderNumber': orderNumber,
-                'formattedDateTime': DateTime.now(),
-                'products': orderData
-              }).then((value) => {
-                        print("Order added!"),
-                      });
-              // ignore: use_build_context_synchronously
-              Navigator.push(
-                context,
-                PageTransition(
-                  type: PageTransitionType.fade, // Choose the transition type
-                  child: const ShowQrCode(), // The page you want to navigate to
-                ),
-              );
-            },
-            label: const Text(
-              "Plasati comanda",
-              style: TextStyle(
-                  color: Color(0xff4a4a4a),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 17),
-            ),
-            icon: const Icon(
-              Icons.shopping_cart,
-              color: Colors.white,
+                if (ver == 0) {
+                  setState(() {
+                    isAlertDialogVisible = true;
+                  });
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('Cosul este gol'),
+                      content: const Text(
+                          'Va rugam sa adaugai produse ininte de a da comanda '),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            setState(() {
+                              isAlertDialogVisible = false;
+                            });
+                          },
+                          child: const Text('Inapoi'),
+                        ),
+                      ],
+                    ),
+                  );
+                } else {
+                  await FirebaseFirestore.instance
+                      .collection('orders')
+                      .doc(orderNumber)
+                      .set({
+                    'orderNumber': orderNumber,
+                    'formattedDateTime': DateTime.now(),
+                    'products': orderData
+                  }).then((value) => {
+                            print("Order added!"),
+                          });
+                  for (var i = 0; i <= 5; i++) {
+                    nr_products[i] = 0;
+                    nr_products1[i] = 0;
+                    nr_products2[i] = 0;
+                    nr_products3[i] = 0;
+                  }
+                  // ignore: use_build_context_synchronously
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type:
+                          PageTransitionType.fade, // Choose the transition type
+                      child:
+                          const ShowQrCode(), // The page you want to navigate to
+                    ),
+                  );
+                }
+              },
+              label: const Text(
+                "Plasati comanda",
+                style: TextStyle(
+                    color: Color(0xff4a4a4a),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 17),
+              ),
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ),
             ),
           )
         ]),

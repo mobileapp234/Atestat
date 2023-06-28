@@ -40,7 +40,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Column(
               children: [
                 const SizedBox(height: 12),
-
                 Container(
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: MediaQuery.of(context).size.height * 0.3,
@@ -220,7 +219,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   indent: 25,
                   endIndent: 25,
                 ),
-
                 Column(children: [
                   Container(
                       height: MediaQuery.of(context).size.height * 0.21,
@@ -409,26 +407,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                       )),
                 ])
-
-                // for (int i = 1; i <= 10; i++)
-
-                //   ValueListenableBuilder<int>(
-                //     valueListenable: _counter,
-                //     builder: (BuildContext context, int value, widget) {
-                //       return Column(
-                //         children: [
-                //           Menu(
-                //             nume: nume[c.categorie.value],
-                //             pret: pret[c.categorie.value],
-                //             imagini: imagini[c.categorie.value],
-                //           ),
-                //           const SizedBox(height: 20),
-                //         ],
-                //       );
-                //     },
-                //   )
-
-                // return
               ],
             ),
           ])),

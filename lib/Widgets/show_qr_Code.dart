@@ -43,7 +43,7 @@ class _ShowQrCodeState extends State<ShowQrCode> {
         child: Stack(
           children: [
             Align(
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.center,
               child: Container(
                 margin: const EdgeInsets.only(bottom: 32.0),
                 child: QrImageView(

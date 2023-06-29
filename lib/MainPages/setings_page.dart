@@ -145,7 +145,6 @@ class SetingsState extends State<SetingsPage> {
                     onTap: () {
                       FirebaseAuth.instance.signOut();
                       Isconnected();
-                      ind.index_bottom_navigation_bar = 1;
                     },
                     child: const Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),

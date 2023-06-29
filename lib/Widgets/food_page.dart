@@ -1,7 +1,7 @@
 // ignore_for_file: unused_field, duplicate_import, unused_import
-
+import 'package:badges/badges.dart' as badges;
 import 'dart:ffi';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -36,16 +36,6 @@ List<String> alergeni = [
   "Arahide și produse derivate",
   "Soia și produse derivate",
   " Lapte și produse derivate (inclusiv lactoza)",
-];
-
-List<String> ingredients = [
-  "Faina",
-  "Cacao",
-  "3 ora",
-  "Praf de copt",
-  "Ciocolata",
-  "Esenta de vanilie",
-  "Fructe de padure",
 ];
 
 class FoodPage extends StatefulWidget {
@@ -124,18 +114,32 @@ class FoodPageState extends State<FoodPage> {
                               width: MediaQuery.of(context).size.width * 0.67,
                             ),
                             FloatingActionButton(
-                              heroTag: 11,
-                              backgroundColor: Colors.white,
-                              onPressed: () {
-                                ind.index_bottom_navigation_bar = 0;
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const MainPage()));
-                              },
-                              child: const Icon(
-                                FontAwesomeIcons.basketShopping,
-                                color: Colors.black,
-                              ),
-                            ),
+                                heroTag: 11,
+                                backgroundColor: Colors.white,
+                                onPressed: () {
+                                  ind.index_bottom_navigation_bar = 0;
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => const MainPage()));
+                                },
+                                child: badges.Badge(
+                                    badgeContent:
+                                        Text(ind.nr_products.toString()),
+                                    child: const Icon(
+                                      FontAwesomeIcons.shoppingBasket,
+                                      color: Colors.black,
+                                    ),
+                                    badgeAnimation:
+                                        badges.BadgeAnimation.rotation(
+                                      animationDuration: Duration(seconds: 1),
+                                      colorChangeAnimationDuration:
+                                          Duration(seconds: 1),
+                                      loopAnimation: false,
+                                      curve: Curves.fastOutSlowIn,
+                                      colorChangeAnimationCurve:
+                                          Curves.easeInCubic,
+                                    ),
+                                    badgeStyle: badges.BadgeStyle(
+                                        badgeColor: Colors.blue))),
                           ],
                         )),
                     Positioned(
@@ -249,12 +253,10 @@ class FoodPageState extends State<FoodPage> {
                                           maxLines: 2,
                                         ),
                                       ]),
-                                  // Padding(
-                                  //   padding: const EdgeInsets.only(
-                                  //       left: 10, top: 10, bottom: 10),
-                                  //   child: Text(
-                                  //       "  Prăjitura cu ciocolată și zmeură este o combinație perfectă între ciocolată bogată și aroma proaspătă a zmeurelor. Ea îmbină texturi și gusturi într-un mod surprinzător, oferind o experiență dulce de neuitat"),
-                                  // ),
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.02),
                                   Card(
                                     child: Theme(
                                       data: ThemeData.from(
@@ -287,60 +289,120 @@ class FoodPageState extends State<FoodPage> {
                                                         TextStyle(fontSize: 18),
                                                   ),
                                                   SizedBox(
-                                                      height: nr_ingredients <
-                                                              10
-                                                          ? MediaQuery.of(
-                                                                      context)
+                                                      height:
+                                                          MediaQuery.of(context)
                                                                   .size
                                                                   .height *
-                                                              0.2
-                                                          : MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.3,
-                                                      child: ListView.builder(
-                                                          physics:
-                                                              const NeverScrollableScrollPhysics(),
-                                                          itemCount: 7,
-                                                          itemBuilder:
-                                                              (context, index) {
-                                                            return Text(
-                                                                "• ${ingredients[index]}");
-                                                          })),
+                                                              0.02),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                          height: nr_ingredients <
+                                                                  10
+                                                              ? MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.2
+                                                              : MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.3,
+                                                          child:
+                                                              // ListView.builder(
+                                                              //     physics:
+                                                              //         const NeverScrollableScrollPhysics(),
+                                                              //     itemCount: 7,
+                                                              //     itemBuilder:
+                                                              //         (context, index) {
+                                                              //       return Text(
+                                                              //           "• ${ingredients[index]}");
+                                                              //     })
+                                                              Text(
+                                                                  // ind.categorie ==
+                                                                  //       0
+                                                                  //   ?
+                                                                  ingredients[
+                                                                      ind.food]
+                                                                  // : ""
+                                                                  )),
+                                                    ],
+                                                  ),
                                                   const Text(
                                                     "Alergeni",
                                                     style:
                                                         TextStyle(fontSize: 18),
                                                   ),
                                                   SizedBox(
-                                                    height:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            0.015,
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.02),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                          height: nr_ingredients <
+                                                                  10
+                                                              ? MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.2
+                                                              : MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.3,
+                                                          child:
+                                                              // ListView.builder(
+                                                              //     physics:
+                                                              //         const NeverScrollableScrollPhysics(),
+                                                              //     itemCount: 7,
+                                                              //     itemBuilder:
+                                                              //         (context, index) {
+                                                              //       return Text(
+                                                              //           "• ${ingredients[index]}");
+                                                              //     })
+                                                              Text(
+                                                                  // ind.categorie ==
+                                                                  //       0
+                                                                  //   ?
+                                                                  ingredients[
+                                                                      ind.food]
+                                                                  // : ""
+                                                                  )),
+                                                    ],
                                                   ),
-                                                  SizedBox(
-                                                      height: nr_ingredients < 5
-                                                          ? MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.2
-                                                          : MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.3,
-                                                      child: ListView.builder(
-                                                          physics:
-                                                              const NeverScrollableScrollPhysics(),
-                                                          itemCount: 7,
-                                                          itemBuilder: (context,
-                                                              index1) {
-                                                            return Text(
-                                                                "• ${alergeni[index1]}");
-                                                          })),
+                                                  // SizedBox(
+                                                  //   height:
+                                                  //       MediaQuery.of(context)
+                                                  //               .size
+                                                  //               .height *
+                                                  //           0.015,
+                                                  // ),
+                                                  // SizedBox(
+                                                  //     height: nr_ingredients < 5
+                                                  //         ? MediaQuery.of(
+                                                  //                     context)
+                                                  //                 .size
+                                                  //                 .height *
+                                                  //             0.2
+                                                  //         : MediaQuery.of(
+                                                  //                     context)
+                                                  //                 .size
+                                                  //                 .height *
+                                                  //             0.3,
+                                                  //     child: ListView.builder(
+                                                  //         physics:
+                                                  //             const NeverScrollableScrollPhysics(),
+                                                  //         itemCount: 7,
+                                                  //         itemBuilder: (context,
+                                                  //             index1) {
+                                                  //           return Text(
+                                                  //               "• ${alergeni[index1]}");
+                                                  //         })),
                                                 ],
                                               ),
                                             )
@@ -638,6 +700,7 @@ class FoodPageState extends State<FoodPage> {
                         break;
                     }
                     setState(() {
+                      ind.nr_products += nr_food;
                       nr_food = 1;
                     });
                   },

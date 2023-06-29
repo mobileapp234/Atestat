@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
 import 'package:mobile_app/show_food.dart/dessert.dart';
 import 'package:mobile_app/show_food.dart/coffee.dart';
 import 'package:mobile_app/show_food.dart/gustari.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
 import 'package:mobile_app/show_food.dart/soda.dart';
+import 'package:badges/badges.dart' as badges;
 
 class ShowFood extends StatefulWidget {
   const ShowFood({super.key});
@@ -69,7 +71,20 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const MainPage()));
                 },
-                icon: const Icon(Icons.shopping_cart_sharp))
+                icon: badges.Badge(
+                    badgeContent: Text(ind.nr_products.toString()),
+                    child: const Icon(
+                      FontAwesomeIcons.shoppingBasket,
+                      color: Colors.black,
+                    ),
+                    // badgeAnimation: badges.BadgeAnimation.rotation(
+                    //   animationDuration: Duration(seconds: 1),
+                    //   colorChangeAnimationDuration: Duration(seconds: 1),
+                    //   loopAnimation: false,
+                    //   curve: Curves.fastOutSlowIn,
+                    //   colorChangeAnimationCurve: Curves.easeInCubic,
+                    // ),
+                    badgeStyle: badges.BadgeStyle(badgeColor: Colors.blue)))
           ],
           bottom: PreferredSize(
             preferredSize:

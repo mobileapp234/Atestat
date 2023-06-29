@@ -58,11 +58,13 @@ class _ProductState extends State<Product> {
                       )
                     ],
                   ),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
+                  child: Padding(
+                    padding: EdgeInsets.all(
+                        MediaQuery.of(context).size.width * 0.02),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
                           height: MediaQuery.of(context).size.height * 0.2,
                           width: MediaQuery.of(context).size.width * 0.2,
                           decoration: BoxDecoration(
@@ -70,46 +72,46 @@ class _ProductState extends State<Product> {
                               image: DecorationImage(
                                   image: AssetImage(widget.photo))),
                         ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.03,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          AutoSizeText(
-                            widget.nume,
-                            style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.height *
-                                        0.1 *
-                                        MediaQuery.of(context).size.width /
-                                        1000 -
-                                    15),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.03,
+                        ),
+                        Expanded(
+                          child: FractionallySizedBox(
+                            widthFactor: 1,
+                            child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AutoSizeText(
+                                      widget.nume,
+                                      style: TextStyle(fontSize: 20),
+                                      maxLines: 1,
+                                    ),
+                                    AutoSizeText(
+                                      (widget.categ == 0
+                                              ? "${widget.pret * nr_products[widget.index]} lei"
+                                              : widget.categ == 1
+                                                  ? "${widget.pret * nr_products1[widget.index]} lei"
+                                                  : widget.categ == 2
+                                                      ? "${widget.pret * nr_products2[widget.index]} lei"
+                                                      : widget.categ == 3
+                                                          ? "${widget.pret * nr_products3[widget.index]} lei"
+                                                          : Text(""))
+                                          .toString(),
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.05),
+                                      maxLines: 1,
+                                    )
+                                  ],
+                                )),
                           ),
-                          AutoSizeText(
-                            (widget.categ == 0
-                                    ? "${widget.pret * nr_products[widget.index]} lei"
-                                    : widget.categ == 1
-                                        ? "${widget.pret * nr_products1[widget.index]} lei"
-                                        : widget.categ == 2
-                                            ? "${widget.pret * nr_products2[widget.index]} lei"
-                                            : widget.categ == 3
-                                                ? "${widget.pret * nr_products3[widget.index]} lei"
-                                                : Text(""))
-                                .toString(),
-                            style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.height *
-                                        0.1 *
-                                        MediaQuery.of(context).size.width /
-                                        1000 -
-                                    15),
-                          )
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        ),
+                        Row(
+                          //  mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             GestureDetector(
                               onTap: () {
@@ -119,17 +121,22 @@ class _ProductState extends State<Product> {
                                     case 0:
                                       nr_products[widget.index] -= 1;
 
+                                      ind.nr_products -= 1;
+
                                       break;
                                     case 1:
                                       nr_products1[widget.index] -= 1;
+                                      ind.nr_products -= 1;
 
                                       break;
                                     case 2:
                                       nr_products2[widget.index] -= 1;
+                                      ind.nr_products -= 1;
 
                                       break;
                                     case 3:
                                       nr_products3[widget.index] -= 1;
+                                      ind.nr_products -= 1;
 
                                       break;
                                   }
@@ -206,15 +213,19 @@ class _ProductState extends State<Product> {
                                   switch (widget.categ) {
                                     case 0:
                                       nr_products[widget.index] += 1;
+                                      ind.nr_products += 1;
                                       break;
                                     case 1:
                                       nr_products1[widget.index] += 1;
+                                      ind.nr_products += 1;
                                       break;
                                     case 2:
                                       nr_products2[widget.index] += 1;
+                                      ind.nr_products += 1;
                                       break;
                                     case 3:
                                       nr_products3[widget.index] += 1;
+                                      ind.nr_products += 1;
                                       break;
                                   }
                                 });
@@ -234,8 +245,8 @@ class _ProductState extends State<Product> {
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   )),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             ],

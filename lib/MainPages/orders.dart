@@ -1,6 +1,6 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
+import 'package:mobile_app/MainPages/main_page.dart';
+import 'package:mobile_app/MainPages/show_orders.dart';
 import 'package:mobile_app/Widgets/menu.dart';
 import 'package:mobile_app/Widgets/product.dart';
 import 'package:mobile_app/Widgets/show_qr_Code.dart';
@@ -11,6 +11,7 @@ import 'package:slider_button/slider_button.dart';
 import '../Widgets/menu1.dart';
 import '../Widgets/menu2.dart';
 import '../Widgets/menu3.dart';
+import 'package:mobile_app/Globals_Variables.dart' as ind;
 
 // ignore: non_constant_identifier_names
 bool isAlertDialogVisible = false;
@@ -246,20 +247,24 @@ class _OrdersState extends State<Orders> {
                     nr_products2[i] = 0;
                     nr_products3[i] = 0;
                   }
+                  setState(() {
+                    ind.showQr = true;
+                    ind.nr_products = 0;
+                  });
                   // ignore: use_build_context_synchronously
                   Navigator.push(
                     context,
                     PageTransition(
-                      type:
-                          PageTransitionType.fade, // Choose the transition type
+                      type: PageTransitionType
+                          .rightToLeftWithFade, // Choose the transition type
                       child:
-                          const ShowQrCode(), // The page you want to navigate to
+                          const MainPage(), // The page you want to navigate to
                     ),
                   );
                 }
               },
               label: const Text(
-                "Plasati comanda",
+                "     Plasati comanda",
                 style: TextStyle(
                     color: Color(0xff4a4a4a),
                     fontWeight: FontWeight.w500,

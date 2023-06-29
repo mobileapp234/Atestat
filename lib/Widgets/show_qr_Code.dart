@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
 import 'package:mobile_app/MainPages/orders.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:mobile_app/Globals_Variables.dart' as ind;
 
 class ShowQrCode extends StatefulWidget {
   const ShowQrCode({Key? key}) : super(key: key);
@@ -17,18 +18,6 @@ class _ShowQrCodeState extends State<ShowQrCode> {
       appBar: AppBar(
         backgroundColor: Colors.blue[400],
         centerTitle: true,
-        leading: GestureDetector(
-          child: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-          ),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const MainPage()),
-            );
-          },
-        ),
         automaticallyImplyLeading: false,
         title: const Text(
           "Q R  P A G E",
@@ -40,7 +29,7 @@ class _ShowQrCodeState extends State<ShowQrCode> {
           // Disable back button functionality
           return false;
         },
-        child: Stack(
+        child: Column(
           children: [
             Align(
               alignment: Alignment.center,
@@ -53,6 +42,12 @@ class _ShowQrCodeState extends State<ShowQrCode> {
                 ),
               ),
             ),
+            FloatingActionButton(onPressed: () {
+              setState(() {
+                ind.showQr = false;
+                Navigator.of(context).pop();
+              });
+            })
           ],
         ),
       ),

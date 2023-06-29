@@ -19,7 +19,7 @@ List<String> image = [
   "assets/images/istockphoto-614135148-612x612.jpg",
 ];
 List<String> name = [
-  "Sandwich 1",
+  "Sandwich cu puiiiii",
   "Sandwich 2",
   "Sandwich 3",
   "Sandwich 4",
@@ -41,10 +41,17 @@ List<String> calories = ['250', '320', '280', '350', '400', '290'];
 List<String> protein = ['10', '15', '12', '18', '20', '14'];
 List<String> fats = ['8', '12', '10', '15', '18', '11'];
 List<String> carbs = ['35', '40', '30', '45', '50', '38'];
+List<String> ingredients = [
+  "•Faina\n•Cacao\n•3 ora\n•Praf de copt\n•Ciocolata\n•Esenta de vanilie\n•Fructe de padure",
+  "•Sliced turkey breast\n•Lettuce\n•Tomato\n•Mayonnaise\n•Mustard\n•Sliced cheese (such as cheddar or Swiss)\n•Sliced bread",
+  "•Fresh mozzarella cheese\n•Tomato\n•Fresh basil leaves\n•Extra virgin olive oil\n•Balsamic glaze/reduction\n•Salt and pepper\n•Baguette or ciabatta bread",
+  "•Bacon\n•Lettuce\n•Tomato\n•Mayonnaise\n•Sliced bread (toasted, if desired)",
+  "•Hummus\n•Sliced cucumbers\n•Sliced bell peppers\n•Shredded carrots\n•Sliced avocado\n•Spinach or lettuce leaves\n•Tortilla wrap (whole wheat, spinach, or your preference)",
+  "•Grilled chicken breast\n•Romaine lettuce\n•Caesar dressing\n•Shredded Parmesan cheese\n•Sliced bread (ciabatta or French baguette)"
+];
 
 class _MenuState extends State<Menu> {
   int i = 0;
-  int vf = -1;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

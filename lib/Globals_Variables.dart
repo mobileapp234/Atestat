@@ -7,3 +7,5 @@ int food = 0;
 int categorie = 0;
 // ignore: non_constant_identifier_names
 int index_bottom_navigation_bar = 1;
+bool showQr = false;
+int nr_products = 0;

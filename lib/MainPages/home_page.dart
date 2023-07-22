@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:mobile_app/Widgets/add_food.dart';
-
+import 'package:badges/badges.dart' as badges;
 import 'package:mobile_app/Widgets/home_slider.dart';
+import 'package:mobile_app/Widgets/menu.dart';
 import 'package:mobile_app/Widgets/test.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/show.dart';
@@ -106,28 +107,59 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.3,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.1,
-                                  decoration: BoxDecoration(
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        blurRadius: 3,
-                                        color: Color(0x230E151B),
-                                        offset: Offset(0, 4),
-                                      )
-                                    ],
-                                    border: Border.all(
-                                        color: Colors.white, width: 5),
-                                    image: const DecorationImage(
-                                        image: AssetImage(
-                                            "assets/images/tomatosoup_13560_16x9.jpg"),
-                                        fit: BoxFit.fill),
-                                    borderRadius: BorderRadius.circular(12),
+                                badges.Badge(
+                                  position: badges.BadgePosition.topStart(),
+                                  badgeAnimation: badges.BadgeAnimation.fade(
+                                    animationDuration: Duration(seconds: 1),
+                                    colorChangeAnimationDuration:
+                                        Duration(seconds: 1),
+                                    loopAnimation: false,
+                                    curve: Curves.fastOutSlowIn,
+                                    colorChangeAnimationCurve:
+                                        Curves.easeInCubic,
+                                  ),
+                                  badgeStyle: badges.BadgeStyle(
+                                    // shape: badges.BadgeShape.,
+                                    badgeColor: Colors.blue,
+
+                                    padding: EdgeInsets.all(10),
+                                    borderRadius: BorderRadius.circular(4),
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 2),
+                                  ),
+                                  badgeContent: Text(
+                                    menu_nr.toString(),
+                                    style: TextStyle(
+                                        fontFamily: "SourceSansPro-Italic.ttf",
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 16),
+                                  ),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.3,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.1,
+                                    decoration: BoxDecoration(
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          blurRadius: 3,
+                                          color: Color(0x230E151B),
+                                          offset: Offset(0, 4),
+                                        )
+                                      ],
+                                      border: Border.all(
+                                          color: Colors.white, width: 5),
+                                      image: const DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/tomatosoup_13560_16x9.jpg"),
+                                          fit: BoxFit.fill),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
                                   ),
                                 ),
+                                SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.02),
                                 Container(
                                   width:
                                       MediaQuery.of(context).size.width * 0.1,
@@ -138,26 +170,56 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           image: AssetImage(
                                               "assets/png/plus.png"))),
                                 ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.3,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.1,
-                                  decoration: BoxDecoration(
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        blurRadius: 3,
-                                        color: Color(0x230E151B),
-                                        offset: Offset(0, 4),
-                                      )
-                                    ],
-                                    border: Border.all(
-                                        color: Colors.white, width: 5),
-                                    image: const DecorationImage(
-                                        image: AssetImage(
-                                            "assets/images/friptura-la-cuptor.jpg"),
-                                        fit: BoxFit.fill),
-                                    borderRadius: BorderRadius.circular(12),
+                                SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.02),
+                                badges.Badge(
+                                  badgeAnimation: badges.BadgeAnimation.fade(
+                                    animationDuration: Duration(seconds: 1),
+                                    colorChangeAnimationDuration:
+                                        Duration(seconds: 1),
+                                    loopAnimation: false,
+                                    curve: Curves.fastOutSlowIn,
+                                    colorChangeAnimationCurve:
+                                        Curves.easeInCubic,
+                                  ),
+                                  badgeStyle: badges.BadgeStyle(
+                                    // shape: badges.BadgeShape.,
+                                    badgeColor: Colors.blue,
+
+                                    padding: EdgeInsets.all(10),
+                                    borderRadius: BorderRadius.circular(4),
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 2),
+                                  ),
+                                  badgeContent: Text(
+                                    menu_nr.toString(),
+                                    style: TextStyle(
+                                        fontFamily: "SourceSansPro-Italic.ttf",
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 16),
+                                  ),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.3,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.1,
+                                    decoration: BoxDecoration(
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          blurRadius: 3,
+                                          color: Color(0x230E151B),
+                                          offset: Offset(0, 4),
+                                        )
+                                      ],
+                                      border: Border.all(
+                                          color: Colors.white, width: 5),
+                                      image: const DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/friptura-la-cuptor.jpg"),
+                                          fit: BoxFit.fill),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -173,17 +235,55 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 GestureDetector(
-                                  child: const Icon(Icons.info_rounded),
-                                  onTap: () {},
+                                  onTap: () {
+                                    setState(() {
+                                      if (menu_nr != 1) menu_nr--;
+                                    });
+                                  },
+                                  child: Container(
+                                    height: MediaQuery.of(context).size.width *
+                                        0.07,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.07,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: Colors.blue),
+                                    child: const Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
+                                // FloatingActionButton(
+                                //   heroTag: 1,
+                                //   onPressed: () {
+                                //     setState(() {
+                                //       if (menu_nr != 1) menu_nr -= 1;
+                                //     });
+                                //   },
+                                //   mini: true,
+                                //   child: Container(
+                                //     height: MediaQuery.of(context).size.width *
+                                //         0.07,
+                                //     width: MediaQuery.of(context).size.width *
+                                //         0.07,
+                                //     decoration: BoxDecoration(
+                                //         borderRadius: BorderRadius.circular(30),
+                                //         color: Colors.blue),
+                                //     child: const Icon(
+                                //       Icons.remove,
+                                //       color: Colors.white,
+                                //     ),
+                                //   ),
+                                // ),
                                 Container(
                                   decoration: BoxDecoration(
                                       color: Colors.red[400],
                                       borderRadius: BorderRadius.circular(8)),
-                                  child: const Padding(
+                                  child: Padding(
                                     padding: EdgeInsets.all(3),
                                     child: Text(
-                                      "25 lei",
+                                      "${menu_nr * 25} lei",
                                       style: TextStyle(
                                           fontFamily:
                                               "SourceSansPro-Italic.ttf",
@@ -193,20 +293,66 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 GestureDetector(
-                                  child: Icon(
-                                    isVerified
-                                        ? (Icons.verified)
-                                        : Icons.add_shopping_cart_outlined,
-                                  ),
                                   onTap: () {
                                     setState(() {
-                                      isVerified = !isVerified;
-                                      if (isVerified == true) {
-                                        day_menu = 1;
-                                      }
+                                      menu_nr++;
                                     });
                                   },
-                                )
+                                  child: Container(
+                                    height: MediaQuery.of(context).size.width *
+                                        0.07,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.07,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: Colors.blue),
+                                    child: const Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                // FloatingActionButton(
+                                //   heroTag: 2,
+                                //   onPressed: () {
+                                //     setState(() {
+                                //       menu_nr = menu_nr + 1;
+                                //     });
+                                //   },
+                                //   mini: true,
+                                //   child: Container(
+                                //     height: MediaQuery.of(context).size.width *
+                                //         0.07,
+                                //     width: MediaQuery.of(context).size.width *
+                                //         0.07,
+                                //     decoration: BoxDecoration(
+                                //         borderRadius: BorderRadius.circular(30),
+                                //         color: Colors.blue),
+                                //     child: const Icon(
+                                //       Icons.add,
+                                //       color: Colors.white,
+                                //     ),
+                                //   ),
+                                // )
+                                //  AnimatedContainer(
+                                //   curve: Curves.bounceIn,
+                                //   duration: Duration(seconds: 1),
+                                //   child: Container(
+                                //     height:
+                                //         MediaQuery.of(context).size.width *
+                                //             0.07,
+                                //     width: MediaQuery.of(context).size.width *
+                                //         0.07,
+                                //     decoration: BoxDecoration(
+                                //         borderRadius:
+                                //             BorderRadius.circular(30),
+                                //         color: Colors.blue),
+                                //     child: const Icon(
+                                //       Icons.add,
+                                //       color: Colors.white,
+                                //     ),
+                                //   ),
+                                // ),
                               ],
                             )
                           ],

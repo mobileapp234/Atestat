@@ -36,6 +36,7 @@ List<int> price = [
 ];
 
 // ignore: non_constant_identifier_names
+int menu_nr = 1;
 List<int> nr_products = [0, 0, 0, 0, 0, 0];
 List<String> calories = ['250', '320', '280', '350', '400', '290'];
 List<String> protein = ['10', '15', '12', '18', '20', '14'];

@@ -10,6 +10,6 @@ class MenuByDay extends StatefulWidget {
 class _MenuByDayState extends State<MenuByDay> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }

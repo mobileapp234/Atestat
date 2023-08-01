@@ -89,6 +89,9 @@ class _OrdersState extends State<Orders> {
         }
       });
     }
+    if (nr_menu > 0) {
+      order_value += menu_day_price[0] * nr_menu;
+    }
   }
 
   @override
@@ -156,6 +159,15 @@ class _OrdersState extends State<Orders> {
                       index: i,
                       categ: 3,
                     ),
+                if (nr_menu > 0)
+                  Product(
+                    nume: menu_day_name[0],
+                    pret: menu_day_price[0],
+                    photo: menu_day_photo[0],
+                    nrproducts: nr_menu,
+                    index: 0,
+                    categ: 10,
+                  ),
               ],
             ),
           ),
@@ -207,6 +219,10 @@ class _OrdersState extends State<Orders> {
                     ver = 1;
                   }
                 }
+                if (nr_menu > 0) {
+                  orderData[menu_day_name[0]] = nr_menu;
+                  ver = 1;
+                }
                 if (ver == 0) {
                   setState(() {
                     isAlertDialogVisible = true;
@@ -237,7 +253,8 @@ class _OrdersState extends State<Orders> {
                       .set({
                     'orderNumber': orderNumber,
                     'formattedDateTime': DateTime.now(),
-                    'products': orderData
+                    'products': orderData,
+                    'pretTotal': order_value
                   }).then((value) => {
                             print("Order added!"),
                           });
@@ -247,6 +264,7 @@ class _OrdersState extends State<Orders> {
                     nr_products2[i] = 0;
                     nr_products3[i] = 0;
                   }
+                  nr_menu = 0;
                   setState(() {
                     ind.showQr = true;
                     ind.nr_products = 0;

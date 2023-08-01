@@ -40,7 +40,8 @@ class _ProductState extends State<Product> {
     return (nr_products[widget.index] == 0 && widget.categ == 0) ||
             (nr_products1[widget.index] == 0 && widget.categ == 1) ||
             (nr_products2[widget.index] == 0 && widget.categ == 2) ||
-            (nr_products3[widget.index] == 0 && widget.categ == 3)
+            (nr_products3[widget.index] == 0 && widget.categ == 3) ||
+            (nr_menu == 0 && widget.categ == 10)
         ? const SizedBox(height: 0)
         : Column(
             children: [
@@ -97,7 +98,9 @@ class _ProductState extends State<Product> {
                                                       ? "${widget.pret * nr_products2[widget.index]} lei"
                                                       : widget.categ == 3
                                                           ? "${widget.pret * nr_products3[widget.index]} lei"
-                                                          : Text(""))
+                                                          : widget.categ == 10
+                                                              ? "${widget.pret * nr_menu} lei"
+                                                              : Text(""))
                                           .toString(),
                                       style: TextStyle(
                                           fontSize: MediaQuery.of(context)
@@ -139,6 +142,10 @@ class _ProductState extends State<Product> {
                                       ind.nr_products -= 1;
 
                                       break;
+                                    case 10:
+                                      nr_menu -= 1;
+                                      ind.nr_products -= 1;
+                                      break;
                                   }
                                 });
                               },
@@ -157,25 +164,29 @@ class _ProductState extends State<Product> {
                                                 : nr_products3[widget.index] ==
                                                         1
                                                     ? Colors.red
-                                                    : nr_products[
-                                                                widget.index] >
-                                                            1
-                                                        ? Colors.blue
-                                                        : nr_products1[widget
+                                                    : nr_menu == 1
+                                                        ? Colors.red
+                                                        : nr_products[widget
                                                                     .index] >
                                                                 1
                                                             ? Colors.blue
-                                                            : nr_products2[widget
+                                                            : nr_products1[widget
                                                                         .index] >
                                                                     1
                                                                 ? Colors.blue
-                                                                : nr_products3[widget
+                                                                : nr_products2[widget
                                                                             .index] >
                                                                         1
                                                                     ? Colors
                                                                         .blue
-                                                                    : Colors
-                                                                        .blue),
+                                                                    : nr_products3[widget.index] >
+                                                                            1
+                                                                        ? Colors
+                                                                            .blue
+                                                                        : nr_menu >
+                                                                                1
+                                                                            ? Colors.blue
+                                                                            : Colors.blue),
                                 child: const Icon(
                                   Icons.remove,
                                   color: Colors.white,
@@ -196,7 +207,9 @@ class _ProductState extends State<Product> {
                                               : widget.categ == 3
                                                   ? nr_products3[widget.index]
                                                       .toString()
-                                                  : ""),
+                                                  : widget.categ == 10
+                                                      ? nr_menu.toString()
+                                                      : ""),
                                   style: TextStyle(
                                       fontSize:
                                           MediaQuery.of(context).size.height *
@@ -226,6 +239,10 @@ class _ProductState extends State<Product> {
                                     case 3:
                                       nr_products3[widget.index] += 1;
                                       ind.nr_products += 1;
+                                      break;
+                                    case 10:
+                                      nr_menu++;
+                                      ind.nr_products++;
                                       break;
                                   }
                                 });

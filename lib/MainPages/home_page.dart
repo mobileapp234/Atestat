@@ -1,6 +1,8 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mobile_app/Menu_by_day/menu_by_day.dart';
 import 'package:mobile_app/Widgets/add_food.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:mobile_app/Widgets/home_slider.dart';
@@ -10,8 +12,7 @@ import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/show.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
 
-// ignore: non_constant_identifier_names
-int day_menu = 0;
+int cpy_menu = 1;
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 const SizedBox(height: 12),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.height * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.33,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(110, 255, 153, 0),
                       boxShadow: const [
@@ -59,33 +60,33 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       children: [
                         Column(
                           children: [
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.02,
-                            ),
-                            Stack(
-                              alignment: Alignment.center,
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.05,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  decoration: BoxDecoration(
-                                      color: Colors.orange,
-                                      borderRadius: BorderRadius.circular(12)),
-                                ),
-                                const Text(
-                                  "MENIUL ZILEI",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: "SourceSansPro-Italic.ttf",
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 25),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 10, right: 10),
+                                  child: Icon(Icons.calendar_month),
                                 )
                               ],
                             ),
+                            Container(
+                              height: MediaQuery.of(context).size.height * 0.05,
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              decoration: BoxDecoration(
+                                  color: Colors.orange,
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Text(
+                                "MENIUL ZILEI",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontFamily: "SourceSansPro-Italic.ttf",
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 25),
+                              ),
+                            ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.015,
                             ),
                             Container(
                               alignment: Alignment.center,
@@ -128,7 +129,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         color: Colors.white, width: 2),
                                   ),
                                   badgeContent: Text(
-                                    menu_nr.toString(),
+                                    cpy_menu.toString(),
                                     style: TextStyle(
                                         fontFamily: "SourceSansPro-Italic.ttf",
                                         fontWeight: FontWeight.w400,
@@ -193,7 +194,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         color: Colors.white, width: 2),
                                   ),
                                   badgeContent: Text(
-                                    menu_nr.toString(),
+                                    cpy_menu.toString(),
                                     style: TextStyle(
                                         fontFamily: "SourceSansPro-Italic.ttf",
                                         fontWeight: FontWeight.w400,
@@ -237,7 +238,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      if (menu_nr != 1) menu_nr--;
+                                      if (cpy_menu != 1) cpy_menu--;
                                     });
                                   },
                                   child: Container(
@@ -254,48 +255,34 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     ),
                                   ),
                                 ),
-                                // FloatingActionButton(
-                                //   heroTag: 1,
-                                //   onPressed: () {
-                                //     setState(() {
-                                //       if (menu_nr != 1) menu_nr -= 1;
-                                //     });
-                                //   },
-                                //   mini: true,
-                                //   child: Container(
-                                //     height: MediaQuery.of(context).size.width *
-                                //         0.07,
-                                //     width: MediaQuery.of(context).size.width *
-                                //         0.07,
-                                //     decoration: BoxDecoration(
-                                //         borderRadius: BorderRadius.circular(30),
-                                //         color: Colors.blue),
-                                //     child: const Icon(
-                                //       Icons.remove,
-                                //       color: Colors.white,
-                                //     ),
-                                //   ),
-                                // ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.red[400],
-                                      borderRadius: BorderRadius.circular(8)),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(3),
-                                    child: Text(
-                                      "${menu_nr * 25} lei",
-                                      style: TextStyle(
-                                          fontFamily:
-                                              "SourceSansPro-Italic.ttf",
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 25),
+                                GestureDetector(
+                                  onTap: () {
+                                    nr_menu = cpy_menu;
+                                    ind.nr_products += nr_menu;
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 1, color: Colors.white),
+                                        color: Colors.red[400],
+                                        borderRadius: BorderRadius.circular(8)),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(3),
+                                      child: Text(
+                                        "${cpy_menu * 25} lei",
+                                        style: TextStyle(
+                                            fontFamily:
+                                                "SourceSansPro-Italic.ttf",
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 25),
+                                      ),
                                     ),
                                   ),
                                 ),
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      menu_nr++;
+                                      cpy_menu++;
                                     });
                                   },
                                   child: Container(
@@ -312,47 +299,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     ),
                                   ),
                                 ),
-                                // FloatingActionButton(
-                                //   heroTag: 2,
-                                //   onPressed: () {
-                                //     setState(() {
-                                //       menu_nr = menu_nr + 1;
-                                //     });
-                                //   },
-                                //   mini: true,
-                                //   child: Container(
-                                //     height: MediaQuery.of(context).size.width *
-                                //         0.07,
-                                //     width: MediaQuery.of(context).size.width *
-                                //         0.07,
-                                //     decoration: BoxDecoration(
-                                //         borderRadius: BorderRadius.circular(30),
-                                //         color: Colors.blue),
-                                //     child: const Icon(
-                                //       Icons.add,
-                                //       color: Colors.white,
-                                //     ),
-                                //   ),
-                                // )
-                                //  AnimatedContainer(
-                                //   curve: Curves.bounceIn,
-                                //   duration: Duration(seconds: 1),
-                                //   child: Container(
-                                //     height:
-                                //         MediaQuery.of(context).size.width *
-                                //             0.07,
-                                //     width: MediaQuery.of(context).size.width *
-                                //         0.07,
-                                //     decoration: BoxDecoration(
-                                //         borderRadius:
-                                //             BorderRadius.circular(30),
-                                //         color: Colors.blue),
-                                //     child: const Icon(
-                                //       Icons.add,
-                                //       color: Colors.white,
-                                //     ),
-                                //   ),
-                                // ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Adaugati in cos",
+                                ),
                               ],
                             )
                           ],

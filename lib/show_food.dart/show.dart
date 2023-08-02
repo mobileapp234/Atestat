@@ -77,13 +77,6 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
                       FontAwesomeIcons.shoppingBasket,
                       color: Colors.black,
                     ),
-                    // badgeAnimation: badges.BadgeAnimation.rotation(
-                    //   animationDuration: Duration(seconds: 1),
-                    //   colorChangeAnimationDuration: Duration(seconds: 1),
-                    //   loopAnimation: false,
-                    //   curve: Curves.fastOutSlowIn,
-                    //   colorChangeAnimationCurve: Curves.easeInCubic,
-                    // ),
                     badgeStyle: badges.BadgeStyle(badgeColor: Colors.blue)))
           ],
           bottom: PreferredSize(

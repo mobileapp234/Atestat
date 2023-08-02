@@ -1,5 +1,5 @@
 // ignore_for_file: unused_import
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobile_app/Menu_by_day/menu_by_day.dart';
@@ -12,6 +12,9 @@ import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/show.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
 
+import 'main_page.dart';
+
+int day_of_week = -1;
 int cpy_menu = 1;
 
 class HomePage extends StatefulWidget {
@@ -26,14 +29,57 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   bool isVerified = false;
   @override
+  void initState() {
+    super.initState();
+    dateTime();
+  }
+
+  void dateTime() {
+    var date = DateTime.now();
+    (DateFormat('EEEE').format(date) == 'Monday'
+        ? day_of_week = 1
+        : DateFormat('EEEE').format(date) == 'Tuesday'
+            ? day_of_week = 2
+            : DateFormat('EEEE').format(date) == 'Wednesday'
+                ? day_of_week = 3
+                : DateFormat('EEEE').format(date) == 'Thursday'
+                    ? day_of_week = 4
+                    : DateFormat('EEEE').format(date) == 'Friday'
+                        ? day_of_week = 5
+                        : DateFormat('EEEE').format(date) == 'lol');
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[400],
-        title: const Text("T H E M I S  B I S T R O"),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
+          backgroundColor: Colors.blue[400],
+          title: const Text("T H E M I S  B I S T R O"),
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {
+                ind.index_bottom_navigation_bar = 0;
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const MainPage()));
+              },
+              icon: badges.Badge(
+                  badgeContent: Text(ind.nr_products.toString()),
+                  child: const Icon(
+                    FontAwesomeIcons.shoppingBasket,
+                    color: Colors.black,
+                  ),
+                  badgeAnimation: badges.BadgeAnimation.rotation(
+                    animationDuration: Duration(seconds: 1),
+                    colorChangeAnimationDuration: Duration(seconds: 1),
+                    loopAnimation: false,
+                    curve: Curves.fastOutSlowIn,
+                    colorChangeAnimationCurve: Curves.easeInCubic,
+                  ),
+                  badgeStyle: badges.BadgeStyle(badgeColor: Colors.blue)),
+            )
+          ]),
       body: WillPopScope(
           onWillPop: () async {
             return false;
@@ -60,12 +106,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       children: [
                         Column(
                           children: [
-                            const Row(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Padding(
                                   padding: EdgeInsets.only(top: 10, right: 10),
-                                  child: Icon(Icons.calendar_month),
+                                  child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const MenuByDay()),
+                                        );
+                                      },
+                                      child: Icon(Icons.calendar_month)),
                                 )
                               ],
                             ),
@@ -150,9 +205,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ],
                                       border: Border.all(
                                           color: Colors.white, width: 5),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/tomatosoup_13560_16x9.jpg"),
+                                      image: DecorationImage(
+                                          image: AssetImage(day_of_week == 1
+                                              ? "assets/images/tomatosoup_13560_16x9.jpg"
+                                              : day_of_week == 2
+                                                  ? "assets/images/1.jpg"
+                                                  : day_of_week == 3
+                                                      ? "assets/images/2.jpg"
+                                                      : day_of_week == 4
+                                                          ? "assets/images/3.jpg"
+                                                          : day_of_week == 5
+                                                              ? "assets/images/4.jpg"
+                                                              : 'assets/images/1'),
                                           fit: BoxFit.fill),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
@@ -215,9 +279,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ],
                                       border: Border.all(
                                           color: Colors.white, width: 5),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/friptura-la-cuptor.jpg"),
+                                      image: DecorationImage(
+                                          image: AssetImage(day_of_week == 5
+                                              ? "assets/images/tomatosoup_13560_16x9.jpg"
+                                              : day_of_week == 4
+                                                  ? "assets/images/1.jpg"
+                                                  : day_of_week == 2
+                                                      ? "assets/images/2.jpg"
+                                                      : day_of_week == 3
+                                                          ? "assets/images/3.jpg"
+                                                          : day_of_week == 1
+                                                              ? "assets/images/4.jpg"
+                                                              : 'assets/images/1'),
                                           fit: BoxFit.fill),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
@@ -257,8 +330,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    nr_menu = cpy_menu;
-                                    ind.nr_products += nr_menu;
+                                    setState(() {
+                                      nr_menu += cpy_menu;
+                                      ind.nr_products += nr_menu;
+                                    });
+                                    // Navigator.of(context).push(
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) =>
+                                    //             const MainPage()));
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -269,7 +348,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     child: Padding(
                                       padding: EdgeInsets.all(3),
                                       child: Text(
-                                        "${cpy_menu * 25} lei",
+                                        "${cpy_menu * 30} lei",
                                         style: TextStyle(
                                             fontFamily:
                                                 "SourceSansPro-Italic.ttf",

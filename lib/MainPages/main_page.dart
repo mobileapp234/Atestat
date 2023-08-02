@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mobile_app/MainPages/orders.dart';
 import 'package:mobile_app/MainPages/setings_page.dart';
 import 'package:mobile_app/MainPages/show_orders.dart';
 import 'home_page.dart';
@@ -44,25 +42,18 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             icon: badges.Badge(
                 badgeContent: Text(ind.nr_products.toString()),
+                badgeStyle: const badges.BadgeStyle(badgeColor: Colors.blue),
                 child: const Icon(
                   Icons.shopping_cart,
                   color: Colors.black,
-                ),
-                // badgeAnimation: badges.BadgeAnimation.rotation(
-                //   animationDuration: Duration(seconds: 1),
-                //   colorChangeAnimationDuration: Duration(seconds: 1),
-                //   loopAnimation: false,
-                //   curve: Curves.fastOutSlowIn,
-                //   colorChangeAnimationCurve: Curves.easeInCubic,
-                // ),
-                badgeStyle: badges.BadgeStyle(badgeColor: Colors.blue)),
+                )),
             label: 'Orders',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Setari',
           ),

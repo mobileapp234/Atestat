@@ -37,15 +37,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void dateTime() {
     var date = DateTime.now();
     (DateFormat('EEEE').format(date) == 'Monday'
-        ? day_of_week = 1
+        ? day_of_week = 0
         : DateFormat('EEEE').format(date) == 'Tuesday'
-            ? day_of_week = 2
+            ? day_of_week = 1
             : DateFormat('EEEE').format(date) == 'Wednesday'
-                ? day_of_week = 3
+                ? day_of_week = 2
                 : DateFormat('EEEE').format(date) == 'Thursday'
-                    ? day_of_week = 4
+                    ? day_of_week = 3
                     : DateFormat('EEEE').format(date) == 'Friday'
-                        ? day_of_week = 5
+                        ? day_of_week = 4
                         : DateFormat('EEEE').format(date) == 'lol');
   }
 
@@ -66,18 +66,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               },
               icon: badges.Badge(
                   badgeContent: Text(ind.nr_products.toString()),
-                  child: const Icon(
-                    FontAwesomeIcons.shoppingBasket,
-                    color: Colors.black,
-                  ),
-                  badgeAnimation: badges.BadgeAnimation.rotation(
+                  badgeAnimation: const badges.BadgeAnimation.rotation(
                     animationDuration: Duration(seconds: 1),
                     colorChangeAnimationDuration: Duration(seconds: 1),
                     loopAnimation: false,
                     curve: Curves.fastOutSlowIn,
                     colorChangeAnimationCurve: Curves.easeInCubic,
                   ),
-                  badgeStyle: badges.BadgeStyle(badgeColor: Colors.blue)),
+                  badgeStyle: const badges.BadgeStyle(badgeColor: Colors.blue),
+                  child: const Icon(
+                    FontAwesomeIcons.shoppingBasket,
+                    color: Colors.black,
+                  )),
             )
           ]),
       body: WillPopScope(
@@ -110,7 +110,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(top: 10, right: 10),
+                                  padding:
+                                      const EdgeInsets.only(top: 10, right: 10),
                                   child: GestureDetector(
                                       onTap: () {
                                         Navigator.push(
@@ -120,7 +121,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                   const MenuByDay()),
                                         );
                                       },
-                                      child: Icon(Icons.calendar_month)),
+                                      child: const Icon(Icons.calendar_month)),
                                 )
                               ],
                             ),
@@ -130,7 +131,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               decoration: BoxDecoration(
                                   color: Colors.orange,
                                   borderRadius: BorderRadius.circular(12)),
-                              child: Text(
+                              child: const Text(
                                 "MENIUL ZILEI",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -165,7 +166,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               children: [
                                 badges.Badge(
                                   position: badges.BadgePosition.topStart(),
-                                  badgeAnimation: badges.BadgeAnimation.fade(
+                                  badgeAnimation:
+                                      const badges.BadgeAnimation.fade(
                                     animationDuration: Duration(seconds: 1),
                                     colorChangeAnimationDuration:
                                         Duration(seconds: 1),
@@ -178,14 +180,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     // shape: badges.BadgeShape.,
                                     badgeColor: Colors.blue,
 
-                                    padding: EdgeInsets.all(10),
+                                    padding: const EdgeInsets.all(10),
                                     borderRadius: BorderRadius.circular(4),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                         color: Colors.white, width: 2),
                                   ),
                                   badgeContent: Text(
                                     cpy_menu.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontFamily: "SourceSansPro-Italic.ttf",
                                         fontWeight: FontWeight.w400,
                                         fontSize: 16),
@@ -206,17 +208,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       border: Border.all(
                                           color: Colors.white, width: 5),
                                       image: DecorationImage(
-                                          image: AssetImage(day_of_week == 1
-                                              ? "assets/images/tomatosoup_13560_16x9.jpg"
-                                              : day_of_week == 2
-                                                  ? "assets/images/1.jpg"
-                                                  : day_of_week == 3
-                                                      ? "assets/images/2.jpg"
-                                                      : day_of_week == 4
-                                                          ? "assets/images/3.jpg"
-                                                          : day_of_week == 5
-                                                              ? "assets/images/4.jpg"
-                                                              : 'assets/images/1'),
+                                          image: AssetImage(
+                                              menu_day_photo[day_of_week]),
                                           fit: BoxFit.fill),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
@@ -239,7 +232,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     width: MediaQuery.of(context).size.width *
                                         0.02),
                                 badges.Badge(
-                                  badgeAnimation: badges.BadgeAnimation.fade(
+                                  badgeAnimation:
+                                      const badges.BadgeAnimation.fade(
                                     animationDuration: Duration(seconds: 1),
                                     colorChangeAnimationDuration:
                                         Duration(seconds: 1),
@@ -252,14 +246,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     // shape: badges.BadgeShape.,
                                     badgeColor: Colors.blue,
 
-                                    padding: EdgeInsets.all(10),
+                                    padding: const EdgeInsets.all(10),
                                     borderRadius: BorderRadius.circular(4),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                         color: Colors.white, width: 2),
                                   ),
                                   badgeContent: Text(
                                     cpy_menu.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontFamily: "SourceSansPro-Italic.ttf",
                                         fontWeight: FontWeight.w400,
                                         fontSize: 16),
@@ -280,17 +274,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       border: Border.all(
                                           color: Colors.white, width: 5),
                                       image: DecorationImage(
-                                          image: AssetImage(day_of_week == 5
-                                              ? "assets/images/tomatosoup_13560_16x9.jpg"
-                                              : day_of_week == 4
-                                                  ? "assets/images/1.jpg"
-                                                  : day_of_week == 2
-                                                      ? "assets/images/2.jpg"
-                                                      : day_of_week == 3
-                                                          ? "assets/images/3.jpg"
-                                                          : day_of_week == 1
-                                                              ? "assets/images/4.jpg"
-                                                              : 'assets/images/1'),
+                                          image: AssetImage(
+                                              menu_day_photo[day_of_week + 5]),
                                           fit: BoxFit.fill),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
@@ -346,10 +331,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         color: Colors.red[400],
                                         borderRadius: BorderRadius.circular(8)),
                                     child: Padding(
-                                      padding: EdgeInsets.all(3),
+                                      padding: const EdgeInsets.all(3),
                                       child: Text(
-                                        "${cpy_menu * 30} lei",
-                                        style: TextStyle(
+                                        "${cpy_menu * menu_day_price[day_of_week]} lei",
+                                        style: const TextStyle(
                                             fontFamily:
                                                 "SourceSansPro-Italic.ttf",
                                             fontWeight: FontWeight.w400,
@@ -380,7 +365,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 ),
                               ],
                             ),
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(

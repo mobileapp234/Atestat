@@ -73,11 +73,11 @@ class _ShowFoodState extends State<ShowFood> with TickerProviderStateMixin {
                 },
                 icon: badges.Badge(
                     badgeContent: Text(ind.nr_products.toString()),
+                    badgeStyle: const badges.BadgeStyle(badgeColor: Colors.blue),
                     child: const Icon(
                       FontAwesomeIcons.shoppingBasket,
                       color: Colors.black,
-                    ),
-                    badgeStyle: badges.BadgeStyle(badgeColor: Colors.blue)))
+                    )))
           ],
           bottom: PreferredSize(
             preferredSize:

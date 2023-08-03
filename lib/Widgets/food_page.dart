@@ -124,12 +124,8 @@ class FoodPageState extends State<FoodPage> {
                                 child: badges.Badge(
                                     badgeContent:
                                         Text(ind.nr_products.toString()),
-                                    child: const Icon(
-                                      FontAwesomeIcons.shoppingBasket,
-                                      color: Colors.black,
-                                    ),
                                     badgeAnimation:
-                                        badges.BadgeAnimation.rotation(
+                                        const badges.BadgeAnimation.rotation(
                                       animationDuration: Duration(seconds: 1),
                                       colorChangeAnimationDuration:
                                           Duration(seconds: 1),
@@ -138,8 +134,12 @@ class FoodPageState extends State<FoodPage> {
                                       colorChangeAnimationCurve:
                                           Curves.easeInCubic,
                                     ),
-                                    badgeStyle: badges.BadgeStyle(
-                                        badgeColor: Colors.blue))),
+                                    badgeStyle: const badges.BadgeStyle(
+                                        badgeColor: Colors.blue),
+                                    child: const Icon(
+                                      FontAwesomeIcons.shoppingBasket,
+                                      color: Colors.black,
+                                    ))),
                           ],
                         )),
                     Positioned(
@@ -717,7 +717,7 @@ class FoodPageState extends State<FoodPage> {
                               : ind.course_index == 3
                                   ? Text(
                                       "Adauga in cos pentru ${price3[ind.food] * nr_food} lei")
-                                  : Text(''),
+                                  : const Text(''),
                   //icon: const Icon(Icons.arrow_upward),
                 ),
               ),

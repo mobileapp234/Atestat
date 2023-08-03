@@ -10,9 +10,6 @@ class Menu extends StatefulWidget {
   State<Menu> createState() => _MenuState();
 }
 
-List<String> menu_day_name = ["Meniu"];
-List<String> menu_day_photo = ["assets/png/menu.png"];
-List<int> menu_day_price = [25];
 List<String> image = [
   "assets/images/1.jpg",
   "assets/images/2.jpg",

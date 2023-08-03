@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/MainPages/home_page.dart';
 import 'package:mobile_app/MainPages/main_page.dart';
-import 'package:mobile_app/MainPages/show_orders.dart';
 import 'package:mobile_app/Widgets/menu.dart';
 import 'package:mobile_app/Widgets/product.dart';
-import 'package:mobile_app/Widgets/show_qr_Code.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:slider_button/slider_button.dart';
+import '../Menu_by_day/menu_by_day.dart';
 import '../Widgets/menu1.dart';
 import '../Widgets/menu2.dart';
 import '../Widgets/menu3.dart';
@@ -17,7 +17,6 @@ import 'package:mobile_app/Globals_Variables.dart' as ind;
 bool isAlertDialogVisible = false;
 int nr_food1 = 1;
 // ignore: non_constant_identifier_names
-int final_price = 0;
 
 class Orders extends StatefulWidget {
   const Orders({super.key});
@@ -90,7 +89,7 @@ class _OrdersState extends State<Orders> {
       });
     }
     if (nr_menu > 0) {
-      order_value += menu_day_price[0] * nr_menu;
+      order_value += menu_day_price[day_of_week] * nr_menu;
     }
   }
 
@@ -162,8 +161,8 @@ class _OrdersState extends State<Orders> {
                 if (nr_menu > 0)
                   Product(
                     nume: menu_day_name[0],
-                    pret: menu_day_price[0],
-                    photo: menu_day_photo[0],
+                    pret: menu_day_price[day_of_week],
+                    photo: menu_photo[0],
                     nrproducts: nr_menu,
                     index: 0,
                     categ: 10,
@@ -174,6 +173,7 @@ class _OrdersState extends State<Orders> {
           Visibility(
             visible: !isAlertDialogVisible,
             child: SliderButton(
+              width: MediaQuery.of(context).size.width * 0.7,
               buttonColor: Colors.blue,
               baseColor: Colors.blue,
               action: () async {
@@ -281,8 +281,8 @@ class _OrdersState extends State<Orders> {
                   );
                 }
               },
-              label: const Text(
-                "     Plasati comanda",
+              label: Text(
+                "     Plasati comanda $order_value lei ",
                 style: TextStyle(
                     color: Color(0xff4a4a4a),
                     fontWeight: FontWeight.w500,

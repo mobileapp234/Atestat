@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
-import '../MainPages/main_page.dart';
 
 class MenuByDay extends StatefulWidget {
   const MenuByDay({super.key});
@@ -8,6 +7,22 @@ class MenuByDay extends StatefulWidget {
   @override
   State<MenuByDay> createState() => _MenuByDayState();
 }
+
+List<String> menu_day_name = ["Meniu"];
+List<String> menu_photo = ["assets/png/menu.png"];
+List<String> menu_day_photo = [
+  "assets/images/1.jpg",
+  "assets/images/2.jpg",
+  "assets/images/3.jpg",
+  "assets/images/4.jpg",
+  "assets/images/5.jpg",
+  "assets/images/cafea1.jpg",
+  "assets/images/cafea2.jpg",
+  "assets/images/cafea3.jpg",
+  "assets/images/cafea4.jpg",
+  "assets/images/cafea5.jpg",
+];
+List<int> menu_day_price = [25, 30, 25, 20, 30];
 
 class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
   @override
@@ -45,7 +60,7 @@ class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
                           decoration: BoxDecoration(
                               color: Colors.orange,
                               borderRadius: BorderRadius.circular(12)),
-                          child: Text(
+                          child: const Text(
                             "MENIUL ZILEI",
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -79,7 +94,7 @@ class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
                           children: [
                             badges.Badge(
                               position: badges.BadgePosition.topStart(),
-                              badgeAnimation: badges.BadgeAnimation.fade(
+                              badgeAnimation: const badges.BadgeAnimation.fade(
                                 animationDuration: Duration(seconds: 1),
                                 colorChangeAnimationDuration:
                                     Duration(seconds: 1),
@@ -91,14 +106,14 @@ class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
                                 // shape: badges.BadgeShape.,
                                 badgeColor: Colors.blue,
 
-                                padding: EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
                                 borderRadius: BorderRadius.circular(4),
-                                borderSide:
-                                    BorderSide(color: Colors.white, width: 2),
+                                borderSide: const BorderSide(
+                                    color: Colors.white, width: 2),
                               ),
                               badgeContent: Text(
                                 1.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontFamily: "SourceSansPro-Italic.ttf",
                                     fontWeight: FontWeight.w400,
                                     fontSize: 16),
@@ -117,7 +132,7 @@ class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
                                   ],
                                   border:
                                       Border.all(color: Colors.white, width: 5),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                       image: AssetImage("assets/images/1.jpg"),
                                       fit: BoxFit.fill),
                                   borderRadius: BorderRadius.circular(12),
@@ -139,7 +154,7 @@ class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
                                 width:
                                     MediaQuery.of(context).size.width * 0.02),
                             badges.Badge(
-                              badgeAnimation: badges.BadgeAnimation.fade(
+                              badgeAnimation: const badges.BadgeAnimation.fade(
                                 animationDuration: Duration(seconds: 1),
                                 colorChangeAnimationDuration:
                                     Duration(seconds: 1),
@@ -151,14 +166,14 @@ class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
                                 // shape: badges.BadgeShape.,
                                 badgeColor: Colors.blue,
 
-                                padding: EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
                                 borderRadius: BorderRadius.circular(4),
-                                borderSide:
-                                    BorderSide(color: Colors.white, width: 2),
+                                borderSide: const BorderSide(
+                                    color: Colors.white, width: 2),
                               ),
                               badgeContent: Text(
                                 1.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontFamily: "SourceSansPro-Italic.ttf",
                                     fontWeight: FontWeight.w400,
                                     fontSize: 16),
@@ -177,7 +192,7 @@ class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
                                   ],
                                   border:
                                       Border.all(color: Colors.white, width: 5),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                       image: AssetImage(
                                           "assets/images/tomatosoup_13560_16x9.jpg"),
                                       fit: BoxFit.fill),
@@ -201,7 +216,7 @@ class _MenuByDayState extends State<MenuByDay> with TickerProviderStateMixin {
                                       Border.all(width: 1, color: Colors.white),
                                   color: Colors.red[400],
                                   borderRadius: BorderRadius.circular(8)),
-                              child: Padding(
+                              child: const Padding(
                                 padding: EdgeInsets.all(3),
                                 child: Text(
                                   "${25} lei",

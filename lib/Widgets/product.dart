@@ -86,7 +86,7 @@ class _ProductState extends State<Product> {
                                   children: [
                                     AutoSizeText(
                                       widget.nume,
-                                      style: TextStyle(fontSize: 20),
+                                      style: const TextStyle(fontSize: 20),
                                       maxLines: 1,
                                     ),
                                     AutoSizeText(
@@ -100,7 +100,7 @@ class _ProductState extends State<Product> {
                                                           ? "${widget.pret * nr_products3[widget.index]} lei"
                                                           : widget.categ == 10
                                                               ? "${widget.pret * nr_menu} lei"
-                                                              : Text(""))
+                                                              : const Text(""))
                                           .toString(),
                                       style: TextStyle(
                                           fontSize: MediaQuery.of(context)
@@ -164,7 +164,8 @@ class _ProductState extends State<Product> {
                                                 : nr_products3[widget.index] ==
                                                         1
                                                     ? Colors.red
-                                                    : nr_menu == 1
+                                                    : nr_menu == 1 &&
+                                                            widget.categ == 10
                                                         ? Colors.red
                                                         : nr_products[widget
                                                                     .index] >

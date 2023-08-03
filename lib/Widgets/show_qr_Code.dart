@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/MainPages/main_page.dart';
 import 'package:mobile_app/MainPages/orders.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;

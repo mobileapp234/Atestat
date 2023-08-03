@@ -13,6 +13,6 @@ class ShowOrders extends StatefulWidget {
 class _ShowOrdersState extends State<ShowOrders> {
   @override
   Widget build(BuildContext context) {
-    return ind.showQr ? ShowQrCode() : Orders();
+    return ind.showQr ? const ShowQrCode() : const Orders();
   }
 }

@@ -173,7 +173,8 @@ class _OrdersState extends State<Orders> {
           Visibility(
             visible: !isAlertDialogVisible,
             child: SliderButton(
-              width: MediaQuery.of(context).size.width * 0.7,
+              // alignLabel: Alignment.lerp(1, 2, 3),
+              width: MediaQuery.of(context).size.width * 0.8,
               buttonColor: Colors.blue,
               baseColor: Colors.blue,
               action: () async {
@@ -282,11 +283,11 @@ class _OrdersState extends State<Orders> {
                 }
               },
               label: Text(
-                "     Plasati comanda $order_value lei ",
+                "Plasati comanda $order_value lei ",
                 style: TextStyle(
                     color: Color(0xff4a4a4a),
                     fontWeight: FontWeight.w500,
-                    fontSize: 17),
+                    fontSize: 15),
               ),
               icon: const Icon(
                 Icons.shopping_cart,

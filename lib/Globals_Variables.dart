@@ -9,3 +9,4 @@ int categorie = 0;
 int index_bottom_navigation_bar = 1;
 bool showQr = false;
 int nr_products = 0;
+bool pressedFromMainPage = false;

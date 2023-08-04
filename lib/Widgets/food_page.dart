@@ -98,12 +98,18 @@ class FoodPageState extends State<FoodPage> {
                               heroTag: 10,
                               backgroundColor: Colors.white,
                               onPressed: () {
-                                // if (ind.course_index == 0) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const ShowFood()),
-                                );
+                                if (ind.pressedFromMainPage == false)
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const ShowFood()),
+                                  );
+                                else
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const MainPage()),
+                                  );
                               },
                               child: const Icon(
                                 Icons.arrow_back_outlined,

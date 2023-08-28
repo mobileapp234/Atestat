@@ -24,7 +24,11 @@ class Orders extends StatefulWidget {
   @override
   State<Orders> createState() => _OrdersState();
 }
-
+DateTime now = DateTime.now(); 
+ DateTime thrirtyMinutesLater = now.add(Duration(minutes: 30));
+ DateTime fifteenMinutesLater = now.add(Duration(minutes: 15));
+  String Time0 = "${fifteenMinutesLater.hour}:${fifteenMinutesLater.minute}";
+   String Time1 = "${fifteenMinutesLater.hour}:${fifteenMinutesLater.minute}";
 String orderNumber = "";
 int order_value = 0;
 
@@ -254,7 +258,8 @@ class _OrdersState extends State<Orders> {
                       .set({
                     'orderNumber': orderNumber,
                     'formattedDateTime': DateTime.now(),
-                    'products': orderData,
+                    'orderDeadline':Time0,
+                    'products':orderData, 
                     'pretTotal': order_value
                   }).then((value) => {
                             print("Order added!"),

@@ -299,7 +299,27 @@ class _LogareState extends State<Logare> with TickerProviderStateMixin {
                                             password: _passwordValue0.text);
                               } on FirebaseAuthException catch (e) {
                                 if (e.code == 'user-not-found') {
-                                  print('No user found for that email.');
+                                  showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                      title: const Text('AlertDialog Title'),
+                                      content:
+                                          const Text('AlertDialog description'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context, 'Cancel'),
+                                          child: const Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context, 'OK'),
+                                          child: const Text('OK'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
                                 } else if (e.code == 'wrong-password') {
                                   print(
                                       'Wrong password provided for that user.');

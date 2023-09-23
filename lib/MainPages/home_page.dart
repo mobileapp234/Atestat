@@ -349,7 +349,7 @@ class _HomePageState extends State<HomePage> {
                                               color: Colors.white, width: 5),
                                           image: DecorationImage(
                                               image: AssetImage(menu_day_photo[
-                                                  day_of_week + 7]),
+                                                  day_of_week + 5]),
                                               fit: BoxFit.fill),
                                           borderRadius:
                                               BorderRadius.circular(12),

@@ -24,11 +24,14 @@ class Orders extends StatefulWidget {
   @override
   State<Orders> createState() => _OrdersState();
 }
-DateTime now = DateTime.now(); 
- DateTime thrirtyMinutesLater = now.add(Duration(minutes: 30));
- DateTime fifteenMinutesLater = now.add(Duration(minutes: 15));
-  String Time0 = "${fifteenMinutesLater.hour}:${fifteenMinutesLater.minute}";
-   String Time1 = "${fifteenMinutesLater.hour}:${fifteenMinutesLater.minute}";
+
+DateTime now = DateTime.now();
+DateTime thrirtyMinutesLater = now.add(Duration(minutes: 30));
+DateTime twentyMinutesLater = now.add(Duration(minutes: 20));
+DateTime fifteenMinutesLater = now.add(Duration(minutes: 15));
+String Time0 = "${fifteenMinutesLater.hour}:${fifteenMinutesLater.minute}";
+String Time1 = "${twentyMinutesLater.hour}:${twentyMinutesLater.minute}";
+String Time2 = "${thrirtyMinutesLater.hour}:${thrirtyMinutesLater.minute}";
 String orderNumber = "";
 int order_value = 0;
 
@@ -258,8 +261,12 @@ class _OrdersState extends State<Orders> {
                       .set({
                     'orderNumber': orderNumber,
                     'formattedDateTime': DateTime.now(),
-                    'orderDeadline':Time0,
-                    'products':orderData, 
+                    'orderDeadline': ind.nr_products <= 3
+                        ? Time0
+                        : ind.nr_products <= 5 && ind.nr_products > 3
+                            ? Time1
+                            : Time2,
+                    'products': orderData,
                     'pretTotal': order_value
                   }).then((value) => {
                             print("Order added!"),

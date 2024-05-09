@@ -39,15 +39,9 @@ class _MainPageState extends State<MainPage> {
         onTap: apasare,
         currentIndex: ind.index_bottom_navigation_bar,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: badges.Badge(
-                badgeContent: Text(ind.nr_products.toString()),
-                badgeStyle: const badges.BadgeStyle(badgeColor: Colors.blue),
-                child: const Icon(
-                  Icons.shopping_cart,
-                  color: Colors.black,
-                )),
-            label: 'Orders',
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Order',
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.home),

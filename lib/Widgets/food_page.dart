@@ -1,4 +1,5 @@
 // ignore_for_file: unused_field, duplicate_import, unused_import
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:badges/badges.dart' as badges;
 import 'dart:ffi';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -46,6 +47,23 @@ class FoodPage extends StatefulWidget {
 }
 
 class FoodPageState extends State<FoodPage> {
+  void showMessage() {
+    AwesomeDialog(
+      context: context,
+      animType: AnimType.scale,
+      dialogType: DialogType.success,
+      body: Center(
+        child: Text(
+          'Comanda a fost adaugata in cos',
+          style: TextStyle(fontStyle: FontStyle.italic),
+        ),
+      ),
+      title: 'This is Ignored',
+      desc: 'This is also Ignored',
+      btnOkOnPress: () {},
+    )..show();
+  }
+
   bool _isExpanded = false;
   // ignore: non_constant_identifier_names
   int nr_food = 1;
@@ -690,7 +708,10 @@ class FoodPageState extends State<FoodPage> {
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: FloatingActionButton.extended(
-                  onPressed: () {
+                  onPressed: () async {
+                    await Future.delayed(
+                        const Duration(milliseconds: 200), () {});
+                    showMessage();
                     switch (ind.course_index) {
                       case 0:
                         nr_products[ind.food] += nr_food;

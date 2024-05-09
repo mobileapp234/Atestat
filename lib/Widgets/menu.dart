@@ -20,7 +20,7 @@ List<String> image = [
 ];
 
 List<String> name = [
-  "Sandwich cu puiiiii",
+  "Sandwich cu pui",
   "Sandwich 2",
   "Sandwich 3",
   "Sandwich 4",

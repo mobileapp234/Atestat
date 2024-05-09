@@ -198,7 +198,7 @@ class _OrdersState extends State<Orders> {
 
                 orderNumber = '$uid-$formattedDateTime';
                 int ver = 0;
-                var orderData = {};
+                Map<String, int> orderData = {};
 
                 for (var i = 0; i <= 5; i++) {
                   if (nr_products[i] > 0) {
@@ -240,7 +240,7 @@ class _OrdersState extends State<Orders> {
                     builder: (BuildContext context) => AlertDialog(
                       title: const Text('Cosul este gol'),
                       content: const Text(
-                          'Va rugam sa adaugai produse ininte de a da comanda '),
+                          'Va rugam sa adaugati produse inainte de a plasa comanda  '),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () {

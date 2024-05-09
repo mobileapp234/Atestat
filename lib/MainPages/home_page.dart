@@ -14,10 +14,11 @@ import 'package:mobile_app/Widgets/test.dart';
 import 'package:mobile_app/show_food.dart/second_course.dart';
 import 'package:mobile_app/show_food.dart/show.dart';
 import 'package:mobile_app/Globals_Variables.dart' as ind;
-
+import 'package:animated_snack_bar/animated_snack_bar.dart';
 import '../Widgets/menu2.dart';
 import '../Widgets/menu3.dart';
 import 'main_page.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 int day_of_week = -1;
 int cpy_menu = 1;
@@ -36,7 +37,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void showMessage() {
+    AwesomeDialog(
+      context: context,
+      animType: AnimType.scale,
+      dialogType: DialogType.success,
+      body: Center(
+        child: Text(
+          'Comanda a fost adaugata in cos',
+          style: TextStyle(fontStyle: FontStyle.italic),
+        ),
+      ),
+      title: 'This is Ignored',
+      desc: 'This is also Ignored',
+      btnOkOnPress: () {},
+    )..show();
+  }
+
   bool isVerified = false;
+
   @override
   void initState() {
     super.initState();
@@ -393,15 +412,16 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () {
+                                    onTap: () async {
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 200),
+                                          () {});
                                       setState(() {
+                                        showMessage();
                                         nr_menu += cpy_menu;
                                         ind.nr_products += nr_menu;
+                                        cpy_menu = 1;
                                       });
-                                      // Navigator.of(context).push(
-                                      //     MaterialPageRoute(
-                                      //         builder: (context) =>
-                                      //             const MainPage()));
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
